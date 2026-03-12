@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Color Palette Preview</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #e8e8e8;
+      padding: 32px;
+    }
+    h1 { text-align: center; margin-bottom: 32px; color: #333; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .palette {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .palette-name {
+      text-align: center;
+      padding: 8px;
+      background: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+    .mode {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mode h2 { margin: 0 0 8px; font-size: 20px; }
+    .mode p { margin: 0; font-size: 15px; line-height: 1.6; }
+    .mode small { opacity: 0.6; font-size: 12px; margin-top: 4px; }
+    .pair { display: flex; }
+    .pair .mode { flex: 1; }
+  </style>
+</head>
+<body>
+  <h1>Background Color Palettes — Light & Dark</h1>
+  <div class="grid">
+
+    <!-- 1. Warm Ivory -->
+    <div class="palette">
+      <div class="palette-name">1 — Warm Ivory</div>
+      <div class="pair">
+        <div class="mode" style="background:#FAF8F5; color:#3D3630;">
+          <h2>Light</h2>
+          <p>The quick brown fox jumps over the lazy dog. Easy on the eyes with a warm, paper-like tone.</p>
+          <small>bg #FAF8F5 · text #3D3630</small>
+        </div>
+        <div class="mode" style="background:#1C1A17; color:#E8E3DC;">
+          <h2>Dark</h2>
+          <p>The quick brown fox jumps over the lazy dog. Warm dark companion for night reading.</p>
+          <small>bg #1C1A17 · text #E8E3DC</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Cool Mint -->
+    <div class="palette">
+      <div class="palette-name">2 — Cool Mint</div>
+      <div class="pair">
+        <div class="mode" style="background:#F4F9F7; color:#2B3A35;">
+          <h2>Light</h2>
+          <p>The quick brown fox jumps over the lazy dog. Fresh and calm with a subtle green undertone.</p>
+          <small>bg #F4F9F7 · text #2B3A35</small>
+        </div>
+        <div class="mode" style="background:#171D1B; color:#D5E4DE;">
+          <h2>Dark</h2>
+          <p>The quick brown fox jumps over the lazy dog. Deep forest tone for comfortable night use.</p>
+          <small>bg #171D1B · text #D5E4DE</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Soft Lavender -->
+    <div class="palette">
+      <div class="palette-name">3 — Soft Lavender</div>
+      <div class="pair">
+        <div class="mode" style="background:#F6F4FA; color:#33303D;">
+          <h2>Light</h2>
+          <p>The quick brown fox jumps over the lazy dog. Gentle and modern with a hint of purple.</p>
+          <small>bg #F6F4FA · text #33303D</small>
+        </div>
+        <div class="mode" style="background:#1A181F; color:#DDD8E8;">
+          <h2>Dark</h2>
+          <p>The quick brown fox jumps over the lazy dog. Soft violet-tinged dark for a modern feel.</p>
+          <small>bg #1A181F · text #DDD8E8</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Light Sand -->
+    <div class="palette">
+      <div class="palette-name">4 — Light Sand</div>
+      <div class="pair">
+        <div class="mode" style="background:#F8F6F0; color:#3A3832;">
+          <h2>Light</h2>
+          <p>The quick brown fox jumps over the lazy dog. Earthy and neutral like sun-bleached linen.</p>
+          <small>bg #F8F6F0 · text #3A3832</small>
+        </div>
+        <div class="mode" style="background:#1B1A17; color:#E0DDD5;">
+          <h2>Dark</h2>
+          <p>The quick brown fox jumps over the lazy dog. Warm earth dark, easy on the eyes.</p>
+          <small>bg #1B1A17 · text #E0DDD5</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Pale Blue -->
+    <div class="palette">
+      <div class="palette-name">5 — Pale Blue</div>
+      <div class="pair">
+        <div class="mode" style="background:#F3F6FA; color:#2E333D;">
+          <h2>Light</h2>
+          <p>The quick brown fox jumps over the lazy dog. Clean and airy with a cool blue cast.</p>
+          <small>bg #F3F6FA · text #2E333D</small>
+        </div>
+        <div class="mode" style="background:#171A1F; color:#D4DAE4;">
+          <h2>Dark</h2>
+          <p>The quick brown fox jumps over the lazy dog. Cool slate dark for focused reading.</p>
+          <small>bg #171A1F · text #D4DAE4</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
