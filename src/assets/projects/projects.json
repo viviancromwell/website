@@ -1,0 +1,52 @@
+[
+  {
+    "id": "stride",
+    "file": "stride.png",
+    "title": "Stride",
+    "year": 2026,
+    "category": "Product",
+    "summary": "An internship tracker for college students.",
+    "description": "Stride started as a tool to help my kids stay on top of their internship search — tracking applications, deadlines, interviews, and offers in one place. Friends wanted it too, so I'm building it into a tool any college student can use, when I have time.",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/viviancromwell/Stride" }
+    ],
+    "externalUrl": "",
+    "status": "ongoing"
+  },
+  {
+    "id": "the-front-steps-palo-alto",
+    "file": "the-front-steps-palo-alto.jpg",
+    "title": "The Front Steps, Palo Alto",
+    "year": 2020,
+    "category": "Documentary Photography",
+    "summary": "101 families photographed on their front steps during COVID-19, raising funds for local nonprofits.",
+    "description": "\"The Front Steps\" is a nationwide movement where photographers capture their neighbors from at least 10 feet away during the COVID-19 pandemic. Between May and June 2020, I photographed 101 Palo Alto families and raised funds for two local nonprofits.",
+    "links": [
+      { "label": "Ecumenical Hunger Program", "url": "https://www.ehpcares.org" },
+      { "label": "Frontline Foods Silicon Valley", "url": "https://www.frontlinefoods.org" }
+    ],
+    "linksAfterParagraph": 0,
+    "externalUrl": "https://www.viviancromwell.com/the-front-steps-palo-alto"
+  },
+  {
+    "id": "markets-around-the-world",
+    "file": "markets-around-the-world.jpg",
+    "title": "Markets Around the World",
+    "year": 2019,
+    "category": "Travel Photography",
+    "summary": "A photographic exploration of open-air markets across multiple countries, capturing the colors, textures, and human connections of trade.",
+    "description": "I have a particular interest in exploring markets around the world. I believe they are the best place to get a real feel of the country you are in. In markets, I feel alive, energetic, and part of the local community.\n\nThis is a collection of the markets I have explored through my travels.",
+    "externalUrl": "https://www.viviancromwell.com/markets-around-the-world",
+    "status": "ongoing"
+  },
+  {
+    "id": "east-palo-alto",
+    "file": "east-palo-alto.jpg",
+    "title": "The Last 2.5-Mile Stretch, East Palo Alto",
+    "year": 2020,
+    "category": "Documentary Photography",
+    "summary": "A documentary photography and narrative project exploring the people, history, and transformation of East Palo Alto along University Avenue's final stretch.",
+    "description": "University Avenue runs from the heart of Palo Alto through its last 2.5 miles into East Palo Alto — a stretch that crosses invisible but very real boundaries of wealth, race, and opportunity. This project tells the stories of the people who live and work along that road, combining portraits and interviews to document a community in the midst of profound change.",
+    "externalUrl": "https://www.viviancromwell.com/eastpaloalto"
+  }
+]

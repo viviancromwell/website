@@ -1,0 +1,68 @@
+[
+  {
+    "file": "snowed-in-breckenridge.jpg",
+    "title": "Snowed In, Breckenridge",
+    "year": 2025,
+    "medium": "Oil on canvas",
+    "size": "18 × 24 in",
+    "price": 850,
+    "status": "available",
+    "series": "",
+    "description": ""
+  },
+  {
+    "file": "summer-shade.jpg",
+    "title": "Summer Shade",
+    "year": 2025,
+    "medium": "Oil on canvas",
+    "size": "9 × 12 in",
+    "price": null,
+    "status": "not for sale",
+    "series": "",
+    "description": ""
+  },
+  {
+    "file": "autumn-at-pellehaut.jpg",
+    "title": "Autumn at Pellehaut",
+    "year": 2025,
+    "medium": "Oil on canvas",
+    "size": "24 × 18 in",
+    "price": 850,
+    "status": "available",
+    "series": "",
+    "description": ""
+  },
+  {
+    "file": "golden-hour-ed-r-levin.jpg",
+    "title": "Golden Hour, Ed R. Levin",
+    "year": 2025,
+    "medium": "Oil on canvas",
+    "size": "18 × 24 in",
+    "price": 850,
+    "status": "available",
+    "series": "",
+    "description": ""
+  },
+  {
+    "file": "blue-vase-and-apples.jpg",
+    "title": "Blue Vase and Apples",
+    "year": 2026,
+    "medium": "Oil on canvas",
+    "size": "14 × 11 in",
+    "price": 300,
+    "status": "available",
+    "series": "",
+    "description": ""
+  },
+  {
+    "file": "cherries-in-a-coupe.jpg",
+    "title": "Cherries in a Coupe",
+    "year": 2026,
+    "medium": "Oil on canvas",
+    "size": "11 × 14 in",
+    "price": 300,
+    "status": "available",
+    "series": "",
+    "description": ""
+  }
+]

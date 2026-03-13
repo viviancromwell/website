@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+
+interface Painting {
+  file: string;
+  title: string;
+  year: number;
+  medium: string;
+  size: string;
+  price: number | null;
+  status: string;
+  series: string;
+  description: string;
+}
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/paintings/*.jpg', { eager: true });
+
+export function getStaticPaths() {
+  const paintings: Painting[] = JSON.parse(
+    fs.readFileSync(new URL('./src/assets/paintings/paintings.json', 'file://' + process.cwd() + '/'), 'utf-8')
+  );
+  return paintings.map((painting) => ({
+    params: { id: painting.file.replace(/\.[^.]+$/, '') },
+    props: { painting },
+  }));
+}
+
+const { painting } = Astro.props;
+const priceDisplay = painting.price ? `$${painting.price}` : painting.status;
+const imageSrc = images[`../../assets/paintings/${painting.file}`]?.default;
+---
+
+<Base title={`${painting.title} — Vivian Cromwell`} activeNav="paintings">
+  <div class="painting-back">
+    <a href="/paintings" class="back-link">&larr; Back to Paintings</a>
+  </div>
+
+  <div class="painting-detail">
+    <div class="painting-detail-img">
+      {imageSrc ? (
+        <Image
+          src={imageSrc}
+          alt={painting.title}
+          widths={[800, 1200]}
+          sizes="(max-width: 768px) 100vw, 60vw"
+        />
+      ) : (
+        <img src={`/paintings/${painting.file}`} alt={painting.title} />
+      )}
+    </div>
+
+    <div class="painting-detail-info">
+      <h1 class="painting-detail-title">{painting.title}</h1>
+
+      <dl class="painting-detail-meta">
+        <div class="meta-row">
+          <dt>Year</dt>
+          <dd>{painting.year}</dd>
+        </div>
+        <div class="meta-row">
+          <dt>Medium</dt>
+          <dd>{painting.medium}</dd>
+        </div>
+        <div class="meta-row">
+          <dt>Size</dt>
+          <dd>{painting.size}</dd>
+        </div>
+        <div class="meta-row">
+          <dt>Price</dt>
+          <dd>{priceDisplay}</dd>
+        </div>
+      </dl>
+
+      {painting.description && (
+        <p class="painting-detail-desc">{painting.description}</p>
+      )}
+    </div>
+  </div>
+</Base>

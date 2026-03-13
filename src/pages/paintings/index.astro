@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+
+const paintingsJson = JSON.parse(
+  fs.readFileSync(new URL('./src/assets/paintings/paintings.json', 'file://' + process.cwd() + '/'), 'utf-8')
+) as Array<{ file: string; title: string }>;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/paintings/*.jpg', { eager: true });
+---
+
+<Base title="Paintings — Vivian Cromwell" activeNav="paintings">
+  <section class="gallery-section">
+    <div class="gallery-grid">
+      {paintingsJson.map((item) => {
+        const id = item.file.replace(/\.[^.]+$/, '');
+        const imageSrc = images[`../../assets/paintings/${item.file}`]?.default;
+        return (
+          <a class="gallery-card" href={`/paintings/${id}`}>
+            <div class="gallery-card-img">
+              {imageSrc ? (
+                <Image
+                  src={imageSrc}
+                  alt={item.title}
+                  loading="lazy"
+                  widths={[400, 800]}
+                  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                />
+              ) : (
+                <img src={`/paintings/${item.file}`} alt={item.title} loading="lazy" />
+              )}
+            </div>
+            <p class="gallery-card-caption">{item.title}</p>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+
+const projectsJson = JSON.parse(
+  fs.readFileSync(new URL('./src/assets/projects/projects.json', 'file://' + process.cwd() + '/'), 'utf-8')
+) as Array<{ id: string; file: string; title: string; category: string; status?: string }>;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/projects/*.{jpg,png}', { eager: true });
+---
+
+<Base title="Projects — Vivian Cromwell" activeNav="projects">
+  <section class="gallery-section">
+    <div class="projects-grid">
+      {projectsJson.map((item) => {
+        const imageSrc = images[`../../assets/projects/${item.file}`]?.default;
+        return (
+          <a class="gallery-card" href={`/projects/${item.id}`}>
+            <div class="gallery-card-img">
+              {imageSrc ? (
+                <Image
+                  src={imageSrc}
+                  alt={item.title}
+                  loading="lazy"
+                  widths={[400, 800]}
+                  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                />
+              ) : (
+                <img src={`/projects/${item.file}`} alt={item.title} loading="lazy" />
+              )}
+            </div>
+            <p class="gallery-card-caption">{item.title}</p>
+            <span class="gallery-card-category">{item.category}{item.status === 'ongoing' ? ' · Ongoing' : ''}</span>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+</Base>

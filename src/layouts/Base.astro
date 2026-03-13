@@ -1,0 +1,83 @@
+---
+interface Props {
+  title?: string;
+  activeNav?: string;
+}
+
+const { title = 'Vivian Cromwell', activeNav = '' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="site-name">Vivian Cromwell</a>
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="menu-icon"></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="/photography" class:list={["nav-link", { "is-active": activeNav === "photography" }]}>Photography</a></li>
+          <li class="nav-item"><a href="https://thetipsymuse.com" class="nav-link" target="_blank" rel="noopener noreferrer">Wine & Spirits</a></li>
+          <li class="nav-item"><a href="/product-design" class:list={["nav-link", { "is-active": activeNav === "product-design" }]}>Product & Design</a></li>
+          <li class="nav-item"><a href="/paintings" class:list={["nav-link", { "is-active": activeNav === "paintings" }]}>Paintings</a></li>
+          <li class="nav-item"><a href="/projects" class:list={["nav-link", { "is-active": activeNav === "projects" }]}>Projects</a></li>
+          <li class="nav-item"><a href="/writings" class:list={["nav-link", { "is-active": activeNav === "writings" }]}>Writings</a></li>
+          <li class="nav-item"><a href="/about" class:list={["nav-link", { "is-active": activeNav === "about" }]}>About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <nav class="footer-nav" aria-label="Social">
+        <a href="https://instagram.com/viviancromwell" class="footer-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://linkedin.com/in/viviancromwell" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://twitter.com/viviancromwell" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://medium.com/viviancromwell" class="footer-link" target="_blank" rel="noopener noreferrer">Medium</a>
+        <a href="https://github.com/viviancromwell" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:viviancromwell@gmail.com" class="footer-link" target="_blank" rel="noopener noreferrer">Email</a>
+      </nav>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteNav = document.querySelector('.site-nav');
+
+      menuToggle?.addEventListener('click', () => {
+        const open = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!open));
+        siteNav?.classList.toggle('is-open', !open);
+      });
+    </script>
+
+    <script>
+      document.querySelectorAll('img').forEach((img) => {
+        const onLoad = () => {
+          img.classList.add('is-loaded');
+          img.parentElement?.classList.add('is-loaded');
+        };
+        if (img.complete) {
+          onLoad();
+        } else {
+          img.addEventListener('load', onLoad);
+        }
+      });
+    </script>
+  </body>
+</html>

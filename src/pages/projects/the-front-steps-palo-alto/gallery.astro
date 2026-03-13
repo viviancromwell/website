@@ -1,0 +1,268 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '../../../assets/projects/front-steps-gallery/*.jpg',
+  { eager: true }
+);
+
+const sortedImages = Object.entries(images)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, mod]) => mod.default);
+---
+
+<Base title="The Front Steps Gallery — Vivian Cromwell" activeNav="projects">
+  <div class="painting-back">
+    <a href="/projects/the-front-steps-palo-alto" class="back-link">&larr; Back to Project</a>
+  </div>
+
+  <section class="gallery-section">
+    <h1 class="section-title">The Front Steps, Palo Alto</h1>
+    <div class="gallery-grid">
+      {sortedImages.map((img, i) => (
+        <button class="front-steps-card" data-index={i} type="button" aria-label={`View photo ${i + 1}`}>
+          <Image
+            src={img}
+            alt={`The Front Steps, Palo Alto — photo ${i + 1}`}
+            widths={[400, 800]}
+            sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw"
+            loading="lazy"
+            data-full={img.src}
+          />
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="lightbox-backdrop"></div>
+    <button class="lightbox-close" aria-label="Close" type="button">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous image" type="button">&#8249;</button>
+    <button class="lightbox-next" aria-label="Next image" type="button">&#8250;</button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" src="" alt="" />
+    </div>
+    <div class="lightbox-counter"></div>
+  </div>
+</Base>
+
+<style>
+  .front-steps-card {
+    break-inside: avoid;
+    margin-bottom: var(--space-xl);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .front-steps-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  .front-steps-card:hover img {
+    opacity: 0.85;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+  }
+
+  .lightbox-content {
+    position: relative;
+    z-index: 1;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox-img.is-loaded {
+    opacity: 1;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    z-index: 2;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--text-3xl);
+    cursor: pointer;
+    padding: var(--space-xs);
+    line-height: 1;
+    transition: color 0.2s, opacity 0.3s;
+    outline: none;
+    opacity: 0;
+  }
+
+  .lightbox:hover .lightbox-close {
+    opacity: 1;
+  }
+
+  .lightbox-close:hover {
+    color: #fff;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 3rem;
+    cursor: pointer;
+    padding: var(--space-lg);
+    line-height: 1;
+    transition: color 0.2s, opacity 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    opacity: 0;
+  }
+
+  .lightbox:hover .lightbox-prev,
+  .lightbox:hover .lightbox-next {
+    opacity: 1;
+  }
+
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    color: #fff;
+  }
+
+  .lightbox-prev {
+    left: var(--space-sm);
+  }
+
+  .lightbox-next {
+    right: var(--space-sm);
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .lightbox:hover .lightbox-counter {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
+  const counter = lightbox.querySelector('.lightbox-counter')!;
+  const cards = document.querySelectorAll<HTMLButtonElement>('.front-steps-card');
+
+  // Build array of full-size image URLs from data-full attribute
+  const fullUrls: string[] = [];
+  cards.forEach((card) => {
+    const img = card.querySelector('img');
+    if (img) {
+      fullUrls.push(img.dataset.full || img.src);
+    }
+  });
+
+  const total = fullUrls.length;
+  let current = 0;
+
+  function open(index: number) {
+    current = index;
+    show();
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function show() {
+    lightboxImg.classList.remove('is-loaded');
+    lightboxImg.src = fullUrls[current];
+    lightboxImg.alt = `The Front Steps, Palo Alto — photo ${current + 1}`;
+    lightboxImg.onload = () => lightboxImg.classList.add('is-loaded');
+    if (lightboxImg.complete) lightboxImg.classList.add('is-loaded');
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  function prev() {
+    current = (current - 1 + total) % total;
+    show();
+  }
+
+  function next() {
+    current = (current + 1) % total;
+    show();
+  }
+
+  // Click handlers
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const index = parseInt(card.dataset.index || '0', 10);
+      open(index);
+    });
+  });
+
+  lightbox.querySelector('.lightbox-close')!.addEventListener('click', close);
+  lightbox.querySelector('.lightbox-backdrop')!.addEventListener('click', close);
+  lightbox.querySelector('.lightbox-prev')!.addEventListener('click', prev);
+  lightbox.querySelector('.lightbox-next')!.addEventListener('click', next);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>

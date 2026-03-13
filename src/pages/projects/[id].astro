@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+
+interface ProjectLink {
+  label: string;
+  url: string;
+}
+
+interface Project {
+  id: string;
+  file: string;
+  title: string;
+  year: number;
+  category: string;
+  summary: string;
+  description: string;
+  links?: ProjectLink[];
+  linksAfterParagraph?: number;
+  externalUrl: string;
+  status?: string;
+}
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/projects/*.{jpg,png}', { eager: true });
+
+export function getStaticPaths() {
+  const projects: Project[] = JSON.parse(
+    fs.readFileSync(new URL('./src/assets/projects/projects.json', 'file://' + process.cwd() + '/'), 'utf-8')
+  );
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const imageSrc = images[`../../assets/projects/${project.file}`]?.default;
+---
+
+<Base title={`${project.title} — Vivian Cromwell`} activeNav="projects">
+  <div class="painting-back">
+    <a href="/projects" class="back-link">&larr; Back to Projects</a>
+  </div>
+
+  <div class="project-detail">
+    <div class="project-detail-img">
+      {imageSrc ? (
+        <Image
+          src={imageSrc}
+          alt={project.title}
+          widths={[800, 1200]}
+          sizes="(max-width: 768px) 100vw, 60vw"
+        />
+      ) : (
+        <img src={`/projects/${project.file}`} alt={project.title} />
+      )}
+    </div>
+
+    <div class="project-detail-info">
+      <h1 class="project-detail-title">{project.title}</h1>
+
+      <dl class="painting-detail-meta">
+        <div class="meta-row">
+          <dt>Year</dt>
+          <dd>{project.year}</dd>
+        </div>
+        <div class="meta-row">
+          <dt>Category</dt>
+          <dd>{project.category}</dd>
+        </div>
+        {project.status === 'ongoing' && (
+          <div class="meta-row">
+            <dt>Status</dt>
+            <dd>Ongoing</dd>
+          </div>
+        )}
+      </dl>
+
+      {project.externalUrl ? (
+        <a href={`/projects/${project.id}/gallery`} class="project-external-link">
+          View Full Project &rarr;
+        </a>
+      ) : project.links && project.links.length > 0 && (
+        <a href={project.links[0].url} class="project-external-link" target="_blank" rel="noopener noreferrer">
+          View Full Project &rarr;
+        </a>
+      )}
+
+      {project.description && (
+        <div class="project-detail-desc">
+          {project.description.split('\n\n').map((para, i) => (
+            <>
+              <p>{para}</p>
+              {project.links && project.links.length > 0 && i === (project.linksAfterParagraph ?? 1) && (
+                <ul class="project-detail-links">
+                  {project.links.map((link) => (
+                    <li>
+                      <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
+          ))}
+        </div>
+      )}
+
+    </div>
+  </div>
+</Base>
