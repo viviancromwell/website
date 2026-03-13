@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+
+import frontSteps from '../../../assets/projects/the-front-steps-palo-alto.jpg';
+import markets from '../../../assets/projects/markets-around-the-world.jpg';
+import eastPaloAlto from '../../../assets/projects/east-palo-alto.jpg';
+
+const projects = [
+  {
+    title: 'The Front Steps, Palo Alto',
+    href: '/projects/the-front-steps-palo-alto',
+    image: frontSteps,
+    category: 'Documentary Photography',
+  },
+  {
+    title: 'Markets Around the World',
+    href: '/projects/markets-around-the-world',
+    image: markets,
+    category: 'Travel Photography',
+  },
+  {
+    title: 'The Last 2.5-Mile Stretch, East Palo Alto',
+    href: '/projects/east-palo-alto',
+    image: eastPaloAlto,
+    category: 'Documentary Photography',
+  },
+];
+---
+
+<Base title="Documentary Photography — Vivian Cromwell" activeNav="photography">
+  <nav class="sub-nav" aria-label="Photography categories">
+    <ul class="sub-nav-list">
+      <li><a href="/photography/editorial" class="sub-nav-link">Editorial</a></li>
+      <li><a href="/photography/commercial" class="sub-nav-link">Commercial</a></li>
+      <li><a href="/photography/travel" class="sub-nav-link">Travel</a></li>
+      <li><a href="/photography/documentary" class="sub-nav-link is-active">Documentary</a></li>
+    </ul>
+  </nav>
+
+  <section class="gallery-section">
+    <div class="documentary-grid">
+      {projects.map((p) => (
+        <a href={p.href} class="documentary-card">
+          <div class="documentary-card-img">
+            <Image
+              src={p.image}
+              alt={p.title}
+              widths={[400, 800]}
+              sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="documentary-card-title">{p.title}</h3>
+          <span class="documentary-card-category">{p.category}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .documentary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .documentary-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .documentary-card-img {
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+  }
+
+  .documentary-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  .documentary-card:hover .documentary-card-img img {
+    opacity: 0.85;
+  }
+
+  .documentary-card-title {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: 400;
+    margin: var(--space-sm) 0 0;
+  }
+
+  .documentary-card-category {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .documentary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .documentary-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -2,6 +2,7 @@
 
 html {
   color-scheme: light dark;
+  scrollbar-gutter: stable;
 }
 
 *,
@@ -102,6 +103,8 @@ h3 { font-size: var(--text-xl); }
   position: sticky;
   top: 72px;
   z-index: 99;
+  margin: calc(-1 * var(--space-xl)) calc(-1 * var(--space-xl)) 0;
+  padding-right: var(--space-xl);
 }
 
 .sub-nav[hidden] {
@@ -133,12 +136,10 @@ h3 { font-size: var(--text-xl); }
 
 .sub-nav-link.is-active {
   color: var(--color-text);
-  font-weight: 600;
 }
 
 .nav-link.is-active {
   color: var(--color-text);
-  font-weight: 600;
 }
 
 /* ─── Mobile Menu ─── */
@@ -338,7 +339,11 @@ h3 { font-size: var(--text-xl); }
 /* ─── Gallery ─── */
 
 .gallery-section {
-  padding: var(--space-xl) 0;
+  padding: var(--space-2xl) 0;
+}
+
+.sub-nav + .gallery-section {
+  padding-top: var(--space-lg);
 }
 
 .section-title {

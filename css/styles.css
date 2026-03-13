@@ -129,12 +129,10 @@ h3 { font-size: var(--text-xl); }
 
 .sub-nav-link.is-active {
   color: var(--color-text);
-  font-weight: 600;
 }
 
 .nav-link.is-active {
   color: var(--color-text);
-  font-weight: 600;
 }
 
 /* ─── Mobile Menu ─── */

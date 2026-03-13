@@ -1,0 +1,167 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/photography/featured/*.jpg',
+  { eager: true }
+);
+
+const sortedImages = Object.entries(images)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod]) => mod.default);
+---
+
+<Base title="Photography — Vivian Cromwell" activeNav="photography">
+  <nav class="sub-nav" aria-label="Photography categories">
+    <ul class="sub-nav-list">
+      <li><a href="/photography/editorial" class="sub-nav-link">Editorial</a></li>
+      <li><a href="/photography/commercial" class="sub-nav-link">Commercial</a></li>
+      <li><a href="/photography/travel" class="sub-nav-link">Travel</a></li>
+      <li><a href="/photography/documentary" class="sub-nav-link">Documentary</a></li>
+    </ul>
+  </nav>
+
+  <section class="carousel-section">
+    <div class="carousel" id="carousel">
+      <div class="carousel-track">
+        {sortedImages.map((img, i) => (
+          <div class="carousel-slide" data-index={i}>
+            <Image
+              src={img}
+              alt={`Featured photography — photo ${i + 1}`}
+              widths={[800, 1200, 1600]}
+              sizes="90vw"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              data-full={img.src}
+            />
+          </div>
+        ))}
+      </div>
+      <button class="carousel-prev" aria-label="Previous image" type="button">&#8249;</button>
+      <button class="carousel-next" aria-label="Next image" type="button">&#8250;</button>
+      <div class="carousel-counter"></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .carousel-section {
+    padding: var(--space-lg) 0 var(--space-2xl);
+  }
+
+  .carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 3rem;
+    cursor: pointer;
+    padding: var(--space-lg);
+    line-height: 1;
+    transition: color 0.2s, opacity 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    opacity: 0;
+  }
+
+  .carousel:hover .carousel-prev,
+  .carousel:hover .carousel-next {
+    opacity: 1;
+  }
+
+  .carousel-prev:hover,
+  .carousel-next:hover {
+    color: var(--color-text);
+  }
+
+  .carousel-prev {
+    left: 0;
+  }
+
+  .carousel-next {
+    right: 0;
+  }
+
+  .carousel-counter {
+    text-align: center;
+    margin-top: var(--space-md);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById('carousel')!;
+  const track = carousel.querySelector('.carousel-track') as HTMLElement;
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const counter = carousel.querySelector('.carousel-counter')!;
+  const total = slides.length;
+  let current = 0;
+
+  function go(index: number) {
+    current = ((index % total) + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  go(0);
+
+  carousel.querySelector('.carousel-prev')!.addEventListener('click', () => go(current - 1));
+  carousel.querySelector('.carousel-next')!.addEventListener('click', () => go(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(current - 1);
+    if (e.key === 'ArrowRight') go(current + 1);
+  });
+
+  // Swipe support
+  let startX = 0;
+  let isDragging = false;
+
+  carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? go(current + 1) : go(current - 1);
+    }
+  }, { passive: true });
+</script>

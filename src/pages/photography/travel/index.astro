@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+
+const countries = [
+  { slug: 'belize', name: 'Belize', thumbFile: '011' },
+  { slug: 'cognac', name: 'Cognac', thumbFile: '009' },
+  { slug: 'cuba', name: 'Cuba', thumbFile: '010' },
+  { slug: 'ecuador', name: 'Ecuador', thumbFile: '010' },
+  { slug: 'galapagos', name: 'Galápagos' },
+  { slug: 'gascony', name: 'Gascony', thumbFile: '007' },
+  { slug: 'guizhou-china', name: 'Guizhou, China' },
+  { slug: 'india', name: 'India' },
+  { slug: 'jordan', name: 'Jordan' },
+  { slug: 'kenya', name: 'Kenya' },
+  { slug: 'morocco', name: 'Morocco', thumbFile: '014' },
+  { slug: 'mosuo', name: 'Mosuo', thumbFile: '021' },
+  { slug: 'nordic', name: 'Nordic', thumbFile: '011' },
+  { slug: 'oaxaca', name: 'Oaxaca', thumbFile: '006' },
+  { slug: 'san-miguel', name: 'San Miguel' },
+  { slug: 'tanzania', name: 'Tanzania', thumbFile: '008' },
+];
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../../../assets/photography/travel/**/*.{jpg,jpeg,png}',
+  { eager: true }
+);
+
+const countryData = countries.map((c) => {
+  const prefix = c.thumbFile || '001';
+  const key = Object.keys(allImages).find((k) =>
+    k.includes(`/${c.slug}/`) && k.match(new RegExp(`/${prefix}\\.(jpg|jpeg|png)$`))
+  );
+  return {
+    ...c,
+    thumbnail: key ? allImages[key].default : null,
+  };
+});
+---
+
+<Base title="Travel Photography — Vivian Cromwell" activeNav="photography">
+  <nav class="sub-nav" aria-label="Photography categories">
+    <ul class="sub-nav-list">
+      <li><a href="/photography/editorial" class="sub-nav-link">Editorial</a></li>
+      <li><a href="/photography/commercial" class="sub-nav-link">Commercial</a></li>
+      <li><a href="/photography/travel" class="sub-nav-link is-active">Travel</a></li>
+      <li><a href="/photography/documentary" class="sub-nav-link">Documentary</a></li>
+    </ul>
+  </nav>
+
+  <section class="gallery-section">
+    <div class="travel-grid">
+      {countryData.map((c) => (
+        <a href={`/photography/travel/${c.slug}`} class="travel-card">
+          {c.thumbnail && (
+            <Image
+              src={c.thumbnail}
+              alt={`${c.name} travel photography`}
+              widths={[400, 800]}
+              sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+              loading="lazy"
+              class="travel-card-img"
+            />
+          )}
+          <span class="travel-card-overlay">
+            <span class="travel-card-name">{c.name}</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .travel-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    text-decoration: none;
+  }
+
+  .travel-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .travel-card:hover .travel-card-img {
+    transform: scale(1.03);
+    opacity: 0.85;
+  }
+
+  .travel-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: var(--space-lg);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    pointer-events: none;
+  }
+
+  .travel-card-name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 768px) {
+    .travel-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .travel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
