@@ -8,7 +8,7 @@
   /* text */
   --color-text:          #3D3630;
   --color-text-secondary: #7A6F65;
-  --color-text-muted:     #A89E94;
+  --color-text-muted:     #8A7F74;
 
   /* accent */
   --color-accent:       #8B7355;
@@ -40,7 +40,7 @@
    * --font-display  (Cormorant Garamond)  → serif, elegant
    *   Use for: your name, page titles, section headings, pull quotes,
    *   hero text — anything meant to make an impression.
-   *   Preferred weight: 300 (light) for large sizes, 400 for smaller.
+   *   Preferred weight: 400 for large sizes, 500 for smaller.
    *
    * --font-body  (Instrument Sans)  → sans-serif, clean
    *   Use for: navigation, body text, paragraphs, buttons, labels,
@@ -109,7 +109,7 @@
 
     --color-text:          #E8E3DC;
     --color-text-secondary: #A89E94;
-    --color-text-muted:     #7A6F65;
+    --color-text-muted:     #9A8F85;
 
     --color-accent:       #C4A882;
     --color-accent-hover: #D4BC9A;

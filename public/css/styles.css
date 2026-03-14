@@ -32,7 +32,7 @@ main {
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   line-height: var(--leading-tight);
 }
 
@@ -58,7 +58,7 @@ h3 { font-size: var(--text-xl); }
 .site-name {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
   color: var(--color-text);
   letter-spacing: 0.01em;
@@ -242,7 +242,7 @@ h3 { font-size: var(--text-xl); }
 .home-tagline {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text);
   margin: 0 0 var(--space-xl);
   line-height: var(--leading-tight);
@@ -266,7 +266,7 @@ h3 { font-size: var(--text-xl); }
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 0 var(--space-md);
 }
 
@@ -519,7 +519,7 @@ h3 { font-size: var(--text-xl); }
 .about-lead {
   font-family: var(--font-display);
   font-size: var(--text-lg);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text-secondary);
   line-height: var(--leading-loose);
   margin: 0 0 var(--space-xl);
@@ -547,7 +547,7 @@ h3 { font-size: var(--text-xl); }
   cursor: pointer;
   font-family: var(--font-display);
   font-size: var(--text-lg);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-text);
   text-align: left;
   transition: color 0.2s;
@@ -611,7 +611,7 @@ h3 { font-size: var(--text-xl); }
 .about-closing {
   font-family: var(--font-display);
   font-size: var(--text-base);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text-secondary);
   line-height: var(--leading-loose);
   margin: var(--space-xl) 0 0;
@@ -630,7 +630,7 @@ h3 { font-size: var(--text-xl); }
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 0 var(--space-lg);
 }
 
@@ -865,7 +865,7 @@ h3 { font-size: var(--text-xl); }
   display: inline-block;
   margin-top: var(--space-lg);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-accent);
   text-decoration: none;
   border-bottom: 1px solid var(--color-border);
