@@ -1,0 +1,340 @@
+{
+  "title": "The Last 2.5-Mile Stretch",
+  "subtitle": "East Palo Alto",
+  "intro": [
+    "Just a stone's throw from one of the wealthiest neighborhoods in the nation, Palo Alto, lies an entirely separate city of only 2.5 square miles. This is East Palo Alto. The two cities are connected by name and history but there is much that separates East Palo Alto from Palo Alto; a federal highway, a county-line, and the unique stories of East Palo Alto residents over the past decades.",
+    "East Palo Alto is home to many Latinos, blacks, Pacific Islanders, immigrants, and people of color. The city as it exists today was created, in part, due to racist housing policies in Palo Alto during the 1930s, '40s, and '50s and by local real estate agents who chose to prop-up racism and segregation in order to turn a profit. This was but one iteration of red-lining and racist practices which played-out across the country during this time. What happened in East Palo Alto, tragically, was not unique.",
+    "But EPA, as its residents refer to it, <em>is</em> a unique and remarkable city. Unfortunately, many stories about East Palo Alto have offered just one narrative of the city: that it is a place of poverty, crime, and violence. Through this project, I hope to share some of the untold stories of East Palo Alto."
+  ],
+  "profiles": [
+    {
+      "id": "bob-hoover",
+      "name": "Bob Hoover",
+      "paragraphs": [
+        "Bob Hoover was born in a little town called Dallas, North Carolina. As part of the great migration, Bob eventually moved to California and attended Stanford University, at which time it had less than ten African American students. Not able to find any housing in Palo Alto, Mountain View or Menlo Park, in the 1960s Bob eventually bought a house in East Palo Alto with his wife, who had just finished her doctoral degree at Stanford.",
+        "Bob noticed that many young kids in the community were struggling to stay in school and were deprived of positive educational experiences. So he started a program, with some funding, to offer kids some activities from playing pool to camping at Yosemite.",
+        "In 1967, Bob was offered a job at the college of San Mateo for a program to bring kids of color onto the campus and become ready for college. Within two years, he had recruited more than 500 kids into a program that started with just 30-40 students. Eventually, the College of San Mateo terminated the program and its staff including Bob. The students who were recruited by Bob didn't want to stay at the college, which led to the founding of Nairobi College in 1969, one of the very first junior colleges that focus on ethnic minorities from the ghetto community. The initial funding came from David Packard, the co-founder and CEO of Hewlett-Packard. Nairobi College offered 25 courses and operated out of churches, homes, and stores, some classes were offered in the evenings to accommodate student's schedules. While the college consisted primarily of blacks, Latino, and Asians, some white students from the working-class neighborhood also attended.",
+        "After some time in Chicago, Bob eventually came back to East Palo Alto in 1983 where he always felt like his home. Served as the Director of Community Services appointed by the city, Bob noticed almost seventy percent of the students were not graduating from high schools.",
+        "This was how the Youth Development Center started in the 1980s by Bob Hoover — to keep the kids at the school, motivate them, and give them extra activities to stay engaged. When they first started, only five percent of the students out of the 30 percent who had actually finished high school went on to college. After enrolling more than 500 kids in the center through the years, more than 60 percent of them went on to colleges.",
+        "When asked about the recent event of Black Lives Matter, Bob wanted everyone to focus more on the policy change with regard to institutional racism instead of the police brutality. It is often the county's board of supervisors and non-profit at the table to make the decision, but, in Bob's opinion, to have a shot at really changing much of anything, the corporates need to be at the table because they control what goes on in Sacramento and what goes on in Washington DC in terms of the policy.",
+        "The thing that concerns Bob the most about East Palo Alto is the housing crisis. Surrounded by tech giants such as Google, Facebook now Amazon who fuel the economic growth in the area, but only a small fraction of jobs in those companies go to those who live in this city of 30,000 people. The residents are under threat by the rapidly rising rents and home prices. If you own the house, you are already priced out. Without housing, your people from the community, even those with advanced education, cannot return. Over the last four to five years, more than 30 kids graduated from colleges, but they couldn't come back because they could not afford it."
+      ],
+      "quotes": [
+        "I tried to find a place to stay when I was a student at Stanford and could not find an apartment in Palo Alto, or Mountain View, or anywhere else on the other side of the freeway.",
+        "I don't think kids understood the value of education. There was huge segregation within each school so that all the black kids were in non-college prep classes, and most of the white kids were in the college prep classes."
+      ],
+      "audio": [
+        { "src": "/audio/bobhoover_howIgottoeastpaloalto.mp3", "title": "How I got to East Palo Alto" },
+        { "src": "/audio/bobhoover_startcollege.mp3", "title": "Start a College" },
+        { "src": "/audio/bobhoover_specialed.mp3", "title": "Every girl from this family went to special ed." },
+        { "src": "/audio/bobhoover_racialjustice.mp3", "title": "It's not just individual racism that's killing us, it's institutional racism." }
+      ],
+      "blocks": [
+        { "type": "image", "num": "012", "size": "full", "alt": "Bob Hoover standing in front of his East Palo Alto home, wearing a Howard Dad sweatshirt, with a Black Lives Matter sign in the yard" },
+        { "type": "quote", "index": 0 },
+        { "type": "audio", "index": 0 },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "image", "num": "013", "size": "float-left", "alt": "Bob Hoover in the early 1970s leading Nairobi College" },
+        { "type": "text", "index": 2 },
+        { "type": "audio", "index": 1 },
+        { "type": "text", "index": 3 },
+        { "type": "audio", "index": 2 },
+        { "type": "quote", "index": 1 },
+        { "type": "text", "index": 4 },
+        { "type": "text", "index": 5 },
+        { "type": "audio", "index": 3 },
+        { "type": "text", "index": 6 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "alanna-stevenson",
+      "name": "Alanna Stevenson",
+      "paragraphs": [
+        "Alanna Stevenson is a rising Junior at Menlo-Atherton High School. She lives with her parents Eric and Shawneece who originally moved here from Ohio in the early 2000s.",
+        "When Alanna was little, she used to get picked on a lot because of the color of her skin. She doesn't think it is necessary because of being black, but of her heritage. Kids would hate her hair, so she would straighten it. People would say the N words when she was around, but she didn't understand it until she was older.",
+        "When the Black Lives Matter movement broke out nationwide, she decided to organize the first protest in East Palo Alto by partnering with East Palo Alto police station so it could be conducted peacefully. There was a huge turn out with more than 800 people coming from as far as Los Angeles.",
+        "On August 30th, 2020, Alanna turned 16th. She celebrated with her family and close friends with a quiet dinner in the backyard. Mayor of East Palo Alto Regina Wallace Jones congratulated her on the Zoom call.",
+        "In the new school year, Alanna hopes to lead a fundraiser at Menlo-Atherton High School for BLM and the NAACP. At a school that is more than 50 percent students of color, Alanna thinks it would only make sense to teach minority culture."
+      ],
+      "quotes": [
+        "I noticed that all of the protests that were being televised were violent protests, with tear gas and people getting arrested. I felt like I needed to make a peaceful protest without any looting, SWAT gears so we are not portrayed as a bad community.",
+        "I learn about my heritage through Instagram, TikTok and Snapchat. I learn more about black history through social media than I do in school. If they do teach us, it is mostly about slaves. Black History should be a requirement to graduate high school.",
+        "I didn't learn anything in high school about my own heritage, so I really want to study African American History in college. I also want to become a special ed teacher. Since I was little, I always have a soft heart for kids with special needs."
+      ],
+      "audio": [
+        { "src": "/audio/alaana_hair.mp3", "title": "People would make fun of my hair" },
+        { "src": "/audio/alaanna_blm.mp3", "title": "Why I want a peaceful Black Lives Matter protest" }
+      ],
+      "blocks": [
+        { "type": "image", "num": "014", "size": "full", "alt": "Alanna celebrating her 16th birthday with a Happy Birthday sign" },
+        { "type": "audio", "index": 0 },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "image", "num": "018", "size": "float-left", "alt": "Alanna getting ready for her 16th birthday with friends helping" },
+        { "type": "text", "index": 2 },
+        { "type": "quote", "index": 0 },
+        { "type": "audio", "index": 1 },
+        { "type": "image", "num": "016", "size": "full", "alt": "Poster with names of victims of police brutality in Alanna's bedroom" },
+        { "type": "image", "num": "017", "size": "full", "alt": "East Palo Alto peaceful protest organized by Alanna with hundreds of marchers" },
+        { "type": "quote", "index": 1 },
+        { "type": "text", "index": 3 },
+        { "type": "text", "index": 4 },
+        { "type": "quote", "index": 2 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "nevida-butler",
+      "name": "Nevida Butler",
+      "paragraphs": [
+        "Everyone in East Palo Alto knows Nevida Butler; they call her \"Mother Teresa\" of East Palo Alto. Nevida came here in 1973 from St. Louis. What she really loves about EPA is its diverse community of black, white, Pacific Islander, Asian and Latino people, and how willing people are to help others.",
+        "Nevida Butler is most well known for her work at the Ecumenical Hunger Program, a non-profit in East Palo Alto that provides clothing and food for those in need. EHP was first founded by Merriam Nixon along with the group of church women United in 1975. They worked out of their own closets by giving away food to others through various other agencies.",
+        "In 1981, Nevida was appointed as the Executive Director for EHP and she changed the program to give food directly instead of through the agencies. The initial office building in the Whisky Gulch neighborhood could no longer meet their needs and the rent has kept on going up. In 2000, Nevida had raised enough money to buy the building where EHP currently operates from at 2411 Pulgas Ave.",
+        "In 1990, Nevida was elected on the City Council by a landslide, but she left her role in local government within two years in order to spend more time with her son.",
+        "Today, EHP has more than ten full time employees and has expanded its program from food, to household necessities, and back-to-school programs. People would not have to go to different places for different things. Even after she retired, Nevida came back to EHP to continue helping in the warehouse.",
+        "Her biggest hope is to continue seeing EHP serve the community in new ways, including education. Nevida hopes that kids in EPA will keep out of trouble, finish high-school, and continue their education at a university or trade-school."
+      ],
+      "quotes": [
+        "Cooking food is the best way to learn from each other. You really get to know people when you share recipes."
+      ],
+      "audio": [
+        { "src": "/audio/nevida_diversity.mp3", "title": "We are different in colors..." },
+        { "src": "/audio/nevida_citycouncil.mp3", "title": "I am a mother first." },
+        { "src": "/audio/nevida_futureedu.mp3", "title": "I want kids go to college." }
+      ],
+      "blocks": [
+        { "type": "image", "num": "003", "size": "full", "alt": "Nevida Butler, portrait in a bright red top with gold earrings and necklace" },
+        { "type": "audio", "index": 0 },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "image", "num": "022", "size": "float-left-small", "alt": "Ecumenical Hunger Program building with Neighbors Helping Neighbors sign" },
+        { "type": "quote", "index": 0 },
+        { "type": "text", "index": 2 },
+        { "type": "text", "index": 3 },
+        { "type": "audio", "index": 1 },
+        { "type": "text", "index": 4 },
+        { "type": "text", "index": 5 },
+        { "type": "audio", "index": 2 },
+        { "type": "image", "num": "023", "size": "full", "alt": "Nevida Butler working at the EHP warehouse during the pandemic" },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "lesia-preston",
+      "name": "Lesia Preston",
+      "paragraphs": [
+        "In 1982, Lesia Preston became the new Executive Director of the Ecumenical Hunger Program. Little did anyone outside EHP know that Lesia is Nevida Butler's daughter.",
+        "Lesia used to volunteer as a child at the Ecumenical Hunger Program and it was always in her heart to help others. After various other positions, she started working in the food closest and then clothing distribution center as well as bookkeeping. She even filled in as the interim director. When the EP position became available after Nevida left, Lesia finally decided to apply and has been running EHP since.",
+        "The passion to serve the community runs in the family. Today Lesia's daughter Kesha works at EHP after the college."
+      ],
+      "quotes": [],
+      "audio": [
+        { "src": "/audio/nevida_threegeneration.mp3", "title": "She is a wonderful role model." }
+      ],
+      "blocks": [
+        { "type": "image", "num": "024", "size": "full", "alt": "Lesia Preston, Executive Director of the Ecumenical Hunger Program, portrait in blue striped blouse" },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "text", "index": 2 },
+        { "type": "audio", "index": 0 },
+        { "type": "image-pair", "items": [
+          { "num": "025", "alt": "LaKesha Roberts-Evans, Lesia's daughter, who works at EHP" },
+          { "num": "026", "alt": "James giving out milk at the Ecumenical Hunger Program" }
+        ]},
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "thandiwe-balondemu",
+      "name": "Thandiwe & Balondemu Lyons",
+      "paragraphs": [
+        "Meet Thandiwe Jennifer Lyons and Balondemu Jules Lyons, the mother-and-son founding team behind Onyxx Village Connection in East Palo Alto. Onyxx is a mobile non-profit organization that focuses on helping those who live in mobile-homes and those who are suffering from homelessness. They bring food and resources, along with their compassion and love for the community, throughout the bay area.",
+        "Thandiwe was born in a little town in Lafayette, Louisiana. After spending some years in Houston, Texas, her family eventually moved to East Palo Alto.",
+        "The beginning of Onyxx organization was rather accidental: in the summer of 2015, Balondemu was attending StreetCode Academy, an organization based in EPA that offers free classes in coding, entrepreneurship, and design. At StreetCode, Balondemu learned to make his first app. Meanwhile, Thandiwe volunteered to make snacks for the children who were participating in courses there. Soon she was offered a job leading the food ministry with a very limited budget. By getting supplies and food surplus from other non profit such as EHP, she was able to provide hot meals for all students at the Academy. Thandiwe herself had a brief experience in a homeless shelter during her own difficult time, and she knows how much it can mean to receive a hot meal. This recognition is what sparked the creation of Onyxx Village Connection. By eliminating food waste, they are able to provide hot meals for the hungry all along the peninsula.",
+        "Balondemu was born in Burlingame, California. His father didn't want to have much to do with their life, Thandiwe eventually brought Balondemu back to East Palo Alto. Balondemu credited his mother for instilling the gift of giving in him at a young age.",
+        "Balondemu has been homeschooled since sixth grade after repeated instances of racism and bullying at various schools. Thandiwe designed her son's curriculum based on the various internet resources with plenty of hands-on experiences and social interaction. Each year, they would also go on a trip together based on Balondemu's interests, Thandiwe made sure they would make time during the trip to learn about African American's history and culture through museum visits. Today, Balondemu is a thriving high school senior who dreams of going to Howard University."
+      ],
+      "quotes": [
+        "So you wouldn't even think that homelessness would happen in the city of East Palo Alto. If we're the land of milk and honey, why is homelessness happening."
+      ],
+      "audio": [
+        { "src": "/audio/lesia_mymom.mp3", "title": "My mother never raised me..." },
+        { "src": "/audio/lesia_homeless.mp3", "title": "He said he hasn't eaten for days..." },
+        { "src": "/audio/lesia_whiteboy.mp3", "title": "You know why I didn't fight back?..." }
+      ],
+      "blocks": [
+        { "type": "image", "num": "034", "size": "full", "alt": "Thandiwe Jennifer Lyons and Balondemu Jules Lyons sitting on their front steps in colorful African attire" },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "audio", "index": 0 },
+        { "type": "image", "num": "035", "size": "float-right", "alt": "Thandiwe Jennifer Lyons in her garden wearing a vibrant headwrap" },
+        { "type": "text", "index": 2 },
+        { "type": "quote", "index": 0 },
+        { "type": "audio", "index": 1 },
+        { "type": "text", "index": 3 },
+        { "type": "text", "index": 4 },
+        { "type": "audio", "index": 2 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "leonora-martinez",
+      "name": "Leonora Martinez",
+      "paragraphs": [
+        "In June 2014, Lea's dad passed away due to artery blockage.\n\nIn January 2016, Lea's husband passed away with an unexplained gradual health decline.\n\nIn October 2017, her son, Austin, was involved in a bike accident which eventually caused him to be in a wheelchair due to the loss of oxygen to his brain.\n\nIn September 2019, Lea's daughter was struck by a train and left her two young grandsons who just started walking.\n\nThat same year, Lea's mom was diagnosed with uterus cancer, after surviving breast cancer in 2003.",
+        "This is Lea Martinez's life. Born to Belizean father and American mother, Lea grew up in East Palo Alto, blessed with a loving husband and wonderful kids. Little did she know of the tough years that lay ahead of her. She was still working at Ecumenical Hunger Program when her husband passed away unexpectedly, and she just couldn't throw herself back to work.",
+        "However, it was Austin's accident, which led to his permanent paralysis, really took a toll on Lea. It was just a regular afternoon, Lea received a call that Austin was in a bike accident. Austin was still laughing and walking when Lea took him to the Stanford Hospital. Things suddenly took a turn, fever, fluid in the abdomen, ICU — Austin couldn't stop shaking heads. Today, Austin relies on the wheelchair with some speech impediments. But Austin remains positive about the future and hopes to go to college one day. Lea is hopeful that one day Austin's situation will improve drastically as how he has slowly gotten better over the years. Today, Austin is a junior at Palo Alto High School.",
+        "Despite all of the tragedies, Lea never lost her faith. Lea's biggest worry right now is who would take care of Austin and her family if something unfortunate happened to herself. Lea is the only caregiver not just to Austin, but also to Carmella, her other daughter, and her two grandsons, whom she adopted after her daughter's passing. Her biggest wish is to find a way to build an in-law cottage in the backyard that is completely accessible for Austin. She has to be prepared this time around, because she was not prepared for what happened in the last five years.",
+        "A kind neighbor set up a GoFundMe page to help her raise enough money to build an in-law cottage."
+      ],
+      "quotes": [
+        "He just seems so blessed with so many attributes. I was like, why him? Why would you choose the one that everybody likes, the one that is bound for greatness?",
+        "Even though it stings, it's not a wound that is infected and it's nothing that's crushing me. It's what it is. I look to HIM for my strength and I keep moving."
+      ],
+      "audio": [
+        { "src": "/audio/leonora_austin.mp3", "title": "Austin is always a big kid." },
+        { "src": "/audio/leonora_god.mp3", "title": "That is what I walk through..." }
+      ],
+      "blocks": [
+        { "type": "image", "num": "037", "size": "full", "alt": "Lea Martinez sitting outside her East Palo Alto home with a Black Lives Matter sign in the yard" },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "text", "index": 2 },
+        { "type": "image", "num": "038", "size": "center-large", "alt": "Austin, Lea's son, smiling in his wheelchair at the front door" },
+        { "type": "quote", "index": 0 },
+        { "type": "audio", "index": 0 },
+        { "type": "image", "num": "039", "size": "full", "alt": "The Martinez family gathered on their front porch" },
+        { "type": "text", "index": 3 },
+        { "type": "quote", "index": 1 },
+        { "type": "audio", "index": 1 },
+        { "type": "text", "index": 4 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "rebuilding-together",
+      "name": "Rebuilding Together Peninsula",
+      "paragraphs": [
+        "Since 1989, the organization Rebuilding Together Peninsula (RTP) has provided the necessary renovation and repair services for the most vulnerable homeowners on the Peninsula — including seniors, veterans, persons with disabilities, and families with children. Many of them are from East Palo Alto and the Belle Haven area in Menlo Park.",
+        "As the only local organization addressing this specific need, they have served more than 250 homeowners each year with the help of over 3,000 volunteers. During the pandemic, the renovation services were stopped briefly but have now resumed with social distancing measures.",
+        "Naomi just celebrated her 100th birthday in 2019. For 72 of those years, she has lived in a home in Belle Haven. In 1948, her family was the first African American and Native American family to move to the block. This is a place where her children were born and raised, where loved ones prepared and ate dinner together; where birthdays and holidays were celebrated. With time comes memories, changes, but also wear and tear around the house. Rebuilding Together helped Naomi with drywall repair, grab bar installation, and smoke detection.",
+        "Naomi Campbell passed away in 2020 shortly after her 101st birthday.",
+        "Though she is from England, Wendy has been a resident of Belle Haven for roughly 20 years. She lives with her friend Judy in the home they bought together, as neither of them could afford to buy a house on their own. Over time, they have witnessed many changes in the neighborhood — people have come and gone and the community has evolved. Facebook has built its headquarter nearby.",
+        "Behind the house, peach trees skirt a beautiful garden and produce more fruit than she knows what to do with. It is a place where she enjoys the sunshine in their garden, and entertaining friends and family. Rebuilding Together helped to improve the landscape and painted the exterior.",
+        "Frank Tijerina comes to RTP with over 20 years of experience in construction. He is one of the very few full time technicians at RTP. He loves helping neighbors to stay safe and healthy and you will often see him helping and mentoring other young volunteers."
+      ],
+      "quotes": [],
+      "audio": [],
+      "blocks": [
+        { "type": "image", "num": "040", "size": "full", "alt": "Rebuilding Together Peninsula volunteers painting a home in Belle Haven" },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "image-pair", "items": [
+          { "num": "041", "alt": "Naomi Campbell at her home in Belle Haven, in her wheelchair at age 100" },
+          { "num": "042", "alt": "Wendy standing in her garden under the peach trees" }
+        ]},
+        { "type": "text", "index": 2 },
+        { "type": "text", "index": 3 },
+        { "type": "text", "index": 4 },
+        { "type": "text", "index": 5 },
+        { "type": "image", "num": "043", "size": "float-left", "alt": "Frank Tijerina, RTP technician, working with power tools by the company truck" },
+        { "type": "text", "index": 6 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "mama-dee-papa-senter",
+      "name": "Mama Dee & Papa Senter",
+      "paragraphs": [
+        "Mama Dee Uhila and Senita 'Uhilamoelangi were among the first to migrate to East Palo Alto from the Pacific Islands in the mid '70s. Mama Dee is well-known in the EPA community for her community work and activism. They have warmly opened their colorful house to welcome any new families who tried to settle into the American Society. Through their non-profit organization, Anamatangi Polynesian Voices, they have helped with issues from environment justice to immigration, culture enrichment and translation services."
+      ],
+      "quotes": [],
+      "audio": [],
+      "blocks": [
+        { "type": "image", "num": "052", "size": "full", "alt": "Mama Dee Uhila and family in their colorful island-styled living room with traditional Polynesian drums" },
+        { "type": "text", "index": 0 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "mele-latu",
+      "name": "Mele Latu",
+      "paragraphs": [
+        "Mele is a community builder at Bloomhouse (a subdivision of Emerson Collective), a Board of Trustee at Ravenswood City School District, a Board member at Anamatangi Polynesia Voices, and cancer survivor.",
+        "Mele's parents are first generation immigrants from Tonga and Australia. After moving around, they eventually settled down in East Palo Alto which now has one of the highest Pacific Islander populations in the States. Born and raised in East Palo Alto, Mele had a deep understanding of what her parents sacrificed in order to provide for her and her siblings.",
+        "When Mele applied for the college, despite being admitted to Berkeley and hoping to stay in the Bay area, her parents insisted she should attend college somewhere else so as not to be distracted and she ended up at University of Miami.",
+        "After college and a few years of travel, Mele decided to come back and work with the community for the future of East Palo Alto. She credited Mama Dee and her family, who had migrated to East Palo Alto in the seventies to really build a strong community of Pacific Islanders.",
+        "Bob Hoover also had a significant positive influence on Mele and how she decided to come back to contribute to the community. Mele first met Bob through Bob's golf program, although golf itself is just a small part of what they share. What is more important, Mele says, is that Bob taught life skills to the kids in the community, including how to show respect towards others and how to present yourself. Bob really took care of all of the kids in the neighborhood."
+      ],
+      "quotes": [
+        "You cannot mention Pacific Island people, even in the County of San Mateo, without some mention of the work that Mama Dee has been able to do, around advocacy and fighting for PI rights.",
+        "I have a very soft spot for young people in our community. As a young person, I knew how important it was and how I cherished all of the leaders that had their hand over me throughout my young life, going into my adulthood. My biggest thing is not just about the quality of our education, but it's also about the experience of our young people."
+      ],
+      "audio": [
+        { "src": "/audio/mele_immigration.mp3", "title": "My parents don't know the system..." },
+        { "src": "/audio/mele_berkeley.mp3", "title": "No, you are not going to Berkeley." },
+        { "src": "/audio/mele_giveback.mp3", "title": "I want to give back..." }
+      ],
+      "blocks": [
+        { "type": "image", "num": "053", "size": "full", "alt": "Mele Latu standing in a field with colorful murals behind her and a wagon of food supplies, under an orange wildfire sky" },
+        { "type": "text", "index": 0 },
+        { "type": "audio", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "text", "index": 2 },
+        { "type": "audio", "index": 1 },
+        { "type": "image", "num": "054", "size": "float-right", "alt": "Mele Latu, portrait at Bloomhouse under the orange wildfire sky" },
+        { "type": "text", "index": 3 },
+        { "type": "quote", "index": 0 },
+        { "type": "text", "index": 4 },
+        { "type": "quote", "index": 1 },
+        { "type": "audio", "index": 2 },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "dowden-family",
+      "name": "The Dowden Family",
+      "paragraphs": [
+        "The Dowden family migrated to East Palo Alto from Colombia. Nyla Dowden, a single mother, lives with her two daughters: Detsiy'ah Dowden-Johnson and Deliy'ah Dowden-Johnson, along with her mother Caslida Smith.",
+        "On a cool, breezy afternoon that followed wildfires and a week-long heatwave, Nyla's children played outside of the house. Deliy'ah clutched her teddy-bear and relished the fresh air while her sister who suffers from Cerebral palsy, Detsiy'ah, relaxed in a giant swing.",
+        "Deliy'ah goes to The Primary School and she really misses her friends. Deliy'ah has ADHD and is often super hyper. Her mother got her a little puppy named Nassir, to help calm her down and combat the loneliness during the pandemic.",
+        "This beautiful purple cottage in the backyard is set up and decorated by her mother as a playhouse."
+      ],
+      "quotes": [],
+      "audio": [],
+      "blocks": [
+        { "type": "image", "num": "056", "size": "full", "alt": "The Dowden family — Nyla, her mother Caslida, and daughters Detsiy'ah and Deliy'ah — in front of their home" },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "text", "index": 2 },
+        { "type": "text", "index": 3 },
+        { "type": "image", "num": "057", "size": "full", "alt": "Deliy'ah in her purple playhouse decorated by her mother, holding her puppy Nassir" },
+        { "type": "back-to-top" }
+      ]
+    },
+    {
+      "id": "shannon-juan",
+      "name": "Shannon & Juan's Family",
+      "paragraphs": [
+        "Shannon and Juan first met in Mountain View, at the place where Juan was the supervisor for Shannon's work. After they got married, they moved to a mobile home in East Palo Alto and have been here for more than eight years.",
+        "To help cover costs, they rent out one room of the mobile home. Juan is a Lyft driver while Shannon has left the work to be with their three beautiful children.",
+        "Since the onset of the COVID-19 crisis, Juan has had difficulty finding work like he did before the pandemic. There are just not as many riders, he says. Some days, Juan would have to work 13 hours, away from his home, wife, and kids, to make 130 dollars, which is not enough to cover his family's expenses. They rely on EHP and the Boys and Girls Clubs to put food on the table.",
+        "Amid difficult times, there is a glimmer of hope for Shannon and her family. Shannon is very happy that her family won the lottery so that all of her kids can go to The Primary School, a charter school funded by Priscilla Chan."
+      ],
+      "quotes": [],
+      "audio": [],
+      "blocks": [
+        { "type": "image", "num": "058", "size": "full", "alt": "Shannon, Juan, and their three children at their mobile home in East Palo Alto" },
+        { "type": "text", "index": 0 },
+        { "type": "text", "index": 1 },
+        { "type": "image", "num": "059", "size": "float-left", "alt": "Angel, Sophie, and Sabrina — Shannon and Juan's three children — eating snacks outside their home" },
+        { "type": "text", "index": 2 },
+        { "type": "text", "index": 3 },
+        { "type": "back-to-top" }
+      ]
+    }
+  ],
+  "credits": "Special thanks to Kyle Cromwell for transcription and Bryn Carlson for editing."
+}

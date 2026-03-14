@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import portrait from '../assets/vivian-portrait.jpg';
+---
+
+<Base title="About — Vivian Cromwell" activeNav="about">
+  <article class="about">
+    <section class="about-hero">
+      <div class="about-hero-content">
+        <h1 class="about-title">About</h1>
+        <p class="about-lead">My life has taken many turns.</p>
+        <ol class="journey-list">
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Shanghai</button>
+            <p class="journey-detail">Born and raised in a city of 24 million, where my childhood dream was to become a journalist.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">America</button>
+            <p class="journey-detail">Moved to the United States with my parents — first to a quiet town in Maryland.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Engineering</button>
+            <p class="journey-detail">APIs, SDKs, developer platforms. Built teams from the ground up at Google — multiple times, across continents.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Startups</button>
+            <p class="journey-detail">Built my own company. Biggest lesson: build things you're passionate about.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Wine & Spirits</button>
+            <p class="journey-detail">Three wine certifications, countless cocktails. A beautiful chapter, now closed — but the <a href="https://instagram.com/thetipsymuse" class="about-link" target="_blank" rel="noopener noreferrer">palate stays</a>.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Photography</button>
+            <p class="journey-detail">Self-taught. Commercial and editorial work became a practice, but travel and documentary is where my heart is.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Motherhood</button>
+            <p class="journey-detail">The hardest thing I've ever done. Six years away from tech — returned just in time for the AI wave.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">MFA</button>
+            <p class="journey-detail">Fine arts MFA in oil painting. Still finding my own style.</p>
+          </li>
+          <li class="journey-item">
+            <button class="journey-toggle" aria-expanded="false">Product & Design</button>
+            <p class="journey-detail">Product, design, and code — I've done all three since my startup days. Now back full time, building AI-first products in the energy sector.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="about-portrait">
+        <Image
+          src={portrait}
+          alt="Vivian Cromwell"
+          widths={[400, 600, 800]}
+          sizes="(max-width: 768px) 100vw, 340px"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <p class="about-closing">I don't plan too far ahead. But on the horizon: Tibet before my knees give out. Plein air painting in Florence. Walking the Nakasendo trail in Japan.</p>
+
+    <section class="about-section">
+      <h2 class="about-section-title">Photography — Exhibitions & Awards</h2>
+      <dl class="about-cv">
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2021</dt>
+          <dd class="about-cv-detail"><a href="https://www.pinkladyfoodphotographeroftheyear.com/finalists-gallery-2021/" class="about-link" target="_blank" rel="noopener noreferrer">Pink Lady Food Photographer of the Year 2021,</a> Winterbotham Darby Food for Sale finalist, the exhibition at <a href="https://rps.org/" class="about-link" target="_blank" rel="noopener noreferrer">The Royal Photographic Society</a>, Bristol, UK. The Philip Harben Award for Food in Action Commended</dd>
+        </div>
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2021</dt>
+          <dd class="about-cv-detail"><a href="https://www.pinkladyfoodphotographeroftheyear.com/finalists-gallery-2021/" class="about-link" target="_blank" rel="noopener noreferrer">Pink Lady Food Photographer of the Year 2021,</a> The Philip Harben Award for Food in Action Commended</dd>
+        </div>
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2021</dt>
+          <dd class="about-cv-detail"><a href="http://www.harthousecameraclub.ca/exhibition/99th-exhibition-winners/" class="about-link" target="_blank" rel="noopener noreferrer">Hart House Camera Club, 99th Exhibition</a>, Portraiture – K.B Jackson Award runner-up, People – William J. Dowkes Award Honorable Mention</dd>
+        </div>
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2021</dt>
+          <dd class="about-cv-detail"><a href="https://photoplacegallery.com/online-juried-shows/composed-2/gallery/exhibition-gallery" class="about-link" target="_blank" rel="noopener noreferrer">PhotoPlace Gallery: Composed,</a> Online Gallery</dd>
+        </div>
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2021</dt>
+          <dd class="about-cv-detail"><a href="https://photoplacegallery.com/online-juried-shows/the-poetry-of-the-ordinary-2/gallery/exhibition-gallery" class="about-link" target="_blank" rel="noopener noreferrer">PhotoPlace Gallery: The Poetry of the Ordinary,</a> Middlebury, Vermont</dd>
+        </div>
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2018</dt>
+          <dd class="about-cv-detail"><a href="https://photoplacegallery.com/juried-photo-exhibits/travel-places-and-faces/" class="about-link" target="_blank" rel="noopener noreferrer">PhotoPlace Gallery: Travel: Places and Faces</a>, Middlebury, Vermont</dd>
+        </div>
+        <div class="about-cv-entry">
+          <dt class="about-cv-year">2019</dt>
+          <dd class="about-cv-detail"><a href="http://www.photocentral.org/Spring2019/" class="about-link" target="_blank" rel="noopener noreferrer">PhotoCentral Spring Show</a>, Hayward California</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-section-title">Photography — Clients</h2>
+      <ul class="about-clients-list">
+        <li>Nikka Whisky</li>
+        <li>Quanta Magazine</li>
+        <li>Cognac USA</li>
+        <li>TNT Drama</li>
+        <li>Lalique</li>
+        <li>Four Seasons San Francisco</li>
+        <li>Sinegal Estate</li>
+        <li>Death and Co.</li>
+        <li>Norlan Whisky Glass</li>
+        <li>Suntory</li>
+        <li>Perrier</li>
+        <li>Woodford Reserve</li>
+        <li>Highwest</li>
+        <li>Mount Gay</li>
+        <li>Takara Sake</li>
+        <li>Fernet Branca</li>
+        <li>Mociun</li>
+        <li>Shaker and Spoon</li>
+      </ul>
+    </section>
+  </article>
+</Base>
+
+
+<script>
+  document.querySelectorAll('.journey-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', String(!expanded));
+      item?.classList.toggle('is-open', !expanded);
+    });
+  });
+</script>

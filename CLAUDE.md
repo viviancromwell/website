@@ -7,7 +7,6 @@
 - Font pairing: Cormorant Garamond (display/headings) + Instrument Sans (body/UI)
 
 ## Performance
-- No JavaScript frameworks — vanilla HTML, CSS, JS only
 - Minimal dependencies; prefer native browser APIs
 - Images must be lazy-loaded (`loading="lazy"`) and use modern formats (WebP/AVIF with fallback)
 - Fonts loaded via `preconnect` + `display=swap` to avoid render blocking

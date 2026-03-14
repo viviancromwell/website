@@ -1,271 +1,692 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
+import documentary from '../../../data/east-palo-alto.json';
 
-const jpgImages = import.meta.glob<{ default: ImageMetadata }>(
-  '../../../assets/projects/east-palo-alto/*.jpg',
-  { eager: true }
-);
-const pngImages = import.meta.glob<{ default: ImageMetadata }>(
-  '../../../assets/projects/east-palo-alto/*.png',
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../../../assets/projects/east-palo-alto/*.{jpg,png}',
   { eager: true }
 );
 
-const images = { ...jpgImages, ...pngImages };
+function img(num: string): ImageMetadata | undefined {
+  const entry = Object.entries(allImages).find(([path]) => {
+    const filename = path.split('/').pop() ?? '';
+    return filename.startsWith(num + '.');
+  });
+  return entry?.[1]?.default;
+}
 
-const sortedImages = Object.entries(images)
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([path, mod]) => mod.default);
+// Portrait grid — images 001-011 map to profiles in order
+const portraits = [
+  { num: '001', name: 'Bob Hoover' },
+  { num: '002', name: 'Alanna Stevenson' },
+  { num: '003', name: 'Nevida Butler' },
+  { num: '004', name: 'Lesia Preston' },
+  { num: '005', name: 'Thandiwe & Balondemu Lyons' },
+  { num: '006', name: 'Leonora Martinez' },
+  { num: '007', name: 'Rebuilding Together' },
+  { num: '008', name: 'Mele Latu' },
+  { num: '009', name: 'Mama Dee & Papa Senter' },
+  { num: '010', name: "Deliy'ah & Destiy'ah" },
+  { num: '011', name: 'Shannon Todd' },
+];
+
+// Pre-resolve image metadata for each block
+type ResolvedBlock =
+  | { type: 'image'; src: ImageMetadata; alt: string; size: string }
+  | { type: 'image-pair'; items: Array<{ src: ImageMetadata; alt: string }> }
+  | { type: 'text'; content: string }
+  | { type: 'quote'; content: string; attribution: string }
+  | { type: 'audio'; src: string; title: string }
+  | { type: 'back-to-top' };
+
+function resolveBlocks(profile: typeof documentary.profiles[0]): ResolvedBlock[] {
+  const resolved: ResolvedBlock[] = [];
+
+  for (const block of profile.blocks) {
+    if (block.type === 'image' && 'num' in block) {
+      const src = img(block.num);
+      if (src) {
+        resolved.push({
+          type: 'image',
+          src,
+          alt: block.alt || '',
+          size: block.size || 'center',
+        });
+      }
+    } else if (block.type === 'image-pair' && 'items' in block) {
+      const items = (block.items as Array<{ num: string; alt: string }>)
+        .map((item) => {
+          const src = img(item.num);
+          return src ? { src, alt: item.alt || '' } : null;
+        })
+        .filter((x): x is { src: ImageMetadata; alt: string } => x !== null);
+      if (items.length > 0) {
+        resolved.push({ type: 'image-pair', items });
+      }
+    } else if (block.type === 'text' && 'index' in block) {
+      const text = profile.paragraphs[block.index as number];
+      if (text) resolved.push({ type: 'text', content: text });
+    } else if (block.type === 'quote' && 'index' in block) {
+      const quote = profile.quotes[block.index as number];
+      if (quote) resolved.push({ type: 'quote', content: quote, attribution: profile.name });
+    } else if (block.type === 'audio' && 'index' in block) {
+      const audio = profile.audio[block.index as number];
+      if (audio) resolved.push({ type: 'audio', src: audio.src, title: audio.title });
+    } else if (block.type === 'back-to-top') {
+      resolved.push({ type: 'back-to-top' });
+    }
+  }
+
+  return resolved;
+}
+
+const profileData = documentary.profiles.map((profile) => ({
+  profile,
+  blocks: resolveBlocks(profile),
+}));
 ---
 
-<Base title="East Palo Alto Gallery — Vivian Cromwell" activeNav="projects">
+<Base title="The Last 2.5-Mile Stretch — East Palo Alto — Vivian Cromwell" activeNav="projects">
   <div class="painting-back">
     <a href="/projects/east-palo-alto" class="back-link">&larr; Back to Project</a>
   </div>
 
-  <section class="gallery-section">
-    <h1 class="section-title">The Last 2.5-Mile Stretch, East Palo Alto</h1>
-    <div class="gallery-grid">
-      {sortedImages.map((img, i) => (
-        <button class="gallery-lightbox-card" data-index={i} type="button" aria-label={`View photo ${i + 1}`}>
-          <Image
-            src={img}
-            alt={`East Palo Alto — photo ${i + 1}`}
-            widths={[400, 800]}
-            sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw"
-            loading="lazy"
-            data-full={img.src}
-          />
-        </button>
-      ))}
-    </div>
-  </section>
+  <article class="doc" id="top">
+    <header class="doc-header">
+      <h1 class="doc-title">{documentary.title}</h1>
+      <p class="doc-subtitle">{documentary.subtitle}</p>
+    </header>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
-    <div class="lightbox-backdrop"></div>
-    <button class="lightbox-close" aria-label="Close" type="button">&times;</button>
-    <button class="lightbox-prev" aria-label="Previous image" type="button">&#8249;</button>
-    <button class="lightbox-next" aria-label="Next image" type="button">&#8250;</button>
-    <div class="lightbox-content">
-      <img class="lightbox-img" src="" alt="" />
-    </div>
-    <div class="lightbox-counter"></div>
-  </div>
+    <section class="doc-intro" aria-label="Introduction">
+      {documentary.intro.map((para) => (
+        <p set:html={para} />
+      ))}
+    </section>
+
+    <nav class="doc-portraits" aria-label="Jump to profile">
+      {portraits.map((p, i) => {
+        const src = img(p.num);
+        const targetId = documentary.profiles[i]?.id;
+        return src && targetId ? (
+          <a href={`#${targetId}`} class="doc-portrait-link">
+            <Image
+              src={src}
+              alt={p.name}
+              widths={[300, 500]}
+              sizes="(max-width: 600px) 50vw, (max-width: 900px) 25vw, 200px"
+              loading="lazy"
+            />
+            <span class="doc-portrait-name">{p.name}</span>
+          </a>
+        ) : null;
+      })}
+    </nav>
+
+    <hr class="doc-divider" />
+
+    {profileData.map(({ profile, blocks }, layoutIdx) => (
+      <section class="doc-profile" id={profile.id} aria-label={profile.name}>
+        <div class="doc-profile-body">
+          <h2 class="doc-profile-name">{profile.name}</h2>
+
+          {blocks.map((block) => {
+            if (block.type === 'image') {
+              const sizeClass = `doc-image-${block.size}`;
+              return (
+                <figure class={sizeClass}>
+                  <Image
+                    src={block.src}
+                    alt={block.alt}
+                    widths={[400, 700, 1100]}
+                    sizes={
+                      block.size === 'full' ? '100vw' :
+                      block.size === 'center-large' ? '(max-width: 600px) 100vw, 80vw' :
+                      block.size === 'center' ? '(max-width: 600px) 100vw, 60vw' :
+                      block.size === 'float-left-small' ? '(max-width: 600px) 100vw, 30vw' :
+                      '(max-width: 600px) 100vw, 45vw'
+                    }
+                    loading="lazy"
+                  />
+                </figure>
+              );
+            }
+
+            if (block.type === 'image-pair') {
+              return (
+                <div class="doc-image-pair">
+                  {block.items.map((item) => (
+                    <figure>
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        widths={[400, 700]}
+                        sizes="(max-width: 600px) 100vw, 45vw"
+                        loading="lazy"
+                      />
+                    </figure>
+                  ))}
+                </div>
+              );
+            }
+
+            if (block.type === 'quote') {
+              return (
+                <blockquote class="doc-pullquote">
+                  <p>&ldquo;{block.content}&rdquo;</p>
+                  <cite>— {block.attribution}</cite>
+                </blockquote>
+              );
+            }
+
+            if (block.type === 'audio') {
+              return (
+                <div class="doc-audio">
+                  <button class="doc-audio-play" aria-label="Play audio" data-src={block.src}>
+                    <svg class="doc-audio-icon-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><polygon points="3,1 13,8 3,15" /></svg>
+                    <svg class="doc-audio-icon-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="display:none"><rect x="2" y="1" width="4" height="14" /><rect x="10" y="1" width="4" height="14" /></svg>
+                  </button>
+                  <span class="doc-audio-title">{block.title}</span>
+                  <span class="doc-audio-time"></span>
+                </div>
+              );
+            }
+
+            if (block.type === 'text') {
+              if (block.content.includes('\n\n')) {
+                return block.content.split('\n\n').map((sub) => (
+                  <p class="doc-text">{sub}</p>
+                ));
+              }
+              return <p class="doc-text">{block.content}</p>;
+            }
+
+            if (block.type === 'back-to-top') {
+              return (
+                <a href="#top" class="doc-back-to-top">&uarr; Back to top</a>
+              );
+            }
+
+            return null;
+          })}
+        </div>
+
+        <div class="doc-clearfix"></div>
+        {layoutIdx < profileData.length - 1 && <hr class="doc-divider" />}
+      </section>
+    ))}
+
+    <footer class="doc-credits">
+      <hr class="doc-divider" />
+      <p><em>{documentary.credits}</em></p>
+    </footer>
+  </article>
 </Base>
 
 <style>
-  .gallery-lightbox-card {
-    break-inside: avoid;
-    margin-bottom: var(--space-xl);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
+  .doc {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
   }
 
-  .gallery-lightbox-card img {
+  /* --- Header --- */
+
+  .doc-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .doc-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 300;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .doc-subtitle {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin: var(--space-sm) 0 0;
+  }
+
+  /* --- Introduction --- */
+
+  .doc-intro {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0 0 var(--space-xl);
+  }
+
+  .doc-intro p {
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .doc-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- Portrait Grid --- */
+
+  .doc-portraits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    padding: var(--space-xl) 0;
+  }
+
+  .doc-portrait-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    text-align: center;
+  }
+
+  .doc-portrait-link img {
     width: 100%;
     height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
     display: block;
     transition: opacity 0.2s;
   }
 
-  .gallery-lightbox-card:hover img {
-    opacity: 0.85;
+  .doc-portrait-link:hover img {
+    opacity: 0.8;
   }
 
-  /* Lightbox */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
+  .doc-portrait-name {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-xs);
+    line-height: var(--leading-normal);
+  }
+
+  .doc-portrait-link:hover .doc-portrait-name {
+    color: var(--color-text);
+  }
+
+  /* --- Divider --- */
+
+  .doc-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-lg) auto;
+    max-width: 120px;
+  }
+
+  /* --- Profile Sections --- */
+
+  .doc-profile {
+    padding: var(--space-lg) 0;
+  }
+
+  .doc-profile-body {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .doc-profile-name {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    margin: var(--space-lg) 0 var(--space-md);
+    color: var(--color-text);
+  }
+
+  .doc-clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  /* --- Text --- */
+
+  .doc-text {
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-md);
+  }
+
+  /* --- Pull Quotes --- */
+
+  .doc-pullquote {
+    margin: var(--space-lg) 0;
+    padding: 0;
+    text-align: center;
+    clear: both;
+  }
+
+  .doc-pullquote p {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
+    font-weight: 300;
+    font-style: italic;
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    margin: 0;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .doc-pullquote cite {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-style: normal;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+  }
+
+  /* --- Audio --- */
+
+  .doc-audio {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    margin: var(--space-md) 0;
+    background-color: var(--color-bg-subtle);
+    clear: both;
+  }
+
+  .doc-audio-play {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .lightbox[hidden] {
-    display: none;
-  }
-
-  .lightbox-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.98);
-  }
-
-  .lightbox-content {
-    position: relative;
-    z-index: 1;
-    max-width: 90vw;
-    max-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .lightbox-img {
-    max-width: 90vw;
-    max-height: 85vh;
-    object-fit: contain;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .lightbox-img.is-loaded {
-    opacity: 1;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: var(--space-lg);
-    right: var(--space-lg);
-    z-index: 2;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: var(--text-3xl);
     cursor: pointer;
-    padding: var(--space-xs);
-    line-height: 1;
-    transition: color 0.2s, opacity 0.3s;
-    outline: none;
-    opacity: 0;
-  }
-
-  .lightbox:hover .lightbox-close {
-    opacity: 1;
-  }
-
-  .lightbox-close:hover {
-    color: #fff;
-  }
-
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 3rem;
-    cursor: pointer;
-    padding: var(--space-lg);
-    line-height: 1;
-    transition: color 0.2s, opacity 0.3s;
+    color: var(--color-text);
     -webkit-appearance: none;
     appearance: none;
     outline: none;
-    opacity: 0;
+    transition: color 0.2s;
   }
 
-  .lightbox:hover .lightbox-prev,
-  .lightbox:hover .lightbox-next {
-    opacity: 1;
+  .doc-audio-play:hover {
+    color: var(--color-accent);
   }
 
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    color: #fff;
+  .doc-audio-play:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
-  .lightbox-prev {
-    left: var(--space-sm);
-  }
-
-  .lightbox-next {
-    right: var(--space-sm);
-  }
-
-  .lightbox-counter {
-    position: absolute;
-    bottom: var(--space-lg);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: var(--text-sm);
+  .doc-audio-title {
     font-family: var(--font-body);
-    opacity: 0;
-    transition: opacity 0.3s;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text);
+    flex: 1;
   }
 
-  .lightbox:hover .lightbox-counter {
-    opacity: 1;
+  .doc-audio-time {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  /* --- Image: Center (~60% width) --- */
+
+  .doc-image-center {
+    margin: var(--space-lg) auto;
+    max-width: 60%;
+    clear: both;
+  }
+
+  .doc-image-center img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Image: Center Large (~80% width) --- */
+
+  .doc-image-center-large {
+    margin: var(--space-lg) auto;
+    max-width: 80%;
+    clear: both;
+  }
+
+  .doc-image-center-large img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Image: Float Left (~45% width) --- */
+
+  .doc-image-float-left {
+    float: left;
+    width: 45%;
+    margin: var(--space-xs) var(--space-xl) var(--space-md) 0;
+  }
+
+  .doc-image-float-left img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Image: Float Left Small (~30% width) --- */
+
+  .doc-image-float-left-small {
+    float: left;
+    width: 30%;
+    margin: var(--space-xs) var(--space-xl) var(--space-md) 0;
+  }
+
+  .doc-image-float-left-small img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Image: Float Right (~45% width) --- */
+
+  .doc-image-float-right {
+    float: right;
+    width: 45%;
+    margin: var(--space-xs) 0 var(--space-md) var(--space-xl);
+  }
+
+  .doc-image-float-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Image: Full Width --- */
+
+  .doc-image-full {
+    margin: var(--space-lg) 0;
+    clear: both;
+  }
+
+  .doc-image-full img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Image Pair (side by side) --- */
+
+  .doc-image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+    clear: both;
+  }
+
+  .doc-image-pair figure {
+    margin: 0;
+  }
+
+  .doc-image-pair img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* --- Back to Top --- */
+
+  .doc-back-to-top {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-top: var(--space-lg);
+    clear: both;
+  }
+
+  .doc-back-to-top:hover {
+    text-decoration: underline;
+  }
+
+  /* --- Credits --- */
+
+  .doc-credits {
+    text-align: center;
+    padding: var(--space-lg) 0 var(--space-xl);
+    clear: both;
+  }
+
+  .doc-credits p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+  }
+
+  /* --- Responsive --- */
+
+  @media (max-width: 768px) {
+    .doc-header {
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .doc-portraits {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .doc-image-center,
+    .doc-image-center-large {
+      max-width: 100%;
+    }
+
+    .doc-image-float-left,
+    .doc-image-float-left-small,
+    .doc-image-float-right {
+      float: none;
+      width: 100%;
+      margin: var(--space-lg) 0;
+    }
+
+    .doc-image-pair {
+      grid-template-columns: 1fr;
+    }
+
+    .doc-pullquote {
+      margin: var(--space-lg) 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .doc-portraits {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* --- Reduced Motion --- */
+
+  @media (prefers-reduced-motion: reduce) {
+    .doc-portrait-link img {
+      transition: none;
+    }
   }
 </style>
 
 <script>
-  const lightbox = document.getElementById('lightbox')!;
-  const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
-  const counter = lightbox.querySelector('.lightbox-counter')!;
-  const cards = document.querySelectorAll<HTMLButtonElement>('.gallery-lightbox-card');
-
-  const fullUrls: string[] = [];
-  cards.forEach((card) => {
-    const img = card.querySelector('img');
-    if (img) {
-      fullUrls.push(img.dataset.full || img.src);
-    }
-  });
-
-  const total = fullUrls.length;
-  let current = 0;
-
-  function open(index: number) {
-    current = index;
-    show();
-    lightbox.hidden = false;
-    document.body.style.overflow = 'hidden';
+  function formatTime(s: number): string {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, '0')}`;
   }
 
-  function close() {
-    lightbox.hidden = true;
-    document.body.style.overflow = '';
-  }
+  let currentAudio: HTMLAudioElement | null = null;
+  let currentBtn: HTMLButtonElement | null = null;
 
-  function show() {
-    lightboxImg.classList.remove('is-loaded');
-    lightboxImg.src = fullUrls[current];
-    lightboxImg.alt = `Photo ${current + 1}`;
-    lightboxImg.onload = () => lightboxImg.classList.add('is-loaded');
-    if (lightboxImg.complete) lightboxImg.classList.add('is-loaded');
-    counter.textContent = `${current + 1} / ${total}`;
-  }
+  document.querySelectorAll<HTMLButtonElement>('.doc-audio-play').forEach((btn) => {
+    const src = btn.dataset.src;
+    if (!src) return;
 
-  function prev() {
-    current = (current - 1 + total) % total;
-    show();
-  }
+    const container = btn.closest('.doc-audio');
+    const timeEl = container?.querySelector('.doc-audio-time');
+    const playIcon = btn.querySelector('.doc-audio-icon-play') as SVGElement;
+    const pauseIcon = btn.querySelector('.doc-audio-icon-pause') as SVGElement;
 
-  function next() {
-    current = (current + 1) % total;
-    show();
-  }
+    const audio = new Audio(src);
+    audio.preload = 'metadata';
 
-  cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      const index = parseInt(card.dataset.index || '0', 10);
-      open(index);
+    audio.addEventListener('loadedmetadata', () => {
+      if (timeEl) timeEl.textContent = formatTime(audio.duration);
     });
-  });
 
-  lightbox.querySelector('.lightbox-close')!.addEventListener('click', close);
-  lightbox.querySelector('.lightbox-backdrop')!.addEventListener('click', close);
-  lightbox.querySelector('.lightbox-prev')!.addEventListener('click', prev);
-  lightbox.querySelector('.lightbox-next')!.addEventListener('click', next);
+    audio.addEventListener('timeupdate', () => {
+      if (timeEl) timeEl.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.hidden) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
+    audio.addEventListener('ended', () => {
+      playIcon.style.display = '';
+      pauseIcon.style.display = 'none';
+      if (timeEl) timeEl.textContent = formatTime(audio.duration);
+      currentAudio = null;
+      currentBtn = null;
+    });
+
+    btn.addEventListener('click', () => {
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        const prevPlay = currentBtn?.querySelector('.doc-audio-icon-play') as SVGElement;
+        const prevPause = currentBtn?.querySelector('.doc-audio-icon-pause') as SVGElement;
+        if (prevPlay) prevPlay.style.display = '';
+        if (prevPause) prevPause.style.display = 'none';
+      }
+
+      if (audio.paused) {
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+        currentAudio = audio;
+        currentBtn = btn;
+      } else {
+        audio.pause();
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+        currentAudio = null;
+        currentBtn = null;
+      }
+    });
   });
 </script>

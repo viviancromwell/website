@@ -67,6 +67,11 @@ const sortedImages = Object.entries(images)
     display: flex;
     align-items: center;
     justify-content: center;
+    visibility: hidden;
+  }
+
+  .carousel-slide.is-active {
+    visibility: visible;
   }
 
   .carousel-slide img {
@@ -132,10 +137,17 @@ const sortedImages = Object.entries(images)
   let current = 0;
 
   function go(index: number) {
+    const prev = current;
     current = ((index % total) + total) % total;
+    slides[prev].classList.add('is-active');
+    slides[current].classList.add('is-active');
     track.style.transform = `translateX(-${current * 100}%)`;
     counter.textContent = `${current + 1} / ${total}`;
   }
+
+  track.addEventListener('transitionend', () => {
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+  });
 
   go(0);
 
