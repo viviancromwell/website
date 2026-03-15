@@ -1,0 +1,237 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import blindSpotHeader from '../../../assets/writings/avoid-your-own-blind-spot/01-blind-spot-header.webp';
+import labelboxTeam from '../../../assets/writings/avoid-your-own-blind-spot/02-labelbox-team.webp';
+---
+
+<Base title="Avoid Your Own Blind Spot — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Avoid Your Own Blind Spot</h1>
+      <div class="article-meta">
+        <time datetime="2019-08-13">August 13, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">10 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=tech" class="article-category">Tech</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>I met Dan Rasmuson, the up-and-coming young CTO of <a href="https://www.labelbox.com/">Labelbox</a> through <a href="https://fasttrack.firstround.com/">First Round Fast Track</a>, a 90-day program that matches tech veterans with First Round-backed founders and execs for 1–1 mentorship.</p>
+
+      <p>During our first meeting in the Mission District, Dan's first question was "<strong>How do I avoid my own blind spot?</strong>". To be honest, this surprised me because I very much expected Dan to ask for guidance related to product growth, adoption and hiring talents — things that I have been asked very frequently.</p>
+
+      <figure class="article-image">
+        <Image src={blindSpotHeader} alt="Illustration about blind spots in leadership" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>A little bit about Labelbox, a data labeling startup backed by <a href="https://www.kleinerperkins.com/">Kleiner Perkins</a>, <a href="https://www.gradient.com/">Gradient Ventures</a> and <a href="https://firstround.com/">First Round</a>: while many startups focus on machine learning technology, Labelbox aims to provide standard tools for labeling data, storing it, debugging models and then continually improving model accuracy. Labelbox's vision is to become the default software for data scientists to manage data and train neural networks in the same way that GitHub or text editors are defaults for software engineers.</p>
+
+      <figure class="article-image">
+        <Image src={labelboxTeam} alt="Labelbox team" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Dan has made an important decision at the office. But as a first-time founder, he was now second-guessing himself, and he wondered if he has made the right call. At small startups, the team is often busy finding Product Market Fit, very little time is set aside to think about the engineering organization and performance review. CEOs and CTOs make decisions based on their intuition, together with some limited feedback. In Dan's specific case, he needs to make a decision of whether someone is ready to lead the team quickly.</p>
+
+      <p>How do you know when an engineer is ready to take the next step in their career? How do you know if the engineer is assigned to the right activities? How to maximize effectiveness without too much overhead? Those are the questions that every engineer manager would need to ask throughout their management career.</p>
+
+      <p>Those sets of the questions really got me thinking, setting up the engineering organization is one of the subjects I am very passionate about. I believe people learn the fastest when they learn from their own mistakes. Most of my management experience was from my time at Google, there were certainly both ups and downs. As a manager, you don't always understand the impact of certain decisions made by yourself or how the team has grown to operate, and sometimes you don't realize until years later, that perhaps it could have operated in a slightly different way.</p>
+
+      <p>Dan's questions really prompted me to reflect on things I have learned from my own experience. To make sure to give Dan a more comprehensive view on this specific subject, I reached out to a few tech friends who I admire highly and gathered more feedback.</p>
+
+      <p>I thought it would be great to share the collective set of feedback with the public; there is wisdom there and I hope you find it to be useful.</p>
+
+      <h2>Dan Pupius</h2>
+
+      <p><strong>CEO, <a href="https://www.range.co/">Range</a>; previously engineering at Medium & Google.</strong></p>
+
+      <p>When talking about blind spots, I find it useful to think about them in two forms.</p>
+
+      <p>First, there are things that are hidden from you, but which are in your awareness. They are known unknowns. As a leader of a growing organization, the fact that there are things outside your knowledge is just a fact of life. You can't know everything that is going on.</p>
+
+      <p>Knowing that you can't know everything, your job is to set up sensing systems that allow you to detect when things are going awry and to identify areas that need your attention. This is a big topic, I've written about a framework for <a href="https://www.range.co/blog/the-importance-of-a-good-operating-cadence">how to set up team rituals</a> which can help.</p>
+
+      <p>Then, there are things that are completely unknown to you, things outside your awareness and your consciousness. They are unknown unknowns. This is the realm of automatic conditioning and <a href="https://www.range.co/blog/ways-our-brains-trip-us-up-at-work">cognitive biases</a>. These are likely the things that will get you in the most trouble in the long run.</p>
+
+      <p>As a leader who is responsible for others, it is incumbent on you to try and understand your own psychology and develop techniques that help you question yourself and minimize the impact of your own biases. Executive coaching, therapy, meditation, and mindfulness practices can help here.</p>
+
+      <p>The other important piece is to surround yourself with people who have different perspectives and come from different backgrounds. But diversity alone isn't enough, you need to cultivate a culture of belonging, where everyone feels safe to speak up. So they can surface things in your blindspots without fear. Team rituals are also an important component in developing psychological safety and a speak-up culture.</p>
+
+      <h2>Guillermo Rauch</h2>
+
+      <p><strong>CEO at <a href="https://zeit.co/">zeit.co</a></strong></p>
+
+      <p>I'm a big fan of <a href="https://twitter.com/naval/status/511715728899473408?lang=en">"If you can't see yourself working with someone for life, don't work with them for a day"</a> — it's the most solid heuristic I've found to prevent bad cultural matches.</p>
+
+      <p>I actively mentor my team in using this rule to vet hires themselves when they help interview. It's also ok to part ways with people even if it is emotionally and energetically draining but necessary.</p>
+
+      <p>As a leader of a remote organization, we try every day to encourage transparency, candid feedback, and honest communication. Remembering to minimize the usage of direct messages for important team discussions is vital, for example.</p>
+
+      <p>Finally, it's important to remember that everyone you work with is unique. Taking the time to get to know how each person works, how they like to receive feedback and how they communicate best is one of the most investments you can make.</p>
+
+      <h2>Preethi Kasireddy</h2>
+
+      <p><strong>Founder & CEO, <a href="https://www.trustory.io/">TruStory</a></strong></p>
+
+      <p>It's common for founders to hire people who are just like them. But one thing I've learned is that hiring like-minded people is a sure-fire way to cover up your blind spots and never confront them.</p>
+
+      <p>At TruStory, I've hired a diverse engineering team. It honestly happened by accident. But in hindsight, it's been the best team I've ever worked with. And I am not saying this for dramatic effect.</p>
+
+      <p>When I say diverse, I am not referring to race or gender, but rather a diversity in experience (junior vs. senior), interests (front-end vs. back-end), personality (perfectionist vs. scrappy) and work-style (collaborative vs. independent). Despite this diversity, they all somehow work really well together. I sense it's because the diversity on our team creates the appropriate checks and balances and makes us incredibly powerful as a collective unit.</p>
+
+      <h2>Matt Tucker</h2>
+
+      <p><strong>CEO at <a href="https://www.koan.co/">Koan</a>, previously CTO at Jive Software</strong></p>
+
+      <p>I'm impressed by any startup engineering leader that's thinking about their own "blind spots". It shows a desire and openness to improving, which is strongly correlated with actually making those improvements.</p>
+
+      <p>My first instinct would be to recommend putting in place a formal career ladder to provide structured thinking around what excellence in the organization looks like. Writing things down provides clarity in unexpected ways. A career ladder might seem too "heavy" at startups, but it's worth putting in place early. The career ladder should have a written definition of the role, responsibilities, and expectations for both individual contributor (IC) and manager tracks at each level.</p>
+
+      <p>Having a written definition of the ladders can become the context for giving feedback and can help your team grow. By having a formal set of criteria written down around what it means for someone to operate at the next level in their role, it can also become a great method for checking your own bias.</p>
+
+      <h2>My Own Thoughts</h2>
+
+      <p>Google was the place where I learned most of my engineering management skills by growing a small team of 2–3 FTEs to 30+ FTEs in 6 international offices. I was pretty successful and attracted many top talents. It was only after I left Google, through various ups and downs, that I started wondering about some of my approaches back during Google days.</p>
+
+      <p>Before we discuss the hows, I believe strongly that one of the key things to avoiding blind spots is to be more deliberative in hiring a diverse team early on. When I say diversity, I mean gender, race, age, as well as personality and skill sets — all of the different attributes that bring different perspectives to the table. This is easier said than done. Humans are naturally drawn to people who have similar traits and think similarly, which inevitably leads to blind spots — where only one set of opinions is represented.</p>
+
+      <p>When I was working on Chrome product, I recruited the first few engineers myself and the rest mostly through referrals. We ended up with an awesome front-end engineering team; most of them had many years of experience and had known each other through various open-source projects. You might be thinking that this sounds great, and it was, but I would also warn you of some potential pitfalls.</p>
+
+      <p>If your hiring funnel is mostly through referrals, this can lead to particular group dynamics which in turn can lead to group thinking and blind spots. Human beings tend to go along with the majority, they tend to think their own ideas wrong and inferior, or they don't "want to rock the boat". Groups are prone to blind spots, when they are lack of the culture where different opinions are encouraged and valued, even when they are wrong.</p>
+
+      <p>The second pitfall is what I call "aging" issue. You will end up with a group of Senior Engineers and Senior Staff Engineers if you only hire experienced ones. One of the important skills for senior engineers is to mentor junior engineers effectively. When you only have a team of senior ones, who are there to be mentored? I've found that engineers who are new to the technology often bring fresh perspectives compared to senior engineers who tend to follow the implicit "should"s and "should-not"s. In fact, some of my best hires were directly out of college.</p>
+
+      <p>If you want to encourage more different opinions within the group, which often sparks more original thinkings and creativity, you want to assemble a team from very different backgrounds. This is the same philosophy that is behind hiring more women, and engineers of color. The key is to strike a balance and to encourage different thinking within the same group. One thing I regret personally is that I was not able to hire enough female engineers on my team. After I left Google, I was approached by a startup of 20 people, without a single woman. It turned me off immediately. My own experience has taught me how other women in the field must have felt about my team.</p>
+
+      <p>Below are some of the practical suggestions I gave to Dan about avoiding blind spots. Because Labelbox is a small but fast-growing startup, the suggestions I gave Dan are very easy to implement without using any expensive software.</p>
+
+      <ul>
+        <li>Set up a small framework where small, incremental feedback is encouraged, and employees should feel safe to provide feedback. Such as an agenda item in 1:1s, peer feedback once a quarter or even a friendly kudos will brighten up your colleague's day!</li>
+        <li>As a leader, showing vulnerability is a strength, not a weakness. Admit your own mistakes will only encourage others to do the same and give you feedback.</li>
+        <li>Seek honest feedback. Are there 1–2 people in your organization who can be very honest with you? Have them as a regular feedback buddy.</li>
+        <li>Set up a systematic approach to hire for diversity, such as precise measurement on the hiring, from candidate pipeline, interview panels to how/what to measure. What you are looking to hire? Does your team have all that you are looking? Are you sourcing candidates from different channels?</li>
+      </ul>
+
+      <p>I hope you find some of the pieces to be useful! Feel free to reach out to me to discuss further. My email is viviancromwell at gmail dot com.</p>
+    </div>
+
+    <ArticleStats slug="avoid-your-own-blind-spot" tags={["startup"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

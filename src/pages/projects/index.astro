@@ -13,7 +13,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/projec
 <Base title="Projects — Vivian Cromwell" activeNav="projects">
   <section class="gallery-section">
     <div class="projects-grid">
-      {projectsJson.map((item) => {
+      {projectsJson.map((item, i) => {
         const imageSrc = images[`../../assets/projects/${item.file}`]?.default;
         return (
           <a class="gallery-card" href={`/projects/${item.id}`}>
@@ -22,12 +22,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/projec
                 <Image
                   src={imageSrc}
                   alt={item.title}
-                  loading="lazy"
+                  loading={i < 4 ? "eager" : "lazy"}
                   widths={[400, 800]}
                   sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                 />
               ) : (
-                <img src={`/projects/${item.file}`} alt={item.title} loading="lazy" />
+                <img src={`/projects/${item.file}`} alt={item.title} loading={i < 4 ? "eager" : "lazy"} />
               )}
             </div>
             <p class="gallery-card-caption">{item.title}</p>

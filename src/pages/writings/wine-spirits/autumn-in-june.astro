@@ -1,0 +1,173 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import autumnCocktail from '../../../assets/writings/autumn-in-june/01-autumn-cocktail.jpg';
+---
+
+<Base title="Autumn in June — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Autumn in June</h1>
+      <div class="article-meta">
+        <time datetime="2017-05-26">May 26, 2017</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Made this autumn drink when the summer evening got a bit chilly. We have had lots of rain this year, even now with summer approaching, we get patches of cold days in the Bay Area. When Sukkah Hill Spirits sent me some samples, I knew I wanted to try their Besamim liqueur, which has the notes of vanilla, clove and cinnamon. What I love even more is the founder's story: they were just making a few bottles for friends, then neighbors, grocery stores. Now they have two products and win medals. I think the people and their stories are what make a product special.</p>
+
+      <figure class="article-image">
+        <Image src={autumnCocktail} alt="Autumn in June cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Autumn in June</figcaption>
+      </figure>
+
+      <h2>Recipe</h2>
+
+      <h3>Ingredients</h3>
+
+      <ul>
+        <li>1.5 oz bourbon from Stagg</li>
+        <li>0.75 oz Besamin Liquor from @sukkahhillspirits</li>
+        <li>0.5 oz coffee liquor from @stgeorgespirits</li>
+        <li>Dashes of chocolate liqueur</li>
+        <li>Squeeze of lemon</li>
+        <li>1 Egg white</li>
+      </ul>
+
+      <h3>Instruction</h3>
+
+      <p>Mix all ingredients and dry shake. Garnish with nutmeg.</p>
+
+      <p>I shot this around 7:30pm, with fuji x-t1, 50mm 1.4. I am very comfortable with manual so it's at shutter speed 60, which is the lowest without a tripod. Slight adjustment in Lightroom, I kept exposure low to give the pic a bit mood.</p>
+    </div>
+
+    <ArticleStats slug="autumn-in-june" tags={["bourbon", "cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

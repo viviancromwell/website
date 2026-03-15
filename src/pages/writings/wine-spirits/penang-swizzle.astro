@@ -1,0 +1,194 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import penangSwizzle from '../../../assets/writings/penang-swizzle/01-penang-swizzle.jpg';
+---
+
+<Base title="Penang Swizzle — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Penang Swizzle</h1>
+      <div class="article-meta">
+        <time datetime="2018-08-10">August 10, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>After sharing cocktails on Instagram for almost two years, I finally learned about swizzled drinks and have my own swizzle stick, thanks to the awesome Swizzle Royale event organized by The House of ANGOSTURA.</p>
+
+      <figure class="article-image">
+        <Image src={penangSwizzle} alt="Penang Swizzle cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Penang Swizzle</figcaption>
+      </figure>
+
+      <p>The swizzle is a tiki style drink stirred with a swizzle stick to circulate ice and ingredients. The swizzle stick is made from the twigs of a species of trees native to the Caribbean. The drink is usually served in a tall Collins glass with crushed ice. Due to its island origin, rum is often used in the swizzled drinks.</p>
+
+      <p>Swizzling has a history closely intertwined with ANGOSTURA bitters and the brand's roots on the islands of Trinidad &amp; Tobago. ANGOSTURA aromatic and orange bitters are the essential ingredients to bring signature swizzled drinks to life &ndash; taking tiki classics to new heights just in time for summertime sipping.</p>
+
+      <p>Swizzling is a form of art and technique, and it takes time to master. The key to a great swizzle is to &ldquo;add all ingredients but only half of the crushed ice into your Collins glass, hold the swizzle shaft between your palms and rotate back and forth.&rdquo;</p>
+
+      <p>I had the opportunity to attend the local Swizzle Royale bartender competition at Hello Stranger Bar in Oakland on August 6, challenging Bay Area bartenders to test their swizzling skills. There were eight contenders and four judges participating in the event. The competition was well-designed and engaging, and began with each bartender preparing their own swizzled creation mastered prior to the competition. Then contest then narrowed down the four best swizzles and took the winners into a speed round in which they were challenged to make six classic swizzled drinks in 5 minutes. After using this round to narrow down the final two bartenders, the final round prompted the bartenders to create a new swizzled drink on the spot by using surprise ingredients matcha and Trinidadian melon. In the end, Jeannie from Pagan Idol won, but Maritza, the runner-up, represented with amazing presence as well.</p>
+
+      <p><strong>INTERESTING ANGOSTURA FACT:</strong> As legend has it, &ldquo;ANGOSTURA aromatic bitters' too-big label came into being when the Siegert brothers divided tasks.&rdquo;</p>
+
+      <p><strong>INTERESTING SWIZZLE FACT:</strong> &ldquo;The traditional swizzle stick is crafted from the wood of the Quararibea turbinata tree. These swizzle sticks also have a distinct maple scent.&rdquo;</p>
+
+      <h2>Recipe</h2>
+
+      <p><strong>Inspired by these two amazing ladies, here is my very first own take on swizzle.</strong></p>
+
+      <h3>Ingredients</h3>
+
+      <ul>
+        <li>1.5 oz Armadillo sherry, medium body</li>
+        <li>0.5 oz Smith and Cross rum</li>
+        <li>0.25 oz Talisker 10 year old scotch</li>
+        <li>0.75 oz lime juice</li>
+        <li>0.5 oz rambutan coulis</li>
+        <li>0.5 oz cinnamon syrup</li>
+        <li>1 mini bottle of ANGOSTURA aromatic bitters</li>
+      </ul>
+
+      <p><strong>Garnish:</strong> cinnamon stick, mint sprigs, rambutan shell</p>
+
+      <h3>Method</h3>
+
+      <p>Add crushed ice to a brandy glass til half full, add all ingredients above except bitters, swizzle swizzle and swizzle a little more. Add more ice, and top with 3 dashes of ANGOSTURA bitters. Garnish with mint sprigs, cinnamon stick and shell of rambutan.</p>
+
+      <h3>How to make rambutan coulis</h3>
+
+      <p>Rambutan is a tropical fruit from Malaysia with a hairy shell. To make coulis, use fine sugar to coat the meat of the rambutan, add amaretto liqueur to taste, blend and strain.</p>
+
+      <p>Do you think you have what it takes to make a great swizzle? Enter ANGOSTURA's Swizzle Contest and join in on the fun! The contest is open to all in the United States until the end of August. Create your very own take on this tiki classic and enter for a shot to win a trip to the Austin City Limits Music Festival this October. The winning drink will be served at ANGOSTURA's VIP booth during the festival as well, for the world to enjoy the ultimate swizzle.</p>
+    </div>
+
+    <ArticleStats slug="penang-swizzle" tags={["rum", "cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

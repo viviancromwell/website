@@ -1,0 +1,172 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import smokieSunshineCocktail from '../../../assets/writings/smokie-sunshine/01-smokie-sunshine-cocktail.webp';
+import smokieSunshineRecipe from '../../../assets/writings/smokie-sunshine/02-smokie-sunshine-recipe.webp';
+---
+
+<Base title="Smokie Sunshine — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Smokie Sunshine</h1>
+      <div class="article-meta">
+        <time datetime="2018-07-31">July 31, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={smokieSunshineCocktail} alt="Smokie Sunshine cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Many of us know Luxardo maraschino liqueur, but few know their new product Luxardo Bitter Bianco, which is based on a distilled infusion of bitter herbs (cardamom, rhubarb, quinine, bitter orange and a few secrets), aromatic plants and citrus fruits in water and alcohol. It is only released in 2016, via US importer Hotaling & Co. It is round and smooth but generally bitter with clear appearance. It is inspired by the popularity of white negronis, the desire to have the alternative to red bitters, this means you can pretty much use it in replacement of red bitters when you want a different look for your drink. So many possibilities!</p>
+
+      <h2>Recipe</h2>
+
+      <figure class="article-image">
+        <Image src={smokieSunshineRecipe} alt="Smokie Sunshine recipe card" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <ul>
+        <li>0.75 oz Vida mezcal</li>
+        <li>0.75 oz clarified strawberry juice</li>
+        <li>0.75 oz Luxardo Bitter Bianco</li>
+        <li>0.25 oz lime juice</li>
+        <li>3 dashes Green Strawberry Mah Kwan bitters</li>
+      </ul>
+
+      <p>This drink started as an inspiration of Naked and Famous but it went on its own! Luxardo Bitter Bianco gives this drink nice bitter finish while the strawberry adds fruitiness, not to mention the smokiness and a bit kick from the Mezcal and bitters (green strawberry with peppercorn finish). I am also really glad to be able to keep the drink in pretty pink, by using Luxardo's clear bitter product.</p>
+
+      <p>Hope you enjoy this summer drink that comes with personality and depth.</p>
+    </div>
+
+    <ArticleStats slug="smokie-sunshine" tags={["mezcal", "cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

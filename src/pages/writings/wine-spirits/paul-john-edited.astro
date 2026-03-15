@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import paulJohnBottle from '../../../assets/writings/paul-john-edited/01-paul-john-bottle.jpg';
+import paulJohnGlass from '../../../assets/writings/paul-john-edited/02-paul-john-glass.jpg';
+---
+
+<Base title="Paul John Edited — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Paul John Edited</h1>
+      <div class="article-meta">
+        <time datetime="2019-05-16">May 16, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={paulJohnBottle} alt="Paul John Edited whisky bottle" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>My very first bottle of <a href="https://pauljohnwhisky.com/en">Paul John</a> is Edited, one of its flagship products.</p>
+
+      <p>Paul John is an Indian Single Malt Whisky brand from John Distilleries, which has the distillery facility in Goa, a warm and tropical area in India. The whisky is double distilled in India made pot stills, but peat is sourced from Scotland as India is not the ideal place to find peat. The distillery in Goa has several barrel rooms, including one that is underground to avoid too much humidity. The warm temperature, perhaps that brings a bit more fruiter notes to the profiles as well.</p>
+
+      <p>The founder Paul P. John launched its first bottles in London, not India, exclusively on Whisky Exchange. It was so well received; they introduced more. It was only during that second phase that Edited was introduced.</p>
+
+      <figure class="article-image">
+        <Image src={paulJohnGlass} alt="Paul John Edited whisky in a glass" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Edited is a well-rounded whisky, the kind of dram you can go home to every day. The honey nose is very prominent for me as well as barley, the peat is subtle and seductive, followed by a long finish of somewhat grassy spices and chocolate mint hue.</p>
+
+      <p>Thanks to Koray, who introduced me to this whisky, I am looking forward to trying more expressions from Paul John!</p>
+
+      <p>Photography tip: it is mostly natural light. But I had one octa softbox on the right upper corner. Side way, just to fill in a bit. Window light is on the left side.</p>
+    </div>
+
+    <ArticleStats slug="paul-john-edited" tags={["whisky", "spirits", "india"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

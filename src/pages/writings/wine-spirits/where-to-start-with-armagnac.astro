@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import armagnacBottles from '../../../assets/writings/where-to-start-with-armagnac/01-armagnac-bottles.jpg';
+import armagnacForMixing from '../../../assets/writings/where-to-start-with-armagnac/02-armagnac-for-mixing.jpg';
+import armagnacForTasting from '../../../assets/writings/where-to-start-with-armagnac/03-armagnac-for-tasting.jpg';
+---
+
+<Base title="Where to Start with Armagnac — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Where to Start with Armagnac</h1>
+      <div class="article-meta">
+        <time datetime="2018-11-30">November 30, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">5 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={armagnacBottles} alt="A collection of Armagnac bottles" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>In the past year, I have been traveling through some countries where brandy has been the much kept secret such as Peru (Pisco) and Portugal (Aguardiente), I started falling in love with it. This March, I got pretty curious about Armagnac, the oldest brandy in France and also the cousin of the more well known Cognac. However, the journey to get more educated on Armagnac was somewhat frustrating. There is no website that is dedicated to Armagnac education or bottle reviews, I didn't know who are the experts to ask, and there was very limited inventory in local stores. Now fast forward nine months, I have bought over 15+ armagnac bottles and I've just started to scratch the surface. In this post, I want to share my recommendation for the very first few bottles to get started.</p>
+
+      <h2>Armagnac starter kit</h2>
+
+      <p>Similar to other spirits such as whiskey and rum, Armagnac has age references:</p>
+
+      <ul>
+        <li>VS – minimum 1 year in oak</li>
+        <li>VSOP – minimum 4 years in oak</li>
+        <li>XO or Hors d'Age – minimum 10 years in oak, but I found quite a few at 15 years</li>
+        <li>Vintage – single harvest</li>
+      </ul>
+
+      <p>Typically, VS and VSOP are great for cocktails. As you move up by age statement, those will become great for tasting such as Vintage. Although I don't always follow this practice, for classic drinks such as Revolver or Manhattan, I prefer XO or Vintage for its deep aroma. You really only need two bottles to get started.</p>
+
+      <h2>Armagnac for mixing</h2>
+
+      <figure class="article-image">
+        <Image src={armagnacForMixing} alt="Armagnac bottles for mixing cocktails" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>There are two great Armagnac for cocktails and they are slightly different: The Laballe Reserve Bas Armagnac (minimum age of 4 years). It is quite light and bright, with lots of fruits and only a hint of caramel. It is ideal for cocktails that need a high toned spirit. It is 4 years old and under 40 dollars. Marie Duffau Napoleon (minimum age of 12 years). For something a little richer the Marie Duffau Napoleon has a more baker's chocolate, caramel and a light forest floor oak spice. It is actually from the same house as Delord, just named after the grandmother. Under 40 dollars. I personally prefer Marie Duffau a bit more because I mix more brown spirit based cocktails. If you are a bourbon cocktail lover, then Marie Duffau is your pick. They are both reasonably priced and widely available in United States.</p>
+
+      <h2>Armagnac for tasting</h2>
+
+      <figure class="article-image">
+        <Image src={armagnacForTasting} alt="Armagnac bottles for tasting" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>There are so many great ones for tasting. But if I have to choose based on my own preference also their availability in United States, here is my top three choices: Marie Duffau 1979 (aged 30 years). It has all of the characteristics of a good vintage spirit: rich nose, silky aroma and plenty of cocoa and butter. What stood out for me is that this bottle is the first one that I came to understand what rancio is. This bottle has won many awards. Many bourbon lovers have fallen in love with Armagnac through this bottle, that is how good it is. Delord 25 (aged 25 years). At about 70 dollars, this makes a great choice for your first vintage Armagnac. What stood out for me, especially compared to Marie Duffau 1979, is the packed woody grape flavors and some menthol spice tingle. It is pretty rich at 40% proof. I personally think this is also a great baseline bottle to compare as you start exploring more vintage Armagnac. Oh, and did I mention it is only 70 dollars? Domaine de ravignan 1985 (aged 29 years). I am in love with its nutty flavor profile and extremely long finish. If you like milk chocolate, spice and prune but in a very structured way, this is your pick. Charles Neal talked quite extensively about this Armagnac house. I was fortunate enough to get hold of their newer release, 1984, which is similar but slightly bolder and more rancio profile. Honestly, you can't go wrong with any of these picks. Delord is the most reasonable priced one while the other two are just a bit over 100. You'll never get another 30 year old spirit for just a bit over 100 dollars.</p>
+
+      <h2>Where to buy</h2>
+
+      <ul>
+        <li><a href="https://www.astorwines.com/">astorwines.com</a></li>
+        <li><a href="https://drizly.com/">drizly.com</a></li>
+        <li><a href="https://www.klwines.com/">klwines.com</a> (San Francisco based)</li>
+        <li><a href="https://dandm.com/">dandm.com</a> (San Francisco based)</li>
+      </ul>
+
+      <p>Enjoy!</p>
+    </div>
+
+    <ArticleStats slug="where-to-start-with-armagnac" tags={["brandy", "spirits", "armagnac", "france"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

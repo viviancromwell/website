@@ -1,0 +1,330 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import agaveField from '../../../assets/writings/patron-my-first-agave-experience/01-agave-field.jpg';
+import haciendaPatron from '../../../assets/writings/patron-my-first-agave-experience/02-hacienda-patron.jpg';
+import blueAgavePlant from '../../../assets/writings/patron-my-first-agave-experience/03-blue-agave-plant.jpg';
+import welcomeItinerary from '../../../assets/writings/patron-my-first-agave-experience/04-welcome-itinerary.jpg';
+import haciendaGrounds from '../../../assets/writings/patron-my-first-agave-experience/05-hacienda-grounds.jpg';
+import copperBar from '../../../assets/writings/patron-my-first-agave-experience/06-copper-bar.jpg';
+import bartenderOscar from '../../../assets/writings/patron-my-first-agave-experience/07-bartender-oscar.jpg';
+import patronBottles from '../../../assets/writings/patron-my-first-agave-experience/08-patron-bottles.jpg';
+import haciendaInterior from '../../../assets/writings/patron-my-first-agave-experience/09-hacienda-interior.jpg';
+import productRange from '../../../assets/writings/patron-my-first-agave-experience/10-product-range.jpg';
+import distilleryOverview from '../../../assets/writings/patron-my-first-agave-experience/11-distillery-overview.jpg';
+import agavePinas from '../../../assets/writings/patron-my-first-agave-experience/12-agave-pinas.jpg';
+import agaveHarvest from '../../../assets/writings/patron-my-first-agave-experience/13-agave-harvest.jpg';
+import agaveCutting from '../../../assets/writings/patron-my-first-agave-experience/14-agave-cutting.jpg';
+import cookingAgave from '../../../assets/writings/patron-my-first-agave-experience/15-cooking-agave.jpg';
+import tahonaStone from '../../../assets/writings/patron-my-first-agave-experience/16-tahona-stone.jpg';
+import fermentationTanks from '../../../assets/writings/patron-my-first-agave-experience/17-fermentation-tanks.jpg';
+import copperPotStills from '../../../assets/writings/patron-my-first-agave-experience/18-copper-pot-stills.jpg';
+import handLabeling from '../../../assets/writings/patron-my-first-agave-experience/19-hand-labeling.jpg';
+import sustainability from '../../../assets/writings/patron-my-first-agave-experience/20-sustainability.jpg';
+import orphanageVisit from '../../../assets/writings/patron-my-first-agave-experience/21-orphanage-visit.jpg';
+import patronFarewell from '../../../assets/writings/patron-my-first-agave-experience/22-patron-farewell.jpg';
+---
+
+<Base title="Patrón — My First Agave Experience — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Patrón — My First Agave Experience</h1>
+      <div class="article-meta">
+        <time datetime="2019-09-19">September 19, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">6 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p><a href="https://viviancromwellphotography.pixieset.com/patrontequila/">Photo Gallery</a></p>
+
+      <p>This May, I was invited to visit Patrón through their agency M Booth in New York City. In this blog post, I will briefly touch on the history of Patron. But more importantly, I want to talk about my experience visiting Patron, its production as well as its contribution to the local community.</p>
+
+      <figure class="article-image">
+        <Image src={agaveField} alt="Agave field at Hacienda Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>History</h2>
+
+      <p>Nested near the town of Atotonilco El Alto in the highlands of Jalisco, Hacienda Patrón is considered as a super-premium tequila, with a far large number of celebrity followers than any other spirits brand. When Patron was first launched in the '90s, it took the tequila world by storm as one of the first 100% blue agave tequila, and a high price tag. During that time, Mixto ( >= 51% blue agave) was the dominant player at that time.</p>
+
+      <p>Today, Patrón enjoys its success with more than 70% market share in the United States with fast expansion into other countries.</p>
+
+      <figure class="article-image">
+        <Image src={haciendaPatron} alt="Hacienda Patrón in Jalisco highlands" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>With such undenied success, one can't stop but wondering how they got to where they are today. The story of Patrón all started back in the 1980s when Martin Crowley teamed up with John Paul DeJoria, the founder of Paul Mitchell hair product. They wanted to create a premium brand that sets them far apart from the rest, with gorgeous hand-blown glass bottle design that is still so iconic today. Eventually, they partnered with distiller Francisco Alcaraz, who was freelancing at Siete Leguas.</p>
+
+      <p>In April 2018, Patron was sold to Bacardi for 5.1 billons.</p>
+
+      <h2>Tequila vs Mezcal</h2>
+
+      <p>This subject has been covered extensively in various articles online. So here is just a brief recap for those who just got into agave-based spirits.</p>
+
+      <p>Essentially, tequila can only be made, by law, with one variety of agave: the Blue Agave. It can only be produced in the state of Jalisco and some other municipalities nearby.</p>
+
+      <p>To make tequila, the heart of the plants, called 'piñas', is often steamed. To make mezcal, it is cooked with a wood fire ground oven, that is where the mezcal gets its classic smoky flavor.</p>
+
+      <figure class="article-image">
+        <Image src={blueAgavePlant} alt="Blue agave plant up close" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>One thing I learned from the trip, is that tequila can be smoky as well. It is not required that it needs to be steamed. For mezcal, the smokiness is also not a required flavor profile, although many Americans are drawn to it.</p>
+
+      <h2>Patron Experience</h2>
+
+      <p>Getting to stay at Patron headquarter is once a lifetime experience. It has a distillery, a five-star hotel that can host more than a dozen guests, a restaurant, a fantastic bar run by Oscar.</p>
+
+      <p>I will just let my pictures speak about the amazing experience.</p>
+
+      <figure class="article-image">
+        <Image src={welcomeItinerary} alt="Personalized itinerary card and Patrón chocolates" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+        <figcaption>Upon arrival, we were greeted with a personalized itinerary card and a box of chocolate with some filled with Patrón!</figcaption>
+      </figure>
+
+      <figure class="article-image">
+        <Image src={haciendaGrounds} alt="Meticulously maintained grounds at Hacienda Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+        <figcaption>The ground was meticulously maintained, the quality that you would expect from the top-notch hotels.</figcaption>
+      </figure>
+
+      <figure class="article-image">
+        <Image src={copperBar} alt="La Casona Copper Bar at Hacienda Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+        <figcaption>La Casona Copper Bar is where we ended up every day for the cocktail hour.</figcaption>
+      </figure>
+
+      <figure class="article-image">
+        <Image src={bartenderOscar} alt="Bartender Oscar making drinks at Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+        <figcaption>Ask the most amazing bartender Oscar to make you a few drinks, and try all of Patrón's expressions, some are not so easy to find!</figcaption>
+      </figure>
+
+      <figure class="article-image">
+        <Image src={patronBottles} alt="Patrón tequila bottles on display" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={haciendaInterior} alt="Interior of Hacienda Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Product Range</h2>
+
+      <p>Patrón has two main tequila product lines, one is their flagship product and the other is Roca (Spanish for 'rock') which was launched in 2014. Roca's launch is a response to the market calling for artisanal and agave-forward spirits.</p>
+
+      <p>There are some key differences between the two lines. Roca produces the spirits by crushing slow-roasted agave piñas, in a circular stone pit using a 2-ton wheel made of volcanic rock (called Tahona). This was the traditional way of making tequila. But the process was largely replaced by automated rollers.</p>
+
+      <p>Automated rollers tend to do a too good a job that leaves no fiber behind. With Tahona, all of the fibers are left together with the juice well into fermentation, which gives Roca more complex and multi-dimensional flavors. Tahona is very not efficient, hence the Roca product is more expensive, but this is the closest to blue agave as you can get.</p>
+
+      <p>On a side note, tahona is still commonly used in many mezcal productions.</p>
+
+      <p>Gran Patrón is its most luxury line. I enjoyed Smoky very much which uses the ground oven cooking method similar to mezcal. But the most elegant one is Piedra, which is entirely from Tahona process, aged more than three years in American oak and French oak.</p>
+
+      <figure class="article-image">
+        <Image src={productRange} alt="Patrón product range display" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Distillation Process</h2>
+
+      <p>Before visiting Patrón, I have always viewed the brand as this giant tequila company who is hugely successful in marketing. What surprised me the most though, is how much focuses they put on the artisanal small batch process. For Patrón, it is important to be part of the local community, they employ more than 1600 workers and many of their processes are done by hands.</p>
+
+      <figure class="article-image">
+        <Image src={distilleryOverview} alt="Overview of the Patrón distillery" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>In this section, I am not going to cover the entire distillation process. But I will highlight the few key differences.</p>
+
+      <p>Patron sources the blue agaves from the local farmers. When blue agave is ready for harvest, Patron cuts off the skin of piñas a bit more than the average. This is to ensure an ultra-smooth tequila tasting experience, what Patron is striving for.</p>
+
+      <figure class="article-image">
+        <Image src={agavePinas} alt="Agave piñas being prepared" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={agaveHarvest} alt="Harvesting blue agave in the field" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={agaveCutting} alt="Cutting agave piñas" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Before maceration, the agave is cut into even pieces, for cooking. They are cooked for exactly 79 hours, no more and no less, for the best results.</p>
+
+      <figure class="article-image">
+        <Image src={cookingAgave} alt="Cooking agave piñas in the oven" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Patron has ten tahonas because it is such a labor-intensive process. Very few are doing this in the tequila industry.</p>
+
+      <figure class="article-image">
+        <Image src={tahonaStone} alt="Tahona stone wheel crushing agave" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Fermentation is happening in the pine wood.</p>
+
+      <figure class="article-image">
+        <Image src={fermentationTanks} alt="Pine wood fermentation tanks" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>For each tahona area, they have custom-designed copper pot stills. Some are tall and skinny, while others are shorter and rounders. They are used for the first and second distillation.</p>
+
+      <figure class="article-image">
+        <Image src={copperPotStills} alt="Custom copper pot stills at Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>All bottles are hand-labeled.</p>
+
+      <figure class="article-image">
+        <Image src={handLabeling} alt="Hand-labeling Patrón bottles" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Patron is a huge advocate for sustainability. Tequila production creates a significant amount of leftover distillate, Patron developed a reverse-osmosis system. More than 60% of the wastewater is reused in cooling towers and cleaning. Everyone is also welcomed to drop fibers at the Patron's site. The resulting compost, which is converted into fertilizer, is then used to grow crops in the Hacienda's organic vegetable garden. Some are also given to the Patron's farmers for their fields, and employees for their gardens.</p>
+
+      <figure class="article-image">
+        <Image src={sustainability} alt="Sustainability practices at Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Community Contribution</h2>
+
+      <p>Throughout the entire trip, one thing that really stood out to me is Patrón's contribution to the community. For a striving community, education, healthcare, and employment are often the key elements.</p>
+
+      <p>During the press trip, we got to visit a local orphanage, where we got to spend time with the kids on making pizza and playing the games. It was such a memorable experience.</p>
+
+      <figure class="article-image">
+        <Image src={orphanageVisit} alt="Visiting a local orphanage near Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>The Patrón trip is special to me because it was my first agave experience. Since then, I went on and learned even more about tequila and mezcal, had the opportunity to visit Oaxaca. Mexico is forever a special place to me, and Patrón with such an elevated experience and memories.</p>
+
+      <figure class="article-image">
+        <Image src={patronFarewell} alt="Farewell view from Hacienda Patrón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+    </div>
+
+    <ArticleStats slug="patron-my-first-agave-experience" tags={["tequila", "mexico", "agave", "travel"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

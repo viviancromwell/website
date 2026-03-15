@@ -1,0 +1,127 @@
+---
+interface Props {
+  slug: string;
+  tags: string[];
+}
+
+const { slug, tags } = Astro.props;
+---
+
+<footer class="article-footer" data-slug={slug}>
+  <div class="article-footer-row">
+    <div class="article-tags">
+      {tags.map((tag) => (
+        <a href={`/writings?tag=${tag}`} class="article-tag">{tag}</a>
+      ))}
+    </div>
+    <div class="article-stats">
+      <button class="article-like-btn" aria-label="Like this article" title="Like">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 14s-5.5-3.5-5.5-7.5C2.5 4 4 2.5 5.5 2.5c1 0 2 .5 2.5 1.5.5-1 1.5-1.5 2.5-1.5C12 2.5 13.5 4 13.5 6.5 13.5 10.5 8 14 8 14z"/></svg>
+        <span class="likes-count">—</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const footer = document.querySelector<HTMLElement>('.article-footer[data-slug]');
+  if (footer) {
+    const slug = footer.dataset.slug!;
+    const likesEl = footer.querySelector<HTMLSpanElement>('.likes-count');
+    const likeBtn = footer.querySelector<HTMLButtonElement>('.article-like-btn');
+
+    // Track view (silent)
+    fetch(`/api/view/${slug}`, { method: 'POST' }).catch(() => {});
+
+    // Load like count
+    fetch(`/api/stats/${slug}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (likesEl) likesEl.textContent = String(data.likes || 0);
+      })
+      .catch(() => {});
+
+    // Like button
+    const likedKey = `liked-${slug}`;
+    if (localStorage.getItem(likedKey)) {
+      likeBtn?.classList.add('is-liked');
+    }
+
+    likeBtn?.addEventListener('click', () => {
+      if (localStorage.getItem(likedKey)) return;
+
+      fetch(`/api/like/${slug}`, { method: 'POST' })
+        .then((r) => r.json())
+        .then((data) => {
+          if (likesEl) likesEl.textContent = String(data.likes);
+          likeBtn.classList.add('is-liked');
+          localStorage.setItem(likedKey, '1');
+        })
+        .catch(() => {});
+    });
+  }
+</script>
+
+<style>
+  .article-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+
+  .article-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .article-tags {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .article-tag {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-subtle);
+    padding: var(--space-2xs) var(--space-sm);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-tag:hover {
+    color: var(--color-text);
+  }
+
+  .article-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .article-like-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+  }
+
+  .article-like-btn:hover {
+    color: var(--color-text);
+  }
+
+  .article-like-btn.is-liked {
+    color: var(--color-accent);
+    cursor: default;
+  }
+</style>

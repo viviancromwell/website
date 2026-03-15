@@ -1,0 +1,175 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import meriggiareCocktail from '../../../assets/writings/meriggiare/01-meriggiare-cocktail.jpg';
+---
+
+<Base title="Meriggiare — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Meriggiare</h1>
+      <div class="article-meta">
+        <time datetime="2018-05-18">May 18, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={meriggiareCocktail} alt="Meriggiare cocktail with bell pepper infused gin" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Summer is my favorite season: things are at a slower pace, not embarrassed to take a midday nap and it doesn't get dark til 9PM. This drink, created for Cinzano, is my way to express my yearning for summer months and the excitement that I will travel through the mediterranean coast soon. It is floral, fruity with unexpected vegetal notes, not to mention the subtle complexity brought by the Jasmine tea.</p>
+
+      <h2>Recipe</h2>
+
+      <p><em>Meriggiare is an alluring Italian word: rest in shade on a hot summer afternoon</em></p>
+
+      <ul>
+        <li>1.5 oz bell pepper infused gin</li>
+        <li>1 oz Cinzano dry vermouth</li>
+        <li>1 oz strawberry jasmine tea syrup, with orange blossom honey</li>
+        <li>0.5 oz fresh lemon juice</li>
+      </ul>
+
+      <h2>Notes</h2>
+
+      <p>Infuse sliced bell pepper in gin for 24 hours. I used green, yellow and red bell peppers.</p>
+
+      <blockquote>
+        <p>Off through the haze that dances in the shine<br />
+        The warm sun showers in the open glade,<br />
+        The forest lies, a silhouette design<br />
+        Dimmed through and through with summer shade.</p>
+      </blockquote>
+    </div>
+
+    <ArticleStats slug="meriggiare" tags={["gin", "cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

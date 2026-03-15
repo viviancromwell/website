@@ -1,0 +1,270 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import chopDemo from '../../../assets/writings/fast-fluid-infinite-list-react-native/01-chop-demo.jpg';
+import cpuUsage from '../../../assets/writings/fast-fluid-infinite-list-react-native/02-cpu-usage.png';
+import memoryUsage from '../../../assets/writings/fast-fluid-infinite-list-react-native/03-memory-usage.png';
+import iosInfiniteList from '../../../assets/writings/fast-fluid-infinite-list-react-native/04-ios-infinite-list.png';
+import reactNativeInfiniteList from '../../../assets/writings/fast-fluid-infinite-list-react-native/05-react-native-infinite-list.png';
+import chopImplementation from '../../../assets/writings/fast-fluid-infinite-list-react-native/06-chop-implementation.png';
+---
+
+<Base title="Fast and Fluid Infinite List with React Native — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Fast and Fluid Infinite List with React Native</h1>
+      <div class="article-meta">
+        <time datetime="2016-03-29">March 29, 2016</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">6 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=tech" class="article-category">Tech</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <h2>Background</h2>
+
+      <p>Infinite List, Windowed List, and RecyclerView are not new. In fact, their ideas are rather simple: render only what's visible from the user's viewport, recycle all item view instances with a smart backing data store, and progressively re-render dirtied items based on the scroll position delta. But details matter, and it's not often done efficiently, regardless of platforms.</p>
+
+      <figure class="article-image">
+        <Image src={chopDemo} alt="Chop app demo showing infinite list of cafes and restaurants" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Our Use Case</h2>
+
+      <p>Chop is a mobile commerce startup in the pre-launch stage. Since our inception we chose React Native to develop our iOS prototype both for technical and business reasons:</p>
+
+      <ul>
+        <li>We need Native features like Bluetooth, background tasks, notifications, and payment options on iOS. With the Progressive Web App the Web is getting there, it just isn't universally available yet.</li>
+        <li>Prior to building Chop, I worked at Google and founded the Chrome Developer Relations team back in 2009, and remained there for over four years. During that time, I got to know the JavaScript developer community rather well. While the language has its own shortcomings, what I love most about JavaScript are the people behind it. Their creativity, passion, and eagerness to share are unrivaled. The system can be fragile from time to time, but the community reacts and responds quickly to any issues. It's similar to a human body, with the right antibodies and the ability to self-correct it's always strong.</li>
+        <li>We hope to develop on Android platform later and possibly a web version of Chop in the future. React Native allows us to to maximize code reuse across all platforms.</li>
+        <li>The ability to quickly change the styling of the app, and move components based on customer input is critical. React Native allows faster iterations than any other platform.</li>
+      </ul>
+
+      <p>React Native combines fast execution with the best use of today's developer ecosystem — making it a perfect platform for startups.</p>
+
+      <p>One feature of the very early Chop prototypes is an infinite scrolling list of cafes and restaurants, with estimated wait times at each location. It has a few characteristics:</p>
+
+      <ul>
+        <li>Our list item is a fixed width and height</li>
+        <li>We know the size of the list ahead of time</li>
+        <li>The list should scroll fast without jank or high memory use</li>
+        <li>The estimated wait time circle needs to be self-contained so it doesn't dirty the entire list when there is a change</li>
+      </ul>
+
+      <p>Here is the demo of our infinite list implementation:</p>
+
+      <p>Here is the snapshot of CPU and memory usage through Xcode, both are pretty decent and more importantly the memory size stays consistent.</p>
+
+      <p><strong>CPU usage for non-stop 2 minute scrolling</strong></p>
+
+      <figure class="article-image">
+        <Image src={cpuUsage} alt="CPU usage graph for non-stop 2 minute scrolling" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p><strong>Memory usage for non-stop 2 minute scrolling, via xCode</strong></p>
+
+      <figure class="article-image">
+        <Image src={memoryUsage} alt="Memory usage graph for non-stop 2 minute scrolling via xCode" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>iOS Infinite List Overview</h2>
+
+      <p>Let's first take a quick look how this is done on iOS natively:</p>
+
+      <p><strong>iOS Infinite List Implementation</strong></p>
+
+      <figure class="article-image">
+        <Image src={iosInfiniteList} alt="Diagram showing iOS infinite list implementation with UITableView" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>We are going to use a simplified version of the Chop 'Explore List' by holding five rows in memory, through UITableView, in a single column list. ContentOffset is a point within the entire content space that defines where visible rendering starts. Here it says rows five, six, and seven are visible on the viewport.</p>
+
+      <p>Typically, if the user scrolls down, row seven will scroll off the screen, while row four will scroll in. UITableView accomplishes this by adjusting the contentOffset range. Soon, however, if you keep scrolling you will reach the edge of the content.</p>
+
+      <p>A few years ago, Apple introduced a technique to achieve infinite scrolling. You can watch their video describing it here: <a href="http://devstreaming.apple.com/videos/wwdc/2011/104/refmovie.mov">http://devstreaming.apple.com/videos/wwdc/2011/104/refmovie.mov</a> (Safari only, at 4:26 mark).</p>
+
+      <p>Simplified, the first step is to re-adjust contentOffset to its original center state so the user won't hit the edge. However, now row four is off the screen. To bring row four back to the screen you have to move all the rows down by one. If you do both operations in the same event loop it will be transparent to the user, and allow for infinite scrolling.</p>
+
+      <h2>React Native Implementation</h2>
+
+      <p>React Native is using a different optimization strategy, which Christopher Chedeau, explains well in <a href="https://www.youtube.com/watch?v=wUpPsEcGsg8">this article</a>.</p>
+
+      <p>Essentially, React Native uses ListView for infinite list but it has a number of drawbacks. The most important of which is that React cannot assume elements of the list are immutable, and therefore it has to keep a reference to every new element that is scrolled into view in order to perform change detection. Regardless of whether it does detach views when their offsets are out of the visible area, its memory representation of the list items remains in memory. Diffing gets more and more expensive over time as the list grows.</p>
+
+      <p>Let's take a look at its implementation.</p>
+
+      <p><strong>React Native Infinite List</strong></p>
+
+      <figure class="article-image">
+        <Image src={reactNativeInfiniteList} alt="Diagram showing React Native infinite list with growing component tree" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>If a user beings to scroll, row four becomes visible and row seven falls off the screen. React Native keeps both rows seven and eight in its memory in order to do the diff and change detection later. The list is essentially stateful. As the user continues to scroll, the component tree grows in size and doesn't shrink. There's a greater potential for memory loss depending on the quantity of rows in the list. ListView now includes an option to removeClippedSubviews, so what that does is keep native views in memory, but detached from the view hierarchy, which cuts down on unnecessary native views. However, this still retains references to all previously rendered rows.</p>
+
+      <p>Currently, Brent Vatne also has an experimental windowed ListView for fixed height list: <a href="https://github.com/brentvatne/fixed-height-windowed-list-view-experiment">https://github.com/brentvatne/fixed-height-windowed-list-view-experiment</a></p>
+
+      <h2>Chop: Fixed Height Infinite List</h2>
+
+      <p>We took a slightly different approach to better suit Chop's functionality.</p>
+
+      <p>Since our application uses fixed-height rows that all follow the same template, and we know the height of our viewable area, we settled on a design that treats the ScrollView's child elements as immutable, except for the top-level elements in the array, and the height of the ScrollView's interior. All other attributes of the list and its items will remain constant once created.</p>
+
+      <p>Here's a look at Chop's specific implementation:</p>
+
+      <p><strong>Chop's Implementation — Fixed Positions</strong></p>
+
+      <figure class="article-image">
+        <Image src={chopImplementation} alt="Diagram showing Chop's fixed position infinite list implementation with sliding window" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Chop's infinite list can be thought of as a list of items with fixed positions. We designed it to use a sliding window to maintain a visible section of rows. When the user scrolls, the sliding window will move throughout the giant space the list is situated in, but the items will remain in their fixed absolute positions.</p>
+
+      <p>Because everything on the list is fixed in size, height and position, from React Native's perspective there is no apparent diff. This means there is no need to hold more rows in the tree so there is no increase of the memory usage.</p>
+
+      <p>When the size of each item is known, you can compute the y-position of any element with a formula such as y-position = itemIndex * itemHeight. The body height of the ScrollView is always the highest y-position item plus its height.</p>
+
+      <h2>Example</h2>
+
+      <h2>Pseudo-code</h2>
+
+      <p><strong>OnScroll: How to update the renderModel</strong></p>
+
+      <p><a href="https://gist.github.com/viviancromwell/ab540606af94b2ff858c#file-infinitelist-onscroll-js">https://gist.github.com/viviancromwell/ab540606af94b2ff858c#file-infinitelist-onscroll-js</a></p>
+
+      <p><strong>OnRender: How to rerender the Infinite Scroll Widget</strong></p>
+
+      <p><a href="https://gist.github.com/viviancromwell/fe9714582270250e2989#file-infinitelist-onrender-js">https://gist.github.com/viviancromwell/fe9714582270250e2989#file-infinitelist-onrender-js</a></p>
+
+      <p>If you examine the demo video of the infinite list, you can see that it does render mutated data, namely the Wait Time bubble. However, we are not relying on React to do change detection in this case. Instead, we use an observable view model to detect changes to our data items, and force the Wait Time bubbles to become dirty and re-render. This scopes down the amount of state that has to be retained and diff'ed in the infinite list.</p>
+
+      <h2>The Need for a Fixed Height List</h2>
+
+      <p>The majority of the practical use cases out there simply deal with fixed-size items. (App Store app list, iTunes music list, Yelp restaurant list, Netflix movie list, Amazon product list, YouTube video list, or a geographical map with infinite bi-directional scrolling via fixed-size tiling, etc.). A variable-size list is often needed for user generated posts, typically in social network apps such as Facebook and Twitter. However it's not the most common use case, and the implementation should not solely account for the worst case scenario.</p>
+
+      <p>Hopefully, a high performance fixed-height list can be standardized in the React Native platform to handle these use cases.</p>
+
+      <p><em>Special thanks to <strong>Jacky Nguyen</strong> who was the architect of this design.</em></p>
+
+      <p>Try out Chop: <a href="https://goo.gl/g9M1EW">https://goo.gl/g9M1EW</a></p>
+    </div>
+
+    <ArticleStats slug="fast-fluid-infinite-list-react-native" tags={["chop"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

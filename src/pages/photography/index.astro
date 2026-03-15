@@ -29,7 +29,7 @@ const sortedImages = Object.entries(images)
           <div class="carousel-slide" data-index={i}>
             <Image
               src={img}
-              alt={`Featured photography — photo ${i + 1}`}
+              alt={`Featured — ${i + 1}`}
               widths={[800, 1200, 1600]}
               sizes="90vw"
               loading={i === 0 ? 'eager' : 'lazy'}

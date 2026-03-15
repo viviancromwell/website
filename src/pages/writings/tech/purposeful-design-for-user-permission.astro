@@ -1,0 +1,271 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import header from '../../../assets/writings/purposeful-design-for-user-permission/01-header.jpg';
+import wireframe from '../../../assets/writings/purposeful-design-for-user-permission/02-wireframe.png';
+import iterationOne from '../../../assets/writings/purposeful-design-for-user-permission/03-iteration-one.png';
+import iterationTwo from '../../../assets/writings/purposeful-design-for-user-permission/04-iteration-two.png';
+import iterationTwoVariation from '../../../assets/writings/purposeful-design-for-user-permission/05-iteration-two-variation.png';
+import iterationThree from '../../../assets/writings/purposeful-design-for-user-permission/06-iteration-three.png';
+---
+
+<Base title="Purposeful Design for User Permission — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Purposeful Design for User Permission</h1>
+      <div class="article-meta">
+        <time datetime="2016-11-23">November 23, 2016</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">6 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=tech" class="article-category">Tech</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <blockquote>"Design is the beauty of turning constraints into advantages."</blockquote>
+
+      <p>— By Aza Raskin</p>
+
+      <figure class="article-image">
+        <Image src={header} alt="Purposeful Design for User Permission header illustration" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Design Within the Constraints</h2>
+
+      <p>I love mobile design because it's full of constraints. Those constraints force us to think carefully about how and when we present information to the user, and what questions we ask, leading the user to hopefully make the selection we want.</p>
+
+      <p>At Chop, we went through three design iterations with a few user testings in between, before we released the first version in October. The consumer mobile app is much less forgiving compared to web apps that often have very iterative processes. This is also the first mobile design and development experience for me, and I was very keen on delivering the experience that I would want as a user.</p>
+
+      <p>One example is the classic notification permission. Chop needs both geolocation and notification permission. We ask for geolocation so we can prepare the right nearby stores. We need notification permission so we can notify the user when their order is ready, and prompt them when they're close to locations they've ordered from previously.</p>
+
+      <h2>The Common Approaches</h2>
+
+      <p>Brendan Mulligan from Launchkit has a great article that covers many of the design patterns for permission. The most common approaches are:</p>
+
+      <p><strong>Ask users bluntly without any context</strong></p>
+
+      <p>When you first open the app, you get the iOS system popup: "We would like to send you notifications". This is the worst. It's too easily ignored.</p>
+
+      <p><strong>Explain and ask during onboard</strong></p>
+
+      <p>A more widely adopted approach is to explain why the app needs notification permission during the onboard process. This approach is still suboptimal because the purpose of such permission is not always obvious during the initial steps.</p>
+
+      <h2>The Initial Wireframe</h2>
+
+      <p>Here is the very first wireframe for Chop. We tried to explain the benefits of geolocation and notification during the onboard. We gave a lot of information to the users upfront: we need your location so we know where you are, we will notify you when your order is ready, and notify you again if you visit the place frequently.</p>
+
+      <figure class="article-image">
+        <Image src={wireframe} alt="Initial wireframe for Chop showing onboard permission screens" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Design Iteration One</h2>
+
+      <figure class="article-image">
+        <Image src={iterationOne} alt="Chop design iteration one with upfront permission screens" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>User Study</h2>
+
+      <p>The above wireframe took a very typical approach, which is to ask permission upfront. I was curious as to how users actually react to those common design approaches so we recruited six users in San Francisco to test two freshly-installed apps. One was a news app, the other a commerce app. We asked them to discuss their thought processes when they saw the permission prompt.</p>
+
+      <p>Here's what we found:</p>
+
+      <ul>
+        <li>Users accept the fact they will be asked for notification permission.</li>
+        <li>When a user is asked for notification permission, they are much much more likely to say "yes" to a transaction-based app than to a content-oriented app. It is simple, they pay money in a commerce app, so they want to receive what they paid for.</li>
+        <li>More than 50% of the users don't want to give permission to content-oriented apps because they are unsure of the app's value. They want to give it a try and enable notifications later.</li>
+        <li>Some of them mentioned if they are getting too many notifications, they uninstall the app.</li>
+      </ul>
+
+      <h2>Design Iteration Two</h2>
+
+      <p>The above user study confirms that the likelihood of a user giving us notification permission is decent because Chop is a transaction-based app. However, we wanted to push it further. We wanted to have the fewest number of screens between the user and their first order, and we wanted to be truly thoughtful for the user, and ask only what we really needed to know.</p>
+
+      <p>After recognizing what we wanted, we realized that we only needed to ask for notification permission after the user made their first purchase. So, we considered what would happen if we moved the notification permission to follow checkout. Some may argue that you want to get the user notification permission as soon as possible, so you can re-engage them with a popup. However, if you fail to get the user to make their first order on their first try, how likely is it that they will come back because of a notification? Perhaps you can entice them with a discount, but customers acquired this way typically have low retention. I know as a user, I would most likely ignore similar notifications.</p>
+
+      <p>We are betting on a clean and thoughtful user experience, where we focus on getting the user to complete their first purchase. We decided to move the notification screens to after checkout. If the user has already paid, obviously he or she would want to get notified when their order is ready, right?</p>
+
+      <p>Here is the design for iteration two:</p>
+
+      <figure class="article-image">
+        <Image src={iterationTwo} alt="Chop design iteration two with notification permission after checkout" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>A slight variation when we decided to use actual background image</p>
+
+      <figure class="article-image">
+        <Image src={iterationTwoVariation} alt="Chop design iteration two variation with background image" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Design Iteration Three (the Current One)</h2>
+
+      <p>We were pretty happy with the last design iteration — moving the notification to after the user makes their first purchase. But, we still felt there were too many screens before the user could complete their first purchase, including the onboard and login screens. We looked for opportunities to remove more, and an idea occurred to us: what if we move the notification permission ask screen inline with the order status screen? Instead of asking users to choose between "Notify me" and "Don't notify me" as a separate screen, we will inline the ask and let the user initiate the request.</p>
+
+      <p>Here is the design iteration round three:</p>
+
+      <figure class="article-image">
+        <Image src={iterationThree} alt="Chop design iteration three with inline notification permission on order status screen" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>As you can see, we embedded, "Notify me when it's ready" on the "Order Status" screen and the request is initiated by the user. The nice thing about this design is that if the user doesn't initiate on their first order, the option is always there on their second or third order. While in the previous design, the user had an either/or choice to either get notified or not, they didn't have the option to choose later.</p>
+
+      <p>Again, here we are betting on a clean and thoughtful design that we hope will lead users to come back on their own.</p>
+
+      <p>This design is currently in production, which we launched in mid October. Four weeks in, we are happy to report that 70% of the users enabled notification on their first order. Without ads and a big budget, we have a small set of users who love the service and come back regularly. It's a wonderful feeling waking up in the morning, thinking that one of your customers might be ordering the same Acai bowl as you on their way to work, then it happens, just like that.</p>
+
+      <h2>Next Step</h2>
+
+      <p>So we summarized our design iteration on a simple notification permission, what's next? There are quite a few things we want to improve.</p>
+
+      <p>For example, how can we increase that 70% notification permission to 90% on the first order? Can we make the UI a more intuitive "call for action"? Now that we know users' regular ordering patterns, can we enable rich notification on the lock screen so that when a user is nearby, they can start their usual order without opening the app?</p>
+
+      <h2>Good Reads</h2>
+
+      <ul>
+        <li>The right way to ask for iOS permission</li>
+        <li>Exploring the new Android permission model</li>
+        <li>The right way to ask for user permission</li>
+        <li>iOS 10 notification, one step forward, one step backward</li>
+      </ul>
+
+      <p>Special thanks to Andrew Littmann and Brian Benitez, who help create the thoughtful user experience for Chop and provide guidance as I learn about the mobile design.</p>
+    </div>
+
+    <ArticleStats slug="purposeful-design-for-user-permission" tags={["design", "startup", "chop"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-body blockquote {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text);
+    border-left: 2px solid var(--color-border);
+    padding-left: var(--space-md);
+    margin: var(--space-lg) 0 var(--space-sm);
+  }
+
+  .article-body ul {
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .article-body li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

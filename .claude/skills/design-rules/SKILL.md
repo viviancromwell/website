@@ -11,8 +11,10 @@ These rules are mandatory for all code changes in this project.
 
 - **No border-radius on images.** Never add `border-radius` to `img` elements or image containers.
 - **No rounded corners on cards containing images** unless explicitly requested.
-- **All images must use `loading="lazy"`.**
+- **Eager-load above-the-fold images.** Use `loading="eager"` for hero images and the first row of gallery grids (typically `i < 4`). Use `loading="lazy"` for everything else.
+- **Detail pages** (painting, project) have a single hero image — always `loading="eager"`.
 - **All images must have descriptive `alt` text.**
+- **No redundant words in `alt` text.** Never use "image", "photo", "picture", or "photography" — screen readers already announce `img` elements as images.
 
 ## Asset Organization
 

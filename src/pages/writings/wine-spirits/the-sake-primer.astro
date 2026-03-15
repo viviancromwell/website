@@ -1,0 +1,243 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import takaraSakeVisit from '../../../assets/writings/the-sake-primer/01-takara-sake-visit.jpg';
+import sakeVsBeerWine from '../../../assets/writings/the-sake-primer/02-sake-vs-beer-wine-infographic.png';
+import sakeProductionProcess from '../../../assets/writings/the-sake-primer/03-sake-production-process.jpg';
+import sakeTypesComparison from '../../../assets/writings/the-sake-primer/04-sake-types-comparison.png';
+---
+
+<Base title="The Sake Primer — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">The Sake Primer</h1>
+      <div class="article-meta">
+        <time datetime="2019-09-09">September 9, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">5 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>I am excited to partner with Takara Sake to design a few cocktail recipes. I have been a big fan of sake, and experimented with a few sake cocktails. But I have never had the opportunity to deep dive into its production process and its varieties.</p>
+
+      <figure class="article-image">
+        <Image src={takaraSakeVisit} alt="Takara Sake visit in Berkeley" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>A few weeks ago, I had the opportunity to visit Takara in Berkeley for a tasting and educational tour. This prompts me to write down what I have learned in this blog post. This primer, by no means, is a comprehensive expert guide about sake. On the contrary, it is a polished study note by me, sharing on my website, in the hope you may find it to be useful as you get into sake.</p>
+
+      <h2>The Brief History of Sake</h2>
+
+      <p>There isn't really any recorded history about how sake started in Japan, but many credited to the rice cultivation that was brought to Japan from China around 500 BC. The initial process was not the most appetizing method: villagers would gather to chew rice and nuts, then split into a communal tub which is left to ferment.</p>
+
+      <p>During the Nara period (710-794), sake is mainly made by the Imperial Court. This was also the time when Koji is discovered, a mold enzyme that is crucial in the fermentation. Around the Heian Period (794 - 1185), shrines and temples started to make sake in addition to the Imperial Court.</p>
+
+      <h2>Sake vs Wine vs Beer</h2>
+
+      <p>Sake is a Japanse rice wine, made by fermenting rice that has been polished to remove the bran. Its production process has much more similarity to beer than wine.</p>
+
+      <p>In Takara sake museum, there was a clear illustration to highlight the difference between sake and beer making. In beer brewing, the starch to sugar conversion and sugar to alcohol are two sequential steps. In sake production, this is called multi-parallel fermentation. The rice starch is converted to sugar when koji mold is added. Saccharification and alcohol fermentation occur simultaneously.</p>
+
+      <figure class="article-image">
+        <Image src={sakeVsBeerWine} alt="Infographic comparing sake, beer, and wine production processes" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>How is sake made?</h2>
+
+      <figure class="article-image">
+        <Image src={sakeProductionProcess} alt="Sake production process diagram" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Types of Sake</h2>
+
+      <figure class="article-image">
+        <Image src={sakeTypesComparison} alt="Comparison table of different sake types" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>The above table really helps to illustrate the differences. The rice polishing rate plays an important role in defining the sake category. Here I will cover some of the most common types.</p>
+
+      <h3>Junmai</h3>
+
+      <p>Junmai is made from 100% rice, koji, and water. Its flavor profile tends to be on the rich side.</p>
+
+      <h3>Ginjo and DaiGinjo</h3>
+
+      <p>Ginjo is a category with highly polished rice. For Ginjo, the rice polishing rate is at 60% or less, which means more than 40% of the bran is removed. For Daiginjo, it needs to be 50% or less. The same amount of rice will produce far less Ginjo sake, plus the added cost during the production, this has made DaiGinjo more expensive.</p>
+
+      <p>If you see a label as 'Junmai DaiGinjo', that means it is one of the purest forms of high-grade sake. Junmai DaiGinjo is often seen in sake competition, as a testament to show the delicate craftsmanship in sake making.</p>
+
+      <h3>Honjozo</h3>
+
+      <p>Honjozo is made with rice, koji, water and a bit of brewer's alcohol before pressing. Another important character of Honjozo is the rice polishing rate at 70%. Adding brewer's alcohol is a tradition that dates back to the Edo period.</p>
+
+      <h3>Tokubestu</h3>
+
+      <p>The rice polishing rate is at 60%, brewer's alcohol is added. Tokubestu means 'special', so this type of sake is classified when a special production method is used.</p>
+
+      <p>There are two types of sake that are worth mentioning, but they are outside the main categories.</p>
+
+      <p><strong>Nama</strong> - Most sake is pasteurized twice to keep it stable for shelving. Nama doesn't go through this heat sterilization process. In some ways, it is the rawest form of sake.</p>
+
+      <p><strong>Nigori</strong> - Nigori is not very popular in Japan but huge in the United States. It is unfiltered sake with some rice solids. I personally found nigori to be a bit too sweet for me at the meals, but it is excellent in cocktails with lots of possibilities. Takara is the first nigori production in the United States.</p>
+
+      <h2>How To Enjoy Sake</h2>
+
+      <p>All sake can be served chilled to room temperature. In general, Ginjo and DaiGinjo should not be warmed, because of their fruity and aromatic nature. For Junmai, you can certainly warm to slightly higher than your body temperature.</p>
+
+      <p>As I mentioned earlier, sake is a delicate spirit. I love pairing dry and full body Junmai sake with rich meals, while enjoying Ginjo just neat or some light appetizers.</p>
+
+      <h2>Early Thoughts on Sake Cocktails</h2>
+
+      <p>My next step is to design a few cocktail recipes around Takara's sake portfolios. Here are some of my early thoughts on sake based cocktails.</p>
+
+      <p>Because of its low alcohol content and delicate flavors, when designing recipes, we have to make sure it is not being overpowered by other ingredients. Here are a few ways to do it:</p>
+
+      <ul>
+        <li>Use sake in replacement of low ABV ingredients such as vermouth and sherry.</li>
+        <li>Use sake and another spirit for a split base. I personally think it would work well with ingredients such as gin, Armagnac blanc, vodka or pisco.</li>
+        <li>Fruits go really well with sake, from mango, lychee to pineapple.</li>
+        <li>For classic boozy cocktails, you can make a light version of the same drink. For example, I have made a breakfast negroni by using sake instead of gin, you can lighten it up by using crushed ice, topping with brut, or adding soda for the fizz.</li>
+        <li>Sake has an exotic feel because it is from Japan. This is also a perfect opportunity to pair it with other Japanese ingredients such as yuzu and matcha.</li>
+      </ul>
+
+      <p>What do you think? Let me know if you have any creative ideas for sake cocktails.</p>
+    </div>
+
+    <ArticleStats slug="the-sake-primer" tags={["sake", "japan"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-body ul {
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .article-body li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

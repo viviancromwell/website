@@ -1,0 +1,166 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import sonicJuicebox from '../../../assets/writings/sonic-juicebox/01-sonic-juicebox.jpg';
+---
+
+<Base title="Sonic Juicebox — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Sonic Juicebox</h1>
+      <div class="article-meta">
+        <time datetime="2019-07-29">July 29, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={sonicJuicebox} alt="Sonic Juicebox cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Sonic Juicebox</figcaption>
+      </figure>
+
+      <p>I made a modified Juicebox Cobbler based on the recipe from @punch_drink, the original recipe developed by Dan Greenbaum from Brooklyn. I named it Sonic because Kimberly told me she drives 30 minutes to Sonic to buy pebble ice!</p>
+
+      <h2>Recipe</h2>
+
+      <ul>
+        <li>1-inch cube fresh pineapple</li>
+        <li>1 orange half-wheel</li>
+        <li>1 lemon wedge</li>
+        <li>0.5 oz passion fruit rosewood syrup</li>
+        <li>3.5 oz vermouth-ish blend (1:1:1:0.5 Cocchi Rosa, La Quintinye extra dry, Laubade Floc, Braulio)</li>
+      </ul>
+
+      <p>I have found 3 oz straight sweet vermouth is too sweet for a summery drink for me. I wanted my cobbler a bit drier, lighter and fresher. Floc, a blend of fresh grape juice and young Armagnac feels right to me; especially I am picking up a bunch of stone fruit notes from the Laubade expression, the combination of Rosa and Braulio is an inspiration from Soother, who made an aperitive style drink with these two that I can't stop pouring. La Quintinye extra dry is to tone down its sweetness further while adding a touch of herbal notes. The summer fruits are super ripe, why not let the fresh sweetness shine through the blend?</p>
+    </div>
+
+    <ArticleStats slug="sonic-juicebox" tags={["cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

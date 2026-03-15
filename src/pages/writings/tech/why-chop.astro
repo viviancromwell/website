@@ -1,0 +1,200 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import chopApp from '../../../assets/writings/why-chop/01-chop-app.png';
+import contextualExperience from '../../../assets/writings/why-chop/02-contextual-experience.png';
+---
+
+<Base title="Why Chop — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Why Chop</h1>
+      <div class="article-meta">
+        <time datetime="2016-10-13">October 13, 2016</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">4 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=tech" class="article-category">Tech</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>As the mother of two small children, and the founding engineering manager of the Chrome Developer Relations team at Google, I've led a busy life. When your day-to-day is an unending balancing act, you learn to prioritize the important things, and cut back on unnecessary time constraints. With my lack of time, came an appreciation for timesaving options. I stopped going to my local coffee shops, and instead chose Starbucks because of their mobile app. I didn't want to wait in line and be asked everyday the same series of questions: what's your name, your order, would you like your receipt?</p>
+
+      <figure class="article-image">
+        <Image src={chopApp} alt="Chop app mobile commerce experience" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>I wished more places offered the Starbucks commerce experience, and I marveled at how e-commerce and the cloud had transformed the way we did almost everything. From shopping to traveling, the internet eliminated single points of failure, and streamlined clunky processes. But there was one place where it still fell short: retail.</p>
+
+      <p>We are all carrying around pocket supercomputers that are more powerful than the servers that used to run e-commerce sites. Why then, can't we use our phones to have an Amazon-like experience at our favorite cafés or stores, without waiting?</p>
+
+      <p>I started Chop Technologies to answer that question.</p>
+
+      <h2>Our mission is to make a mobile commerce solution that will grow with merchant and consumer needs, available and affordable to local businesses. Customers can then have the Starbucks experience at any shop, and the merchant avoids astronomical upfront costs.</h2>
+
+      <h2>Chop, autocomplete for the real world</h2>
+
+      <p>Chop streamlines your retail experience with the following principles in mind:</p>
+
+      <h3>Allow Consumers To Choose How They Engage</h3>
+
+      <p>Consumers today have the freedom to interact with services in a multitude of ways, and our goal is to enable users to use the mobile interface they want, including: app, messenger, voice, and web.</p>
+
+      <h3>Contextual Experience, Don't Repeat Yourself</h3>
+
+      <figure class="article-image">
+        <Image src={contextualExperience} alt="Chop contextual experience showing personalized ordering" widths={[600, 900]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>When your Web browser visits a site you've already been to, it doesn't prompt you for information you've already entered. Similarly, Chop senses when you're nearby retailers you've visited, and makes your experience personalized based on previous orders. Over time, Chop learns your habits.</p>
+
+      <h3>Don't Ask For Information You Don't Need</h3>
+
+      <p>Chop only asks for information when it needs it. Your login is your phone number and your default payment is Apple Pay when available. You won't be asked to login until you are ready to buy. The app won't even ask for notification permission until your first order is complete.</p>
+
+      <h3>Keep It Simple and Be Helpful</h3>
+
+      <p>We are creatures of habit and we often return to what is familiar. Chop provides users with easy access to usual orders with a simple tap.</p>
+
+      <p>Chop also eases the pain of waiting. The app tracks estimated wait times at retail locations and notifies you of the status of orders in progress, and when your order is up.</p>
+
+      <h2>Merchants Need Help Too</h2>
+
+      <p>At the end of 2015, Starbucks announced that 21% of all orders were placed through their mobile app, proving that mobile commerce is a necessary step for retailers.</p>
+
+      <p>Chick-Fil-A, another corporate heavyweight, recently released a mobile app that received over a million downloads within the first three days. But the phenomenal success was no small job. The app was developed over three years, by a core team of more than 30 developers, designers, web architects, and others.</p>
+
+      <p>While this proves that retail is headed in the direction of mobile commerce, most small to medium sized business can't afford a mobile solution — let alone keep up with the changing landscape of mobile commerce. Merchants should worry about making money, not updating their technology.</p>
+
+      <p>That's where Chop comes in. Chop offers a solution that will grow with merchant and consumer needs. Customers can then have the Starbucks experience at any shop, and the merchant avoids astronomical upfront costs.</p>
+
+      <h2>One Small Step, One Giant Leap</h2>
+
+      <p>Today, we're taking the first small step. The Chop App is now available at twelve locations in San Francisco's Financial District and SoMa. Download it now on iOS, or stay tuned for an upcoming Android version. We're also working tirelessly to make Chop more customizable for brands and chains.</p>
+
+      <p>Feel free to test out Chop, and offer feedback. We're passionate about this project and are always working to improve the user experience.</p>
+
+      <p>Thanks to Ben Lisbakken, Saul Devitt, Jacky Nguyen, Andrew Littmann, Brian Benitez, and Katie Crowley who helped make this happen. And to Peter Hazlehurst and Ray Cromwell for being great advisors.</p>
+
+      <p>For those who are interested in the tech bits, here is an article that outlines our technology stack and why we chose React Native.</p>
+    </div>
+
+    <ArticleStats slug="why-chop" tags={["startup", "chop"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

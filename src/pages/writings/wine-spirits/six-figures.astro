@@ -1,0 +1,177 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import cocktail from '../../../assets/writings/six-figures/01-six-figures-cocktail.jpg';
+import recipe from '../../../assets/writings/six-figures/02-six-figures-recipe.jpg';
+---
+
+<Base title="Six Figures — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Six Figures</h1>
+      <div class="article-meta">
+        <time datetime="2019-06-06">June 6, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={cocktail} alt="Six Figures cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Today, June 6th is the 75th Anniversary of D-Day. After the D-Day Normandy Landings in 1944, General Eisenhower was introduced to the Boulard family and Calvados Boulard V.S.O.P quickly became a favorite of the General and his troops.</p>
+
+      <p>This year, Calvados Boulard is teaming up with Cell Phone for Soldiers, a national nonprofit organization dedicated to providing cost-free communications services and emergency funding to active-duty and veteran military members, where for every photo posted on Instagram using #ToastToTroops, Boulard will donate $5.00 to cell phones for Soldiers.</p>
+
+      <p>Here is my participation in this cause, an upgraded version of Six Figures, which was an over-elaborate brandy daisy. I used only French and American spirits in this drink to celebrate the special friendship between the two countries.</p>
+
+      <h2>Recipe</h2>
+
+      <figure class="article-image">
+        <Image src={recipe} alt="Six Figures cocktail preparation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <ul class="recipe-list">
+        <li>0.75 oz Armagnac Casterede VS</li>
+        <li>0.75 oz Calvados Boulard V.S.O.P</li>
+        <li>0.25 oz Pear Brandy</li>
+        <li>0.25 oz Yellow Chartreuse</li>
+        <li>0.25 oz Maraschino Liqueur</li>
+        <li>0.25 oz Cointreau</li>
+        <li>0.375 oz lemon juice</li>
+        <li>0.375 oz lime juice</li>
+        <li>0.5 oz pineapple gum syrup</li>
+        <li>1 ds suze orange bitters</li>
+      </ul>
+    </div>
+
+    <ArticleStats slug="six-figures" tags={["brandy", "cocktails", "armagnac"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

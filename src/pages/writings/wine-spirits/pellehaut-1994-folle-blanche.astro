@@ -1,0 +1,161 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import pellehautBottle from '../../../assets/writings/pellehaut-1994-folle-blanche/01-pellehaut-folle-blanche-bottle.jpg';
+---
+
+<Base title="Pellehaut 1994 Folle Blanche — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Pellehaut 1994 Folle Blanche</h1>
+      <div class="article-meta">
+        <time datetime="2019-02-22">February 22, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={pellehautBottle} alt="Pellehaut 1994 Folle Blanche Armagnac bottle" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Today, I would love to talk about Folle Blanche and this single vintage of 1994 Folle Blanche from Pellehaut.</p>
+
+      <p>Folle Blanche is a grape variety grown in Western France. It used to be the most popular grape for Armagnac and Cognac (slightly less extent). However, Folle Blanche is highly susceptible to rot and disease. The late 19th century Phylloxera epidemic wiped out most of it, since then it has been replaced by Bacco 22-A which is the only hybrid grape allowed by A.O.C. Today, only 3 percent of the grapes are Folle Blanche in the Armagnac region.</p>
+
+      <p>Folle Blanche is low in alcohol but high in acidity which makes it perfect to brandy distillation. While I love blended brandy, there is something really special to taste a single grape vintage as if it takes you back in time when the harvest just occurred. Folle Blanche offers the fineness and is often associated with fragrance and fruitiness. As Charles Neal says, "it is the soprano of Armagnac grapes". And don't let its fruitiness to fool you either, it offers great depth and the oak is often so well integrated.</p>
+
+      <p>This 1994 Folle Blanche vintage from Pellehaut is one of my all time favorites. Pellehaut is one of the few producers in the Tenareze region. Bottles at 48.5 ABV, it offers something really extra: polished wood and spice, plenty of fruit notes with an oily and chewy finish. It is one of the most unique and well-balanced Armagnac. If you trust my taste in spirits, get yourself a bottle if you see them!</p>
+
+      <p>Importer: <a href="http://www.charlesnealselections.com/">http://www.charlesnealselections.com/</a></p>
+    </div>
+
+    <ArticleStats slug="pellehaut-1994-folle-blanche" tags={["brandy", "spirits", "armagnac", "france"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

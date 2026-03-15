@@ -1,0 +1,197 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import viewingParty from '../../../assets/writings/dewars-double-double/01-viewing-party.jpg';
+import whiskyLineup from '../../../assets/writings/dewars-double-double/02-whisky-lineup.jpg';
+import sherryCasks from '../../../assets/writings/dewars-double-double/03-sherry-casks.jpg';
+import doubleDoubleBottles from '../../../assets/writings/dewars-double-double/04-double-double-bottles.jpg';
+---
+
+<Base title="Dewar's Double Double — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Dewar's Double Double</h1>
+      <div class="article-meta">
+        <time datetime="2019-05-05">May 5, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">4 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>I recently had the opportunity to work with Dewar's on their latest release: Double Double, and I enjoyed the experience of the three different sherry expressions, thought I should write up a summary here.</p>
+
+      <p>To celebrate the launch of the new whiskies I invited some of my whisky friends over and we watched FOUR, a four-part short film written by actress Tuppence Middleton that was commissioned by Dewar's. The four of us watched the film that starred 4 characters and took place in 4 rooms while sipping Dewar's Double Double. The movie is a thriller filled with suspense and it's probably pretty clear what the inspiration behind it is by now.</p>
+
+      <figure class="article-image">
+        <Image src={viewingParty} alt="Viewing party for Dewar's Double Double launch" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>For those who are new to Dewar's, it is the only Scotch whisky that uses the double-aging method for all of its products to achieve smoothness. In this new small batch release named Double Double, Dewar's pays homage to the brand's deep history taking its processes one step further thanks to Master Blender Stephanie Macleod.</p>
+
+      <figure class="article-image">
+        <Image src={whiskyLineup} alt="Dewar's Double Double whisky lineup" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Dewar's Double Double is created with a four-step aging process includes aging and blending single grains and single malts on their own, prior to blending them together and ultimately finishing them in a Sherry cask. This special release includes three different sherry finishes:</p>
+
+      <ul>
+        <li>Oloroso for the 21-year-old</li>
+        <li>Palo Cortado for the 27-year-old</li>
+        <li>Pedro Ximenez for the 32-year-old.</li>
+      </ul>
+
+      <figure class="article-image">
+        <Image src={sherryCasks} alt="Dewar's Double Double sherry cask expressions" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>The 21 Year Old, finished in Oloroso, has subtle notes of cinnamon and ripe vine fruits, vanilla fudge with just a hint of pepper spice.</p>
+
+      <p>The 27 Year Old, finished in Palo Cortado, is a sherry variety that I am not familiar with. This bottle turned out to be my friends' favorite at the viewing party. Palo Cortado is a rare variety of sherry, with myth around it since not many people can explain its origin. It should have the aromatic refinement of Amontillado combined with the structure and body of an Oloroso. It spends less time under flor or perhaps not even at all! With heady aromatic floral notes with honeyed fruits, it is so well balanced and ... different!</p>
+
+      <p>Yet, my favorite is the 32 Year Old which is finished in Pedro Ximenez. The most noticeable difference is its hint of smokiness while maintaining rich, ripe and treacle notes. I haven't been huge on a PX finish because it often leads to fig, raisin and molasses sweetness — not something I always want in my whisky finish. But when combined with a hint of smokiness, OMG.</p>
+
+      <figure class="article-image">
+        <Image src={doubleDoubleBottles} alt="Dewar's Double Double bottles" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Dewar's Double Double series are now available in the US retailers. I hope you give it a try.</p>
+    </div>
+
+    <ArticleStats slug="dewars-double-double" tags={["whisky", "spirits", "scotland"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-body ul {
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .article-body li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

@@ -1,0 +1,173 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import vincentLaterrade from '../../../assets/writings/fitte-et-laterrade-1979/01-vincent-laterrade.jpg';
+import ragPaperBottle from '../../../assets/writings/fitte-et-laterrade-1979/02-rag-paper-bottle.jpg';
+import armagnacBottle from '../../../assets/writings/fitte-et-laterrade-1979/03-armagnac-bottle.jpg';
+---
+
+<Base title="Fitte et Laterrade 1979 — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Fitte et Laterrade 1979</h1>
+      <div class="article-meta">
+        <time datetime="2018-12-18">December 18, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>During my week-long visit to the Armagnac region, one of the unique Armagnac houses we met is Armagnac Fitte et Laterrade. Vincent Laterrade, the owner of the house, has been a sommelier in his previous life. He patiently recorded the stocks of Armagnac from very small producers throughout 20 years – talk about the virtue of patience! Together with the Fitte family, winemaker at the Château de Herrebouc, they distill and age in the small cellar.</p>
+
+      <figure class="article-image">
+        <Image src={vincentLaterrade} alt="Vincent Laterrade" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Vincent Laterrade</figcaption>
+      </figure>
+
+      <p>Vincent chooses to deliver the vintage directly from the barrels hence nothing else is added such as water, coloring caramel or Boise (wood flavoring to imitate age). Each bottle is labeled by hand, using rag paper from the region. Each bottle is waxed by hand using French wax. It is as haute couture as it could in the spirits world.</p>
+
+      <figure class="article-image">
+        <Image src={ragPaperBottle} alt="Rag paper on 1979 bottle" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Rag paper on 1979 bottle</figcaption>
+      </figure>
+
+      <p>During my visit, I got to taste ones as old as 1924 and 1942. But my eyes were set on a bottle of 1979 that was love on the first sip for me, so I had to bring one home. The wax came off during the travel, so I couldn't resist to open it. On my, I am already on my fifth in two days, that is how good it is. At 47.1 ABV and bottled in November 2018, it is relatively high proof compared to other Armagnac bottles, full and viscous yet easy to drink — aroma with a light hint of oak, covered in maple griddle cake. Green apple notes were shown here and there, long finish with plenty of spices and hazelnut goodness. Although this is Ténarèze but it is from Castelnau d'Auzan which is a village that has the same soil and weather as Bas Armagnac. Prior to 1982, this domain has been making Ugni Bland and Baco then aged them in large barrels of 8000 liters. Since 1982 they only distill Folle Blanche which is now aged in barrels of 420 liters. If you are looking for a high-end bottle with everything that defines a great Armagnac, this is the one. I couldn't get enough of it, and will not hesitate to get my hands on a second bottle. Someone told me Charles Neal is the importer and I was able to find a few selections on Astor Wine. This Fitti et Laterrade 1979 is a keeper.</p>
+
+      <figure class="article-image">
+        <Image src={armagnacBottle} alt="Fitte et Laterrade 1979 Armagnac bottle" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Photo gallery: <a href="https://viviancromwellphotography.pixieset.com/g/armagnactour-fitteetlaterrade/">Armagnac Tour — Fitte et Laterrade</a></p>
+
+      <p>Importer: <a href="http://www.charlesnealselections.com/">Charles Neal Selections</a></p>
+    </div>
+
+    <ArticleStats slug="fitte-et-laterrade-1979" tags={["armagnac", "brandy", "france"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

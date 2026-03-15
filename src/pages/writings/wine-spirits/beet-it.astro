@@ -1,0 +1,181 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import beetMezcalNegroni from '../../../assets/writings/beet-it/01-beet-mezcal-negroni.jpg';
+import cocktailPreparation from '../../../assets/writings/beet-it/02-cocktail-preparation.jpg';
+import finishedCocktail from '../../../assets/writings/beet-it/03-finished-cocktail.jpg';
+---
+
+<Base title="Beet It — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Beet It</h1>
+      <div class="article-meta">
+        <time datetime="2019-08-17">August 17, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={beetMezcalNegroni} alt="Beets and mezcal negroni cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Beets and mezcal negroni. It is my first time to buy beets from the grocery, but I have wanted to use it in my cocktails for a while!</p>
+
+      <p>I have some vague memories from the Negroni week celebration at White Chapel, where the gin was infused with beets to bring subtle earthy notes.</p>
+
+      <p>Here is my take on a beet infused Negroni, a moderate smoky mezcal with a bit herb and earthy notes.</p>
+
+      <p>I want the mezcal here to shine, so I used Cappelletti Aperitivo instead of Campari to provide an undertone.</p>
+
+      <p>I used Cocchi Americano instead of red vermouth. A touch of fennel liqueur, because beet and fennel go together!</p>
+
+      <figure class="article-image">
+        <Image src={cocktailPreparation} alt="Beet-infused mezcal negroni preparation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Beet It</h2>
+
+      <p>1 oz Mezcal El Silencio, infused with beets for two days<br />
+      1 oz Cappelletti Aperitivo<br />
+      0.75 oz Cocchi Americano<br />
+      0.25 oz Fennel Liqueur<br />
+      Garnish: beet chip and fennel sprig</p>
+
+      <figure class="article-image">
+        <Image src={finishedCocktail} alt="Finished beet mezcal negroni with beet chip and fennel garnish" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>I am very happy I am finally not afraid of using beets in my kitchen.</p>
+    </div>
+
+    <ArticleStats slug="beet-it" tags={["agave", "cocktails", "mezcal"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

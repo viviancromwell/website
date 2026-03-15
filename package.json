@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview"
   },
   "repository": {
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/viviancromwell/website#readme",
   "dependencies": {
+    "@astrojs/vercel": "^10.0.0",
+    "@supabase/supabase-js": "^2.99.1",
     "astro": "^6.0.4"
+  },
+  "devDependencies": {
+    "pagefind": "^1.4.0"
   }
 }

@@ -1,0 +1,200 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import kingsOldFashioned from '../../../assets/writings/the-kings-old-fashioned/01-kings-old-fashioned.jpg';
+import peanutBourbonCocktail from '../../../assets/writings/the-kings-old-fashioned/02-peanut-bourbon-cocktail.jpg';
+import baconPeanutButter from '../../../assets/writings/the-kings-old-fashioned/03-bacon-peanut-butter.jpg';
+import kingsOldFashionedClose from '../../../assets/writings/the-kings-old-fashioned/04-kings-old-fashioned-close.jpg';
+---
+
+<Base title="The King's Old Fashioned — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">The King's Old Fashioned</h1>
+      <div class="article-meta">
+        <time datetime="2019-08-14">August 14, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">4 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p><em>This post is sponsored by the National Peanut Board.</em></p>
+
+      <figure class="article-image">
+        <Image src={kingsOldFashioned} alt="The King's Old Fashioned cocktail with peanut-infused bourbon" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>How many fun facts do you know about peanuts? Here are a few that you may not know:</p>
+
+      <ul>
+        <li>It takes about 540 peanuts to make a 12-ounce jar of peanut butter.</li>
+        <li>Two peanut farmers have been elected president of the USA – Virginia's Thomas Jefferson and Georgia's Jimmy Carter.</li>
+        <li>Astronaut Alan Shepard brought a peanut with him to the moon.</li>
+        <li>The nub between two peanut halves is an embryo.</li>
+        <li>Women and children prefer creamy peanut butter, while most men opt for chunky.</li>
+      </ul>
+
+      <p>As a lover of all things peanuts, I was really excited when National Peanut Board reached out to me to develop a cocktail recipe for all peanut lovers. National Peanut Board is an organization helping to improve the economic condition of USA peanut farmers and their families through promotion and groundbreaking research, including topics such as sustainability, farmer's wellness, the alternatives to the peanut allergy and more.</p>
+
+      <figure class="article-image">
+        <Image src={peanutBourbonCocktail} alt="Peanut-infused bourbon cocktail preparation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>My immediate inspiration for the cocktail is based on The King's Sandwich. He is known for his love of peanut butter, banana and bacon sandwich. I have done cocktails with peanut, banana or bacon, but never all together. It makes the perfect sense, Peanut Butter is nutty, salty and slightly sweet, bacon is sweet, savory and salty. What could be nuttier than this?</p>
+
+      <h2>Recipe</h2>
+
+      <ul>
+        <li>2 oz peanut-infused bourbon</li>
+        <li>1 bar spoon banana liqueur (or maple syrup)</li>
+        <li>1 dash orange bitters</li>
+        <li>2 dashes Angostura bitters</li>
+        <li>Garnish: a slice of crispy brown sugar bacon</li>
+      </ul>
+
+      <p><strong>Method:</strong> stir and strain. Serve in a rock glass over one large ice cube.</p>
+
+      <p>The easiest way to infuse bourbon is to use roasted peanut oil, just 2 teaspoons for a bottle, put in the freezer then strain.</p>
+
+      <figure class="article-image">
+        <Image src={baconPeanutButter} alt="Bacon and peanut butter pairing with the cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Any leftover bacon bits? No worry, just mix them with peanut butter and spread to the cracker. Now you have both the drink and the snack, it is peanut heaven!</p>
+
+      <p>We believe in peanut. What is your favorite peanut pairing?</p>
+
+      <figure class="article-image">
+        <Image src={kingsOldFashionedClose} alt="Close-up of The King's Old Fashioned cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+    </div>
+
+    <ArticleStats slug="the-kings-old-fashioned" tags={["whisky", "cocktails", "bourbon"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

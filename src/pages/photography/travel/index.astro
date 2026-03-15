@@ -50,15 +50,15 @@ const countryData = countries.map((c) => {
 
   <section class="gallery-section">
     <div class="travel-grid">
-      {countryData.map((c) => (
+      {countryData.map((c, i) => (
         <a href={`/photography/travel/${c.slug}`} class="travel-card">
           {c.thumbnail && (
             <Image
               src={c.thumbnail}
-              alt={`${c.name} travel photography`}
+              alt={c.name}
               widths={[400, 800]}
               sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
-              loading="lazy"
+              loading={i < 4 ? "eager" : "lazy"}
               class="travel-card-img"
             />
           )}

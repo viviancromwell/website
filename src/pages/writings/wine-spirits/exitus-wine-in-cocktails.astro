@@ -1,0 +1,217 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import exitusBottle from '../../../assets/writings/exitus-wine-in-cocktails/01-exitus-wine-bottle.jpg';
+import exitusSour from '../../../assets/writings/exitus-wine-in-cocktails/02-exitus-sour.jpg';
+import exitusStardust from '../../../assets/writings/exitus-wine-in-cocktails/03-exitus-stardust.jpg';
+---
+
+<Base title="Exitus Wine in Cocktails — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Exitus Wine in Cocktails</h1>
+      <div class="article-meta">
+        <time datetime="2018-11-27">November 27, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">5 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Mixing red wine with spirits is not always easy. When it comes to wine in a cocktail, we often think about drinks such as Whisky Sour or Sangria.</p>
+
+      <figure class="article-image">
+        <Image src={exitusBottle} alt="Exitus Wine bottle" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>If you look closer, essentially you have two ways to incorporate red wine into cocktails: use it as the base such as Sangria, or as a supporting ingredient such as Whisky Sour.</p>
+
+      <p>Recently, I had the opportunity to develop a few recipes for Exitus Wine from O'Neil Vintners & Distillers.</p>
+
+      <p>Exitus Wine is not your typical bottle of red wine on the shelf. Fermented in American stainless steel and then aged for 3 months in Kentucky bourbon barrels, Exitus is a red wine with a bourbon soul, a bold blend of Cabernet Sauvignon and Zinfandel with aromas of blackberry compote, baking spices and loose-leaf tobacco.</p>
+
+      <p>This new bourbon barrel aged wine brand tiptoes on the boundary with spirits, which makes it an interesting one to use in cocktails.</p>
+
+      <p>As the lead winemaker at O'Neil Vintners & Distiller, Steven Decosta guides a team of talented young winemakers who focus on creating wines with character that come from premier appellations and fruit.</p>
+
+      <p>Working to ensure the highest level of winemaking standards are met, he also oversees research and development and introduces new technology that is implemented across the winery.</p>
+
+      <p>Steven uses his foundation of chemistry and microbiology to create wines with a varietal focus of aromatics and flavors that consumers will enjoy.</p>
+
+      <p>Here I will share two recipes with Exitus Wine that are perfect for the fall and winter season.</p>
+
+      <p>The first one is an upgraded Whisky Sour with an upgraded peach honey syrup.</p>
+
+      <h2>Exitus Sour</h2>
+
+      <figure class="article-image">
+        <Image src={exitusSour} alt="Exitus Sour cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <ul>
+        <li>2 ounces rye or bourbon</li>
+        <li>1 ounce lemon juice</li>
+        <li>1 ounce peach honey syrup</li>
+        <li>1/4 ounce Exitus wine</li>
+      </ul>
+
+      <p>Add whisky, lemon and peach honey syrup to a shaker, shake well, strain over ice into an old fashioned glass. Gently drizzle red wine over the back of a bar spoon to create a float atop the cocktail.</p>
+
+      <p><strong>Glass:</strong> Old Fashioned</p>
+
+      <p>My other discovery is to mix wine, cognac or another brandy. All grape based spirits can work together greatly to create a sophisticated crowd pleaser.</p>
+
+      <h2>Exitus Stardust</h2>
+
+      <figure class="article-image">
+        <Image src={exitusStardust} alt="Exitus Stardust cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <ul>
+        <li>2 oz Exitus wine</li>
+        <li>1 oz cognac</li>
+        <li>0.5 oz pear brandy</li>
+        <li>0.5 oz strawberry syrup</li>
+        <li>2 dashes Angostura bitters</li>
+        <li>Garnish: berries and mint</li>
+      </ul>
+
+      <p>Add all ingredients to shaker, shake well with ice. Strain into a brandy snifter with crush ice.</p>
+
+      <p><strong>Glass:</strong> Brandy Snifter</p>
+
+      <p>Exitus is sold locally now in the Bay Area at Safeway, Ralphs (SoCal), Fred Meyer (Pac Northwest), as well as Kroger and many independent stores across the country.</p>
+
+      <p>You can follow them to learn more and some of the original recipes I designed for them.</p>
+
+      <p>What is your favorite wine cocktail? How to push the boundary of wine cocktail so it is more than just Whisky Sour and Sangria? Let me know if you have thoughts!</p>
+    </div>
+
+    <ArticleStats slug="exitus-wine-in-cocktails" tags={["cocktails", "brandy", "whisky"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

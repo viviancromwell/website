@@ -1,0 +1,183 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import croftYPearJulep from '../../../assets/writings/croft-y-pear-julep/01-croft-y-pear-julep.jpg';
+---
+
+<Base title="Croft-y Pear Julep — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Croft-y Pear Julep</h1>
+      <div class="article-meta">
+        <time datetime="2018-12-01">December 1, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Excited to partner with Croft Port, one of the oldest original Port houses, to create an original cocktail recipe for this merry holiday season. From the Douro Valley, Croft Reserve Tawny Port (SRP $19.99) is a complex yet very accessible tawny. It is a blend from fine wood Ports, aged an average of seven years followed by the blending process for consistency. The most noticeable notes are raisin, clove and plenty of butterscotch as well as cardamom.</p>
+
+      <figure class="article-image">
+        <Image src={croftYPearJulep} alt="Croft-y Pear Julep cocktail with mint sprigs and poached baby pears" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Croft-y Pear Julep</figcaption>
+      </figure>
+
+      <p>The traditional way to poach pears has been using mulled wine, but I decided to use Croft Reserve Tawny Port given its rich flavors. For this classic Julep, I used a split of Armagnac, pear brandy, and Croft Tawny Reserve—all grape based spirits!</p>
+
+      <h2>Recipe</h2>
+
+      <ul>
+        <li>1 oz Armagnac</li>
+        <li>1 oz Pear Brandy</li>
+        <li>1 oz Croft Reserve Tawny Port</li>
+        <li>3 dashes Cardamon bitters</li>
+        <li>Garnish: mint sprigs and poached baby pears</li>
+      </ul>
+
+      <p>Add one mint sprig and Port wine in a mixing glass. Adjust the sweetness level by adding tiny bit of the port wine from poaching pears. Add the rest of the ingredients. In a mug, add crushed ice, pour the mixing drink over then add more ice. Garnish with mint sprigs and baby pears.</p>
+
+      <h2>Poached Baby Pears</h2>
+
+      <ul>
+        <li>1 cup Croft Reserve Tawny Port wine</li>
+        <li>0.75 cup sugar</li>
+        <li>2 strips orange peel</li>
+        <li>1 strip lemon peel</li>
+        <li>1 stick cinnamon</li>
+        <li>Baby pears</li>
+      </ul>
+
+      <p>Combine all ingredients to boil, then poach baby pears for 15 minutes.</p>
+
+      <p>I hope you like this cocktail as it is easier to make. And you can also serve the leftover poached pears with ice cream for a fancy dessert. Happy Holiday!</p>
+    </div>
+
+    <ArticleStats slug="croft-y-pear-julep" tags={["armagnac", "cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

@@ -1,0 +1,192 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import siamSour from '../../../assets/writings/siam-sour/01-siam-sour.jpg';
+---
+
+<Base title="Siam Sour — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Siam Sour</h1>
+      <div class="article-meta">
+        <time datetime="2018-04-23">April 23, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={siamSour} alt="Siam Sour cocktail with lemongrass and pink peppercorn garnish" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>Siam Sour</figcaption>
+      </figure>
+
+      <p>This post was originally posted on Shaker and Spoon.</p>
+
+      <p>I infused some gin with fresh lemongrass and pink peppercorn to make a gin sour that highlights the flavors of Thailand. This is also a drink for Sindre Sorhus, a developer who lives in Thailand. I did an interview with him that was pretty well received.</p>
+
+      <p>I wasn't too sure how lychee cordial would go with lemongrass and peppercorn, but the sweetness is pretty up front earlier on the palate while the tartness from lemongrass and spice from peppercorn added the layer later. I liked it a lot.</p>
+
+      <h2>Recipe</h2>
+
+      <h3>Infusion</h3>
+
+      <p>8 oz St. George Botanivore Gin<br />
+      1/2 lemongrass stalk<br />
+      8-10 pink peppercorns<br />
+      1.5 days</p>
+
+      <h2>Ingredients</h2>
+
+      <p>2 oz infused gin<br />
+      3/4 oz Shaker & Spoon lemon-lychee cordial<br />
+      1/2 oz lemon juice<br />
+      egg white</p>
+
+      <h2>Garnish</h2>
+
+      <p>lemon peel, lemongrass, and pink peppercorn</p>
+
+      <h2>Glassware</h2>
+
+      <p>stemmed glass</p>
+
+      <h2>Directions</h2>
+
+      <ol>
+        <li>Combine all ingredients in cocktail shaker</li>
+        <li>Dry shake without ice for 10–15 seconds</li>
+        <li>Add ice and wet shake for 10–15 seconds</li>
+        <li>Double strain into chilled glass</li>
+        <li>Garnish</li>
+      </ol>
+    </div>
+
+    <ArticleStats slug="siam-sour" tags={["gin", "cocktails", "sour"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

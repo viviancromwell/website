@@ -1,0 +1,310 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import expectingFamily1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/01-expecting-family-1.jpg';
+import expectingFamily2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/02-expecting-family-2.jpg';
+import expectingFamily3 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/03-expecting-family-3.jpg';
+import newMembers1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/04-new-members-1.jpg';
+import newMembers2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/05-new-members-2.jpg';
+import newMembers3 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/06-new-members-3.jpg';
+import newMembers4 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/07-new-members-4.jpg';
+import renovating1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/08-renovating-1.jpg';
+import renovating2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/09-renovating-2.jpg';
+import graduates1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/10-graduates-1.jpg';
+import graduates2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/11-graduates-2.jpg';
+import graduates3 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/12-graduates-3.jpg';
+import graduates4 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/13-graduates-4.jpg';
+import animals1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/14-animals-1.jpg';
+import animals2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/15-animals-2.jpg';
+import animals3 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/16-animals-3.jpg';
+import creative1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/17-creative-1.jpg';
+import creative2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/18-creative-2.jpg';
+import creative3 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/19-creative-3.jpg';
+import creative4 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/20-creative-4.jpg';
+import creative6 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/22-creative-6.jpg';
+import creative7 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/23-creative-7.jpg';
+import creative8 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/24-creative-8.jpg';
+import blm1 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/25-blm-1.jpg';
+import blm2 from '../../../assets/writings/the-front-steps-project-palo-alto-edition/26-blm-2.jpg';
+import mask from '../../../assets/writings/the-front-steps-project-palo-alto-edition/27-mask.jpg';
+import washHands from '../../../assets/writings/the-front-steps-project-palo-alto-edition/28-wash-hands.jpg';
+import vote from '../../../assets/writings/the-front-steps-project-palo-alto-edition/29-vote.jpg';
+---
+
+<Base title="The Front Steps Project - Palo Alto Edition — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">The Front Steps Project - Palo Alto Edition</h1>
+      <div class="article-meta">
+        <time datetime="2020-07-17">July 17, 2020</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=photography" class="article-category">Photography</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>May 7th to June 27th. Total photo sessions: 101. The total number of photos taken: >15000. The total hours spent: Average 18 hours each week for the last eight weeks. Each donation check size: 30 dollars to 800 dollars. The two organizations that received donations: Ecumenical Hunger Program and Frontline Foods Silicon Valley.</p>
+
+      <p>These are the stats from my recent mini-project named 'The Front Steps' for Palo Alto City. 'The Front Steps' is a nationwide movement by photographers to take pictures of their neighbors from at least 10 feet away during the COVID-19 pandemic. The quick 15-minute session is conducted outside the house, typically the front steps.</p>
+
+      <p>When I first started the project, I wanted to have a legit excuse to get out of the house. As a photographer who travels frequently, I haven't stayed home for more than six weeks in the last year. There is something exciting about picking up a camera, shooting, and capturing a moment to freeze it in time.</p>
+
+      <p>Little did I know more than 140 families had signed up in the first three weeks, including the adjacent cities such as Menlo Park and Mountain View. Soon I realized I would really only be able to take 10-15 sessions each week. My sessions are 15 minutes long, which isn't nearly enough to get to know everyone, break the ice, and have everyone relaxed. I consider it a challenge, not just to know your clients, but also to work with the limited environment you have. Before I arrive at the front door of each family, I often don't know the setup of the front yard, if it's an apartment or house, or which direction the house is facing. Yet, I must try to get the best picture out of that 15 minutes.</p>
+
+      <p>Over time, for me the project has become less of an exciting adventure into the neighborhood and more of a deep appreciation of my community: through my lens and the brief interaction with each family, they let me into their world, at many different stages of life where I see my own past and my future. I've felt excited to see families getting ready to welcome a new baby, families with a new baby, and families who have several new graduates. For the graduates, despite the limited celebrations possible, the families were all cheerful, and some saw this as a silver lining because they have their college kids home.</p>
+
+      <p>There are so many photos I love, it would be hard to pick a few from the 15000 images. Here is a small clip of those wonderful memories you shared with you, thank you, my neighbors!</p>
+
+      <h2>Families who are expecting!</h2>
+
+      <figure class="article-image">
+        <Image src={expectingFamily1} alt="Expecting family portrait on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={expectingFamily2} alt="Expecting family portrait on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={expectingFamily3} alt="Expecting family portrait on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Families who are welcoming new members.</h2>
+
+      <figure class="article-image">
+        <Image src={newMembers1} alt="Family welcoming a new baby in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={newMembers2} alt="Family welcoming a new baby in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={newMembers3} alt="Family welcoming a new baby in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={newMembers4} alt="Family welcoming a new baby in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Families who are renovating</h2>
+
+      <figure class="article-image">
+        <Image src={renovating1} alt="Family renovating their home in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={renovating2} alt="Family renovating their home in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Cheers for the graduates!</h2>
+
+      <figure class="article-image">
+        <Image src={graduates1} alt="Graduate celebration on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={graduates2} alt="Graduate celebration on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={graduates3} alt="Graduate celebration on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={graduates4} alt="Graduate celebration on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>We love animals!</h2>
+
+      <figure class="article-image">
+        <Image src={animals1} alt="Family with their pet on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={animals2} alt="Family with their pet on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={animals3} alt="Family with their pet on front steps in Palo Alto" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Families with the most creative setups</h2>
+
+      <figure class="article-image">
+        <Image src={creative1} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={creative2} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={creative3} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={creative4} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={creative6} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={creative7} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={creative8} alt="Creative family portrait setup on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Black Lives Matter.</h2>
+
+      <figure class="article-image">
+        <Image src={blm1} alt="Family supporting Black Lives Matter on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={blm2} alt="Family supporting Black Lives Matter on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Wear your mask, especially when a dog can do it.</h2>
+
+      <figure class="article-image">
+        <Image src={mask} alt="Family wearing masks with their dog on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Wash your hands.</h2>
+
+      <figure class="article-image">
+        <Image src={washHands} alt="Family with wash your hands message on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Please vote.</h2>
+
+      <figure class="article-image">
+        <Image src={vote} alt="Family with please vote message on front steps" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+    </div>
+
+    <ArticleStats slug="the-front-steps-project-palo-alto-edition" tags={["covid19"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

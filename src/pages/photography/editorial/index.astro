@@ -25,13 +25,13 @@ const sortedImages = Object.entries(images)
   <section class="gallery-section">
     <div class="gallery-grid">
       {sortedImages.map((img, i) => (
-        <button class="gallery-lightbox-card" data-index={i} type="button" aria-label={`View editorial photo ${i + 1}`}>
+        <button class="gallery-lightbox-card" data-index={i} type="button" aria-label={`View editorial ${i + 1}`}>
           <Image
             src={img}
-            alt={`Editorial photography — photo ${i + 1}`}
+            alt={`Editorial — ${i + 1}`}
             widths={[400, 800]}
             sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw"
-            loading="lazy"
+            loading={i < 4 ? "eager" : "lazy"}
             data-full={img.src}
           />
         </button>
@@ -231,7 +231,7 @@ const sortedImages = Object.entries(images)
   function show() {
     lightboxImg.classList.remove('is-loaded');
     lightboxImg.src = fullUrls[current];
-    lightboxImg.alt = `Editorial photo ${current + 1}`;
+    lightboxImg.alt = `Editorial — ${current + 1}`;
     lightboxImg.onload = () => lightboxImg.classList.add('is-loaded');
     if (lightboxImg.complete) lightboxImg.classList.add('is-loaded');
     counter.textContent = `${current + 1} / ${total}`;

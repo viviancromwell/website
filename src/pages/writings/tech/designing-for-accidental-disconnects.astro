@@ -1,0 +1,347 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import hero from '../../../assets/writings/designing-for-accidental-disconnects/01-chop-hero.jpg';
+import connectivityIssues from '../../../assets/writings/designing-for-accidental-disconnects/02-connectivity-issues.jpg';
+import hierarchyEngagement from '../../../assets/writings/designing-for-accidental-disconnects/03-hierarchy-engagement.png';
+import coreActions from '../../../assets/writings/designing-for-accidental-disconnects/04-core-actions.png';
+import amazonOffline from '../../../assets/writings/designing-for-accidental-disconnects/05-amazon-offline.png';
+import starbucksOffline from '../../../assets/writings/designing-for-accidental-disconnects/06-starbucks-offline.png';
+import doordashOffline from '../../../assets/writings/designing-for-accidental-disconnects/07-doordash-offline.png';
+import chopOfflineDesign from '../../../assets/writings/designing-for-accidental-disconnects/08-chop-offline-design.png';
+import duplicateOrdersFlow from '../../../assets/writings/designing-for-accidental-disconnects/09-duplicate-orders-flow.png';
+import lostOrdersFlow from '../../../assets/writings/designing-for-accidental-disconnects/10-lost-orders-flow.png';
+---
+
+<Base title="Designing for Accidental Disconnects — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Designing for Accidental Disconnects: Our first attempt at an offline approach</h1>
+      <div class="article-meta">
+        <time datetime="2016-12-14">December 14, 2016</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">9 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=tech" class="article-category">Tech</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>"Frequently not having any data connection in even the wealthiest and most developed cities of the world has led us to conclude that no, the mobile connectivity/bandwidth issue isn't just going to solve itself on a global level anywhere in the near future."</p>
+
+      <figure class="article-image">
+        <Image src={hero} alt="Chop mobile commerce app hero image" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Background</h2>
+
+      <p>Chop is a mobile commerce service for small and medium-sized businesses in San Francisco. Our initial focus was, and continues to be, SoMa and the Financial District. We assumed our customers in San Francisco would always have strong connectivity. That in the heart of the tech industry data connectivity would rarely be an issue. Then, during our private beta, we realized we had overlooked a very critical issue:</p>
+
+      <ul>
+        <li>Initially, we assumed Chop would be used to order ahead, or order at the store. Instead, many of our users order on the go. This results in intermittent mobile connections in an unpredictable way. While users have great connectivity in one moment, in the next they could lose connectivity while walking between two tall buildings, or entering a Bart station. We didn't encounter this problem during internal testing, because we mostly used Chop in our offices, connected to the high speed internet.</li>
+        <li>All of our merchants receive Chop orders on a tablet. However, some of our merchants are inside office buildings with shared WiFi. This results in a perpetually weak signal, particularly during busy hours. Meaning, user orders are delayed because of a weak signal.</li>
+      </ul>
+
+      <figure class="article-image">
+        <Image src={connectivityIssues} alt="Connectivity issues illustration" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Connectivity issues on both sides of the ordering process, resulted in numerous errors. We were losing orders, duplicating orders, and some were simply not going through. It was an issue we had to address before public release.</p>
+
+      <h2>Common Use Cases for Commerce</h2>
+
+      <p>We're a small startup with limited resources, so we started by examining various use cases, to help us to decide what we should focus on first.</p>
+
+      <p>There are two user groups with common commerce use cases:</p>
+
+      <ul>
+        <li>New users who are trying to make their very first purchase</li>
+        <li>Repeat customers</li>
+      </ul>
+
+      <figure class="article-image">
+        <Image src={hierarchyEngagement} alt="The Hierarchy of Engagement" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>At our current stage, our key focus is to grow the number of engaged users who can complete the core actions. I recommend reading Sarah Tavel's excellent article on The Hierarchy of Engagement.</p>
+
+      <figure class="article-image">
+        <Image src={coreActions} alt="Core actions diagram for Chop ordering process" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>The core action for Chop is to complete an order which involves the following steps:</p>
+
+      <p>Core actions:</p>
+
+      <ol>
+        <li>Browse catalog</li>
+        <li>Add to shopping cart</li>
+        <li>Login (for first time user)</li>
+        <li>Setup payment (for first time user)</li>
+        <li>Checkout</li>
+        <li>Notify customer when purchase is ready</li>
+      </ol>
+
+      <p>If you have 100 users at the first step, ideally you want to have 100 users at the last step. You do this by removing as much friction as possible. From the user's perspective, the further along they are in the process, the more time and energy they've invested. The more invested a customer is, the angrier they'll be if something goes wrong.</p>
+
+      <h2>Case Studies</h2>
+
+      <p>To better understand how to solve the issue of offline connectivity, I looked at similar apps to see how they were solving this problem.</p>
+
+      <p>Conducting offline research:</p>
+
+      <ul>
+        <li>First, I would open the app and click on all major screens. I would look through options like: browsing the catalog, past orders, adding an item to a shopping cart, or clicking on various items.</li>
+        <li>I would then close the app, and turn my phone onto airplane mode. Then, I would open the app again and reopen all major screens. Specifically I would: browse the catalog, browse my past orders, go to the item/subcategory I visited previously, add an item to the shopping cart, got to a new item I hadn't previously visited, and place an order.</li>
+      </ul>
+
+      <p>Here's what I discovered from my case studies:</p>
+
+      <h3>Amazon</h3>
+
+      <figure class="article-image">
+        <Image src={amazonOffline} alt="Amazon offline experience screenshots" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Findings:</p>
+
+      <ul>
+        <li>Amazon for iOS only provides a very basic offline check. On every page load, Amazon checks the network status and, if poor connectivity, displays a "Network Error" message while rendering the page.</li>
+        <li>If you try to go to another page after that, it takes you to a splash page with pretty standard terminology. It is unclear what (CS1) means, it is probably an internal error code.</li>
+      </ul>
+
+      <p>Amazon is the number one commerce site in the world but the offline experience is unimpressive. When operating offline, users are not given any expectations as to what should and should not work.</p>
+
+      <h3>Starbucks</h3>
+
+      <figure class="article-image">
+        <Image src={starbucksOffline} alt="Starbucks offline experience screenshots" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Findings:</p>
+
+      <p>Starbucks delivers a similar experience. Your network status is checked on every page, and when there is poor connectivity it displays a standard error message. However, if you dismiss the message, it allows you to navigate to other cached pages before showing the same error message again.</p>
+
+      <p>The message dialog feels like a foreign part of the UI, cold and unintuitive, but it does get the job done — which is to confirm the network error and not to let users go any further.</p>
+
+      <h3>Doordash</h3>
+
+      <figure class="article-image">
+        <Image src={doordashOffline} alt="Doordash offline experience screenshots" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Doordash, even as a younger startup, delivers a delightful experience:</p>
+
+      <ul>
+        <li>You can browse the catalog, view your order history, and even add to your shopping cart if you can access the item all the way through checkout.</li>
+        <li>That being said, the notifications alerting users they're offline is not always consistent. For example, if a restaurant is not available and not cached, Doordash will display a red background with no text or explanation. If you try to place an order when offline, you will see a grey system dialog or, an offline splash page. Furthermore, if you reopen the app while offline, it directs you to sign in. I don't think that's what they intended the user to do while they're offline.</li>
+      </ul>
+
+      <p>I researched a few more examples and found, in general, there are no established UX patterns for offline. Should users be able to browse the catalog? Should they be able to continue adding to their cart offline? How should network errors be displayed? Is it possible to design the offline experience, so users can continue even with poor connectivity?</p>
+
+      <h2>Offline Design at Chop</h2>
+
+      <p>Without much guidance from the more established commerce sites, we decided to follow our own design principles and be as thoughtful to the user as possible. That meant:</p>
+
+      <ul>
+        <li>Making sure the offline experience was error free for the most critical part: checkout to order completion.</li>
+        <li>Giving users a decent browsing and shopping cart experience by caching as much data as possible. If the data is available, users can go much farther on the client side.</li>
+        <li>Developing a generic splash page with a positive emotion, to alert users their connection is bad.</li>
+      </ul>
+
+      <p>Here is what we've implemented so far:</p>
+
+      <figure class="article-image">
+        <Image src={chopOfflineDesign} alt="Chop offline design screens" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>In general, we leverage client's cached data as much as possible to ensure users have a seamless offline experience. We defer checking a user's connection until they are ready to place an order. In our case, as a mobile commerce solution only available in San Francisco, most of our users have an intermittent connection rather than no access at all. We've taken that into consideration. We now make several attempts to connect to a network before giving up and displaying the splash page.</p>
+
+      <p>We designed a splash page with a restaurant and food theme, with copy that says "Gone Fishing. Your internet is off the hook mind trying again?" It's displayed if a user is disconnected, or if they click on a page that doesn't have any cached data. Hopefully, it functions to lighten the mood for the user, so they are distracted from the disappointment of a failed order. At this point, we also let the user take control, and give them the option to try again.</p>
+
+      <h2>Offline Development at Chop</h2>
+
+      <p>While this article focuses on design, I do want to bring up a few points about development.</p>
+
+      <h3>How to ensure there are no duplicate orders</h3>
+
+      <figure class="article-image">
+        <Image src={duplicateOrdersFlow} alt="Flow chart showing how to handle duplicate orders" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>When an order is first placed, the client generates a UUID for the order, and it is persisted to local storage on their iPhone, so if the app crashes, is killed, or otherwise needs to recover, an order in progress isn't lost. After committing to local storage, the phone makes a REST call to the server to place the order and charge the consumer. If an existing order is already in the system and has been successfully charged with the same UUID, the order is rejected as a duplicate.</p>
+
+      <p>The transition to a successfully charged order is two-phased. First, the order is persisted into an ACID database marked as UNPAID, then it is read and charged to Stripe and marked PAID. If the consumer has another order in progress at the same merchant with a different UUID within a defined time window, it is also rejected, because we do not allow more than one order in progress at the same merchant by design.</p>
+
+      <p>The user cannot be charged for the same order twice because it is guarded by UUID check and a database check. The client also can't submit the order twice if it has already been submitted.</p>
+
+      <h3>How to ensure no lost orders</h3>
+
+      <figure class="article-image">
+        <Image src={lostOrdersFlow} alt="Flow chart showing lost order detection and escalation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Our merchant tablets constantly ping heartbeats to the server. We have a Quartz Scheduler process that monitors the last time tablets have pinged the server, and how long orders at each merchant have been sitting unclaimed.</p>
+
+      <p>When idle time exceeds a threshold, an issue is automatically created in an internal issue tracker, and eventually escalated to Slack. If the merchant responds during this time window, the issue is automatically closed and reported to Slack as resolved.</p>
+
+      <p>Eventually, if the downtime persists and Slack messages do not elicit a response, it will be escalated to an SMS message.</p>
+
+      <h2>Final Thoughts</h2>
+
+      <p>What we have implemented so far is by no means perfect, but it is a good first step to ensure our customers can successfully make orders through intermittent connections. We are interested in delivering more. For example, on the splash page, rather than saying "Try again", can we change it to "Notify me when online"? That way, when the phone is back online, we can send a friendly notification from which the user can preview their shopping cart and place their order without even opening the app.</p>
+
+      <p>Through this exercise, what I have realized is that users don't have any set expectations for offline experiences. It is in general, as shown through my case studies, a negative spectrum. There is so little information out there about offline UX best practices, whether on web apps or native apps. There are, however, some interesting technologies available now such as Service Workers which I am hoping to explore in 2017 when we start the web app.</p>
+
+      <p>Through this article, I hope to see more conversations around offline design and development practices from the community, let's make offline a positive experience.</p>
+
+      <p>I also found an <a href="http://offlinefirst.org/" target="_blank" rel="noopener">Offline First!</a> community which is pretty awesome.</p>
+
+      <h2>Good Reads:</h2>
+
+      <ul>
+        <li><a href="http://alistapart.com/article/offline-first" target="_blank" rel="noopener">http://alistapart.com/article/offline-first</a></li>
+        <li><a href="https://uxdesign.cc/offline-93c2f8396124#.k4qeni66a" target="_blank" rel="noopener">https://uxdesign.cc/offline-93c2f8396124</a></li>
+        <li><a href="https://medium.com/@jessebeach/my-biggest-takeaway-from-the-second-offline-camp-in-santa-margarita-ca-d0dd930cd02b#.flnqpm9un" target="_blank" rel="noopener">https://medium.com/@jessebeach/my-biggest-takeaway-from-the-second-offline-camp</a></li>
+        <li><a href="https://medium.com/offline-camp" target="_blank" rel="noopener">https://medium.com/offline-camp</a></li>
+        <li><a href="https://pwa.rocks/" target="_blank" rel="noopener">https://pwa.rocks/</a></li>
+        <li><a href="https://www.kainos.com/offline-first-approach-e-commerce/" target="_blank" rel="noopener">https://www.kainos.com/offline-first-approach-e-commerce/</a></li>
+      </ul>
+    </div>
+
+    <ArticleStats slug="designing-for-accidental-disconnects" tags={["startup", "design", "chop"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-lg) 0 var(--space-sm);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body ul,
+  .article-body ol {
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .article-body li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

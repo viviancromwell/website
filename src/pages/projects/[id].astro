@@ -51,6 +51,7 @@ const imageSrc = images[`../../assets/projects/${project.file}`]?.default;
           alt={project.title}
           widths={[800, 1200]}
           sizes="(max-width: 768px) 100vw, 60vw"
+          loading="eager"
         />
       ) : (
         <img src={`/projects/${project.file}`} alt={project.title} />

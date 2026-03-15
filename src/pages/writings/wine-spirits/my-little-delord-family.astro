@@ -1,0 +1,269 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import armagnacBottles from '../../../assets/writings/my-little-delord-family/01-armagnac-bottles-lineup.jpg';
+import jeromeDelord from '../../../assets/writings/my-little-delord-family/02-jerome-delord.jpg';
+import copperStills from '../../../assets/writings/my-little-delord-family/03-copper-stills.jpg';
+import distillationPlates from '../../../assets/writings/my-little-delord-family/04-distillation-plates.jpg';
+import streetArt from '../../../assets/writings/my-little-delord-family/05-street-art-mural.jpg';
+import armagnacBarrel from '../../../assets/writings/my-little-delord-family/06-armagnac-barrel.jpg';
+import agingRoom from '../../../assets/writings/my-little-delord-family/07-aging-room.jpg';
+import personalizedBarrel from '../../../assets/writings/my-little-delord-family/08-personalized-barrel.jpg';
+import tastingBottles from '../../../assets/writings/my-little-delord-family/09-tasting-bottles.jpg';
+---
+
+<Base title="My Little Delord Family — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">My Little Delord Family</h1>
+      <div class="article-meta">
+        <time datetime="2019-01-16">January 16, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">7 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Before I knew it, I am a proud owner of 5 different Armagnac Delord. I thought to share some of my learnings on Armagnac Delord and my thoughts on these five different expressions.</p>
+
+      <figure class="article-image">
+        <Image src={armagnacBottles} alt="Five bottles of Armagnac Delord arranged in a display" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Distillery Visit</h2>
+
+      <p>Last December, I had the incredible opportunity to visit Armagnac Delord and was greeted by Jerome Delord, the 4th generation of the Delord family.</p>
+
+      <figure class="article-image">
+        <Image src={jeromeDelord} alt="Jerome Delord, fourth-generation of the Delord family" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Unlike many other distilleries who typically distill between Oct to Jan, Delord often waits til Jan to start the distilling process. As the matter of the fact, they are just starting right now this week.</p>
+
+      <p>The other interesting bit is that Delord uses both single and double distillation. Single distillation is the key distilling method for Armagnac but double distillation is allowed in the Armagnac world as long as it is not the only method. Double distillation, similar to Cognac, tend to be used in the younger expressions, such as Blanche Armagnac, VS or blend for Marie Duffau Napoleon.</p>
+
+      <figure class="article-image">
+        <Image src={copperStills} alt="Copper stills and distillery equipment at Delord" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>One thing I learned is that there are tons of diversity in the world of Armagnac. From the selection of the grapes, the barrel to use to the focus on vintage vs blends, so this yields to a pretty broad range of the expressions. Armagnac Delord focuses more on the blends, Ugni Blanc is always an important base for them and they have increasingly use Baco in the blends to provide more roundness and structure.</p>
+
+      <figure class="article-image">
+        <Image src={distillationPlates} alt="Close-up of distillation copper plates" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Here is a close up look of the distillation plates.</p>
+
+      <figure class="article-image">
+        <Image src={streetArt} alt="Street art mural by Mth Plume, Sun Sel, Antistak, and Arthur Delmas" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Amazing artwork by Mth Plume, Sun Sel, Antistak, and Arthur Delmas.</p>
+
+      <figure class="article-image">
+        <Image src={armagnacBarrel} alt="Armagnac barrel at Delord distillery" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={agingRoom} alt="Aging room at Delord distillery" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Did I mention now I have a Delord 25 with my name on it?</p>
+
+      <figure class="article-image">
+        <Image src={personalizedBarrel} alt="Personalized Delord 25 barrel" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Delord vs Marie Duffau</h2>
+
+      <p>The first thing you may notice is that Marie Duffau is in the lineup. Yes, I didn't realize this til a few months ago. Armagnac Delord is actually sold under two different brand names: one is Delord and the other is Marie Duffau. They are slightly different blends, aged for a different number of the years. While Delord refers to the family in honor of Prosper Delord who started the distilling back in 1893, Maris Duffau is his wife's name.</p>
+
+      <h2>Tasting Notes</h2>
+
+      <figure class="article-image">
+        <Image src={tastingBottles} alt="Five Armagnac bottles arranged for tasting comparison" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>You can refer to <a href="https://www.heavenlyspirits.com/">Heavenly Spirits website</a> for the info sheet for an individual bottle. Here I would like to focus on my overall impression and what is unique about each.</p>
+
+      <h3>Marie Duffau Napoleon</h3>
+
+      <p>ABV 40%, min 6 years old. Sweet nose, creamy texture, soft tannin with subtle rancio and a slight nutty medium finish.</p>
+
+      <p>For me, this is a bottle for mixing. I made a simple batched cocktail for a party with Sauvignon Blanc and oranges, it was lovely.</p>
+
+      <h3>Marie Duffau 1979</h3>
+
+      <p>ABV 45.5% and minimum 30 years old. The blend: 70% Ugni Blanc, 20% Baco, 5% Colombard, 5% Folle Blanche. It was bottled at 2009. On the nose, raisin, baked pear and lightly oaky. Elegant long finish with plenty of rancio dancing on the tongue with a touch of nutty flavor.</p>
+
+      <p>This is one of my favorite Delord blends for sipping.</p>
+
+      <h3>Delord 25</h3>
+
+      <p>ABV 40%. The blend: 57% Ugni Blanc, 16% Colombard, 15% Folle Blanche, and 12% Baco. Complex nose, bittersweet initial taste full of cocoa and nuts, then it softens with more caramel and fruit notes. It manages to keep it interesting with nutty flavors and softness. A well rounded classic. This is often the very first bottle for Americans to get acquainted with Armagnac, thanks to its high quality at a very affordable price.</p>
+
+      <h3>Delord XO Premium</h3>
+
+      <p>So this one is not imported to the US. When I tried it at Delord House, it tasted so different from Delord's other expressions and I fell in love with it. This is a blend from 25 yrs to 45 yrs old with more Baco grapes compared to other Delord expressions. Very different bottle, unassuming nose actually, but it is silky smooth on the palate with a peppery and leathery finish. While Delord 25 is a crowd pleaser with a rounded profile, this one got a bit personality!</p>
+
+      <h3>Delord 1978 Cask Strength</h3>
+
+      <p>ABV 42.8%. This is a blend of Ugni Blanc and Baco slumbered for 40 years before being bottled cask strength in 2018. Plenty full nose of dried apricots and prunes, a puff of smoke and loamy earth in addition to rancio.</p>
+
+      <p>Honestly, you can't go wrong with any of these bottles. It really depends on you and what you use it for. For mixing, Marie Duffau Napoleon is a great option although I tend to use a more aged one for classic drinks such as Old Fashioned or Manhattan. I have noticed ABV 44% – 48% tend to be my sweet spot in terms of the proof, and I appreciate a very long finish. If you are like me, you will appreciate Marie Duffau 1979. But many people fall in love with Armagnac through Delord 25.</p>
+
+      <h2>Availability in the US</h2>
+
+      <p>US Importer: <a href="https://www.heavenlyspirits.com/">heavenlyspirits.com</a></p>
+
+      <p>Online stores:</p>
+      <ul>
+        <li><a href="https://dandm.com/">dandm.com</a></li>
+        <li><a href="https://www.klwines.com/">klwines.com</a></li>
+        <li><a href="https://www.astorwines.com/">astorwines.com</a></li>
+      </ul>
+
+      <p>Armagnac Delord Photo Gallery: <a href="https://viviancromwellphotography.pixieset.com/g/armagnactour-delord/">viviancromwellphotography.pixieset.com</a></p>
+
+      <p>Official Armagnac website: <a href="http://www.armagnac.fr/">armagnac.fr</a></p>
+
+      <p>Follow <a href="https://instagram.com/thetipsymuse">instagram.com/thetipsymuse</a> for more regular updates.</p>
+    </div>
+
+    <ArticleStats slug="my-little-delord-family" tags={["armagnac", "brandy", "france"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-body ul {
+    margin: 0 0 var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .article-body li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

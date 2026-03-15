@@ -45,6 +45,7 @@ const imageSrc = images[`../../assets/paintings/${painting.file}`]?.default;
           alt={painting.title}
           widths={[800, 1200]}
           sizes="(max-width: 768px) 100vw, 60vw"
+          loading="eager"
         />
       ) : (
         <img src={`/paintings/${painting.file}`} alt={painting.title} />

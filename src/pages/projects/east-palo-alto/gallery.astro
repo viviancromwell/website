@@ -115,7 +115,7 @@ const profileData = documentary.profiles.map((profile) => ({
               alt={p.name}
               widths={[300, 500]}
               sizes="(max-width: 600px) 50vw, (max-width: 900px) 25vw, 200px"
-              loading="lazy"
+              loading={i < 4 ? "eager" : "lazy"}
             />
             <span class="doc-portrait-name">{p.name}</span>
           </a>

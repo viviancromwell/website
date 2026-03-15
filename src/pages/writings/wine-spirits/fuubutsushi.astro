@@ -1,0 +1,178 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import cocktail from '../../../assets/writings/fuubutsushi/01-fuubutsushi-cocktail.jpg';
+---
+
+<Base title="Fuubutsushi — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Fuubutsushi</h1>
+      <div class="article-meta">
+        <time datetime="2017-12-02">December 2, 2017</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={cocktail} alt="Fuubutsushi lavender cocktail in a collins glass with grapefruit garnish" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>The typical lavender season is June to August and it is one of my favorite herbs and flowers. To my surprise, the lavender in my backyard is still thriving in this winter weather, well with just one sprig standing, not enough to make a cocktail, though.</p>
+
+      <p>So when Teroforma reached out to me about their new 1pt infusion blends, the obvious choice is their floral blend: lavender, orange zest, and liquorice root with a balancing note of soothing chamomile.</p>
+
+      <p>1pt infusion kit comes with a high-durability lab glass infusion bottle with walnut-finish cap, a stainless steel infusion basket so it is mess free. What I love about it is that each blend has specific infusion time, which has always been tough because it requires sampling every few hours if you do your own infusion.</p>
+
+      <p>I decided to make a drink that reminds me of Hokkaido that I visited this summer, filled with beautiful lavender flowers. Summer has always been my favorite season because I am a solar powered person, and I can't wait to go to South Hemisphere in a few weeks! I named the drink "Fuubutsushi" which is Japanese, it means things which remind of a season.</p>
+
+      <h2>Recipe</h2>
+
+      <h3>Ingredients</h3>
+
+      <ul>
+        <li>2 oz 1pt N°003 Floral lavender infused gin</li>
+        <li>3 oz pink grapefruit juice</li>
+        <li>0.5 oz elderflower liqueur</li>
+        <li>0.5 oz bianco vermouth</li>
+        <li>0.25 oz homemade grenadine</li>
+        <li>Half egg white</li>
+      </ul>
+
+      <h3>Instruction</h3>
+
+      <p>Add all ingredients, reverse dry shake, pour into a chilled collins glass filled with small ice cube. Garnish with grapefruit wedge and my lonely lavender sprig.</p>
+
+      <p>Have a great day.</p>
+    </div>
+
+    <ArticleStats slug="fuubutsushi" tags={["gin", "cocktails", "japan"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

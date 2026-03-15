@@ -1,0 +1,175 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import armagnacBottle from '../../../assets/writings/armagnac-lacqugy-colombard-2000/01-armagnac-bottle.webp';
+---
+
+<Base title="Armagnac Lacqugy Colombard 2000 — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Armagnac Lacqugy Colombard 2000</h1>
+      <div class="article-meta">
+        <time datetime="2019-02-28">February 28, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">4 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={armagnacBottle} alt="Armagnac Lacqugy Colombard 2000 bottle" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>My first taste of Armagnac Lacguy was at Amanda's house where we tried Lacquy 17 yrs old blend. It turned out to be one of the favorites that evening.</p>
+
+      <p>Since then, I had paid a bit more attention to this house, even though we didn't get the opportunity to visit during the press trip.</p>
+
+      <p>Lacguy is owned by the Boisséson family since 1711, that makes them one of the oldest houses in the Armagnac region.</p>
+
+      <p>Today, Gilles de Boisséson is the 10th generation at the helm of Château Lacquy. Considered by Charles Neal as one of the finest producers, Gilles is a firm believer in traditional and deluxe cask strength armagnac, and the brand has been in many of the finest restaurants in France.</p>
+
+      <p>The armagnac from Chateau de Lacquy doesn't have any additives and it is not diluted.</p>
+
+      <p>I have been talking to Gilles frequently on Instagram DM and it surprised me a great deal that he has the time to entertain a curious girl from San Francisco and has been very patient in explaining everything I asked.</p>
+
+      <p>I eventually picked up three bottles when in Europe and have just been in love with them since.</p>
+
+      <p>The first bottle I want to talk about is this unique pure colombard Bas Armagnac 2000. Colombard is one of the four popular grapes used in armagnac distillation, and often it is used in a small portion for blending.</p>
+
+      <p>Baco grapes give the brandy a beautiful structure, Folle Blanche brings the floral notes while Colombard has lovely herbal notes – as I was told.</p>
+
+      <p>Distilled in November 2000, bottled at 48%, this pure colombard armagnac has a rich and intense nose, love its spiciness and gingery notes that you don't get in Armagnac often.</p>
+
+      <p>I had it at a recent tasting at home; this bottle has become the favorite among my friends.</p>
+
+      <p>Lacquy has limited availability in the US today, but I hope this will change soon. It is much more available in Europe and you can even buy online and have them shipped.</p>
+    </div>
+
+    <ArticleStats slug="armagnac-lacqugy-colombard-2000" tags={["armagnac", "brandy", "spirits", "france"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

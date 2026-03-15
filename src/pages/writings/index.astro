@@ -1,0 +1,573 @@
+---
+import Base from '../../layouts/Base.astro';
+import data from '../../data/writings.json';
+
+const writings = data.writings.sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+// Group writings by year
+const byYear: Record<string, typeof writings> = {};
+for (const w of writings) {
+  const year = w.date.split('-')[0];
+  (byYear[year] ??= []).push(w);
+}
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+
+// Categories in display order
+const categoryOrder = ['tech', 'photography', 'travel', 'wine-spirits', 'parenting'];
+const categories = categoryOrder.filter((c) => writings.some((w) => w.category === c));
+
+function capitalize(s: string): string {
+  if (s === 'wine-spirits') return 'Wine & Spirits';
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+---
+
+<Base title="Writings — Vivian Cromwell" activeNav="writings">
+  <section class="writings-section">
+    <div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5"/><line x1="10" y1="10" x2="15" y2="15"/></svg>
+      <input type="search" class="search-input" placeholder="Search articles..." aria-label="Search articles" />
+    </div>
+
+    <div class="search-results" hidden>
+      <div class="search-results-header">
+        <span class="search-results-count"></span>
+        <button class="search-clear" aria-label="Clear search">Clear</button>
+      </div>
+      <div class="search-results-list"></div>
+    </div>
+
+    <div class="writings-browse">
+      <div class="writings-header">
+        <nav class="writings-filters" aria-label="Filter by category">
+          <button class="filter-pill is-active" data-category="all">All</button>
+          {categories.map((cat) => (
+            <button class="filter-pill" data-category={cat}>{capitalize(cat)}</button>
+          ))}
+        </nav>
+        <span class="writings-count" aria-live="polite">{writings.length} articles</span>
+      </div>
+
+      <p class="category-note" id="wine-spirits-note" hidden>A retired hobby — the palate stays.</p>
+
+    <div class="writings-list">
+      {years.map((year) => (
+        <div class="year-group" data-year={year}>
+          <button class="year-toggle" aria-expanded="false">
+            <span class="year-label">{year}</span>
+            <span class="year-article-count">{byYear[year].length}</span>
+          </button>
+          <div class="year-content">
+            {byYear[year].map((w) => (
+              <a href={`/writings/${w.category}/${w.id}`} class="writings-row" data-category={w.category} data-tags={w.tags.join(',')}>
+
+                <span class="writings-title">{w.title}</span>
+                <span class="writings-reading-time">{w.readingTime} min</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const yearGroups = document.querySelectorAll<HTMLDivElement>('.year-group');
+  const yearToggles = document.querySelectorAll<HTMLButtonElement>('.year-toggle');
+  const countEl = document.querySelector<HTMLSpanElement>('.writings-count');
+
+  // Toggle year collapse
+  yearToggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const group = toggle.closest('.year-group')!;
+      const isOpen = group.classList.contains('is-open');
+      group.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // Category filtering
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      pills.forEach((p) => p.classList.remove('is-active'));
+      pill.classList.add('is-active');
+
+      const category = pill.dataset.category;
+      const isAll = category === 'all';
+
+      // Update URL to reflect category
+      const url = isAll ? '/writings' : `/writings?category=${category}`;
+      history.replaceState(null, '', url);
+
+      // Show/hide wine-spirits note
+      const note = document.getElementById('wine-spirits-note');
+      if (note) note.hidden = category !== 'wine-spirits';
+      let totalVisible = 0;
+
+      yearGroups.forEach((group) => {
+        const rows = group.querySelectorAll<HTMLAnchorElement>('.writings-row');
+        let visibleInGroup = 0;
+
+        rows.forEach((row) => {
+          const show = isAll || row.dataset.category === category;
+          row.style.display = show ? '' : 'none';
+          if (show) visibleInGroup++;
+        });
+
+        totalVisible += visibleInGroup;
+
+        // Hide year group if no matching articles
+        group.style.display = visibleInGroup === 0 ? 'none' : '';
+
+        // Hide per-year count when filtering by category
+        const yearCount = group.querySelector<HTMLElement>('.year-article-count');
+        if (yearCount) {
+          yearCount.style.display = isAll ? '' : 'none';
+        }
+
+        // Auto-expand years with matches when filtering, collapse when "All"
+        if (isAll) {
+          group.classList.remove('is-open');
+          group.querySelector('.year-toggle')?.setAttribute('aria-expanded', 'false');
+        } else if (visibleInGroup > 0) {
+          group.classList.add('is-open');
+          group.querySelector('.year-toggle')?.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      // Update total count
+      if (countEl) {
+        countEl.textContent = `${totalVisible} article${totalVisible !== 1 ? 's' : ''}`;
+      }
+    });
+  });
+
+  // Pagefind search
+  const searchInput = document.querySelector<HTMLInputElement>('.search-input');
+  const searchResults = document.querySelector<HTMLDivElement>('.search-results');
+  const searchResultsList = document.querySelector<HTMLDivElement>('.search-results-list');
+  const searchResultsCount = document.querySelector<HTMLSpanElement>('.search-results-count');
+  const searchClear = document.querySelector<HTMLButtonElement>('.search-clear');
+  const browseSection = document.querySelector<HTMLDivElement>('.writings-browse');
+
+  let pagefind: any = null;
+  let debounceTimer: ReturnType<typeof setTimeout>;
+
+  async function loadPagefind() {
+    if (pagefind) return pagefind;
+    try {
+      const path = '/pagefind/pagefind.js';
+      pagefind = await import(/* @vite-ignore */ path);
+      await pagefind.init();
+    } catch {
+      // Pagefind index not available (dev mode) — disable search
+      if (searchInput) searchInput.placeholder = 'Search available after build';
+      return null;
+    }
+    return pagefind;
+  }
+
+  async function doSearch(query: string) {
+    if (!query.trim()) {
+      clearSearch();
+      return;
+    }
+
+    const pf = await loadPagefind();
+    if (!pf) return;
+
+    const search = await pf.search(query);
+    const results = await Promise.all(search.results.slice(0, 20).map((r: any) => r.data()));
+
+    // Filter to only writing article pages (not the index)
+    const writingResults = results.filter((r: any) =>
+      r.url.startsWith('/writings/') && r.url !== '/writings/'
+    );
+
+    if (searchResults && searchResultsList && searchResultsCount && browseSection) {
+      searchResults.hidden = false;
+      browseSection.style.display = 'none';
+
+      searchResultsCount.textContent = `${writingResults.length} result${writingResults.length !== 1 ? 's' : ''}`;
+
+      if (writingResults.length) {
+        searchResultsList.innerHTML = '';
+        for (const r of writingResults) {
+          const a = document.createElement('a');
+          a.href = r.url;
+          a.className = 'search-result-item';
+
+          const title = document.createElement('span');
+          title.className = 'search-result-title';
+          title.textContent = r.meta?.title || r.url;
+
+          const excerpt = document.createElement('span');
+          excerpt.className = 'search-result-excerpt';
+          excerpt.innerHTML = r.excerpt || '';
+
+          a.appendChild(title);
+          a.appendChild(excerpt);
+          searchResultsList.appendChild(a);
+        }
+      } else {
+        searchResultsList.innerHTML = '<p class="search-no-results">No articles found</p>';
+      }
+    }
+  }
+
+  function clearSearch() {
+    if (searchInput) searchInput.value = '';
+    if (searchResults) searchResults.hidden = true;
+    if (searchResultsList) searchResultsList.innerHTML = '';
+    if (browseSection) browseSection.style.display = '';
+  }
+
+  searchInput?.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => doSearch(searchInput.value), 250);
+  });
+
+  searchClear?.addEventListener('click', () => {
+    clearSearch();
+    // Remove query params from URL
+    history.replaceState(null, '', '/writings');
+  });
+
+  // Tag filtering
+  function filterByTag(tag: string) {
+    // Reset category pills to none active
+    pills.forEach((p) => p.classList.remove('is-active'));
+
+    let totalVisible = 0;
+
+    yearGroups.forEach((group) => {
+      const rows = group.querySelectorAll<HTMLAnchorElement>('.writings-row');
+      let visibleInGroup = 0;
+
+      rows.forEach((row) => {
+        const rowTags = (row.dataset.tags || '').split(',');
+        const show = rowTags.includes(tag);
+        row.style.display = show ? '' : 'none';
+        if (show) visibleInGroup++;
+      });
+
+      totalVisible += visibleInGroup;
+      group.style.display = visibleInGroup === 0 ? 'none' : '';
+
+      const yearCount = group.querySelector<HTMLElement>('.year-article-count');
+      if (yearCount) yearCount.style.display = 'none';
+
+      if (visibleInGroup > 0) {
+        group.classList.add('is-open');
+        group.querySelector('.year-toggle')?.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    if (countEl) {
+      countEl.textContent = `${totalVisible} article${totalVisible !== 1 ? 's' : ''} tagged "${tag}"`;
+    }
+
+    history.replaceState(null, '', `/writings?tag=${encodeURIComponent(tag)}`);
+  }
+
+  // Handle URL params on page load
+  const params = new URLSearchParams(window.location.search);
+  const categoryParam = params.get('category');
+  const tagParam = params.get('tag');
+
+  if (categoryParam) {
+    const matchingPill = Array.from(pills).find(p => p.dataset.category === categoryParam);
+    if (matchingPill) matchingPill.click();
+  } else if (tagParam) {
+    filterByTag(tagParam);
+  }
+</script>
+
+<style>
+  .writings-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .search-bar {
+    position: relative;
+    margin-bottom: var(--space-lg);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: var(--space-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+  }
+
+  .search-input {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: var(--space-xs) var(--space-sm) var(--space-xs) calc(var(--space-sm) + 24px);
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  .search-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-input:focus {
+    border-color: var(--color-text-muted);
+  }
+
+  .search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%23999' stroke-width='1.5'%3E%3Cline x1='2' y1='2' x2='12' y2='12'/%3E%3Cline x1='12' y1='2' x2='2' y2='12'/%3E%3C/svg%3E") center/contain no-repeat;
+    cursor: pointer;
+  }
+
+  .search-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .search-results-count {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .search-clear {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .search-clear:hover {
+    color: var(--color-text);
+  }
+
+  :global(.search-result-item) {
+    display: block;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+  }
+
+  :global(.search-result-item:hover) {
+    color: var(--color-accent);
+  }
+
+  :global(.search-result-title) {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-2xs);
+  }
+
+  :global(.search-result-excerpt) {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  :global(.search-result-excerpt mark) {
+    background: none;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  :global(.search-no-results) {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    padding: var(--space-md) 0;
+  }
+
+  .writings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .writings-filters {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+
+  .writings-count {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    padding-top: var(--space-2xs);
+  }
+
+  .filter-pill {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: var(--space-2xs) var(--space-sm);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .filter-pill:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+  }
+
+  .filter-pill.is-active {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  .category-note {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-md);
+  }
+
+  .writings-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .year-group {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .year-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-sm) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    transition: color 0.2s;
+  }
+
+  .year-toggle:hover {
+    color: var(--color-accent);
+  }
+
+  .year-toggle:focus-visible {
+    color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .year-label {
+    font-size: var(--text-base);
+    font-weight: 500;
+  }
+
+  .year-article-count {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .year-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+    opacity: 0;
+  }
+
+  .year-group.is-open .year-content {
+    max-height: 5000px;
+    opacity: 1;
+    padding-bottom: var(--space-sm);
+  }
+
+  .writings-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+  }
+
+  .writings-row:hover {
+    color: var(--color-accent);
+  }
+
+  .writings-title {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    line-height: var(--leading-normal);
+  }
+
+  .writings-reading-time {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .writings-header {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .writings-reading-time {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .year-content {
+      transition: none;
+    }
+  }
+</style>

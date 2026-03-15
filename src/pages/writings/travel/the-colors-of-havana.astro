@@ -1,0 +1,350 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import oldHavana from '../../../assets/writings/the-colors-of-havana/01-old-havana.jpg';
+import centro from '../../../assets/writings/the-colors-of-havana/02-centro.jpg';
+import maleconFishermen from '../../../assets/writings/the-colors-of-havana/03-malecon-fishermen.jpg';
+import maleconLovers from '../../../assets/writings/the-colors-of-havana/04-malecon-lovers.jpg';
+import maleconElders from '../../../assets/writings/the-colors-of-havana/05-malecon-elders.jpg';
+import reglaSanteria from '../../../assets/writings/the-colors-of-havana/06-regla-santeria.jpg';
+import reglaWhite from '../../../assets/writings/the-colors-of-havana/07-regla-white.jpg';
+import reglaFerry from '../../../assets/writings/the-colors-of-havana/08-regla-ferry.jpg';
+import reglaStreet from '../../../assets/writings/the-colors-of-havana/09-regla-street.jpg';
+import reglaNeighborhood from '../../../assets/writings/the-colors-of-havana/10-regla-neighborhood.jpg';
+import rationsMarketplace from '../../../assets/writings/the-colors-of-havana/11-rations-marketplace.jpg';
+import rationsStreet from '../../../assets/writings/the-colors-of-havana/12-rations-street.jpg';
+import youngsterSchool from '../../../assets/writings/the-colors-of-havana/13-youngster-school.jpg';
+import elderSenior from '../../../assets/writings/the-colors-of-havana/14-elder-senior.jpg';
+import balletSchool from '../../../assets/writings/the-colors-of-havana/15-ballet-school.jpg';
+import balletDancer from '../../../assets/writings/the-colors-of-havana/16-ballet-dancer.jpg';
+import boxingGym from '../../../assets/writings/the-colors-of-havana/17-boxing-gym.jpg';
+import boxingTraining from '../../../assets/writings/the-colors-of-havana/18-boxing-training.jpg';
+import pogolottiRumba from '../../../assets/writings/the-colors-of-havana/19-pogolotti-rumba.jpg';
+import pogolottiStreet from '../../../assets/writings/the-colors-of-havana/20-pogolotti-street.jpg';
+import vinalesLandscape from '../../../assets/writings/the-colors-of-havana/21-vinales-landscape.jpg';
+import vinalesCigars from '../../../assets/writings/the-colors-of-havana/22-vinales-cigars.jpg';
+---
+
+<Base title="The Colors of Havana — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">The Colors of Havana</h1>
+      <div class="article-meta">
+        <time datetime="2020-05-06">May 6, 2020</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">9 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=travel" class="article-category">Travel</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Last November, I traveled to Cuba Havana for the first time, as part of the small photography group organized by the world-renowned photojournalist Peter Turnley. This short article is intended to capture the interesting aspect of Cuban living through a photographer's eyes.</p>
+
+      <p>The biggest regret I have is that I didn't read any books about Cuba prior, so a lot of my observations lack background information. I highly recommend reading Ben Corbett's book "This Is Cuba: An Outlaw Culture Survives" before going to Cuba. It will make your experience much richer and help you be more aware of what's going on.</p>
+
+      <h2>Three main neighborhoods of Havana</h2>
+
+      <h3>Old Havana</h3>
+
+      <p>Old Havana is where all of the tourist attractions are: museums and cathedrals, built in different colonial styles such as Baroque or Art Deco.</p>
+
+      <figure class="article-image">
+        <Image src={oldHavana} alt="Street scene in Old Havana with colonial architecture" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h3>Vedado</h3>
+
+      <p>Vedado is like the downtown area of the city, where many affluent houses still stand from the time of the Republican period. Some have been renovated to rent out Airbnb style, known as Casa Particular.</p>
+
+      <h3>Centro</h3>
+
+      <p>Centro is between Old Havana and Vedado. While I didn't stay here, it is probably my favorite neighborhood and the best area for the avid street photographer.</p>
+
+      <figure class="article-image">
+        <Image src={centro} alt="Street photography in Centro Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Malecón</h2>
+
+      <p>The Malecón, one of Havana's most soulful and quintessentially Cuban thoroughfares, where lovers, fishermen, photographers, and poets meet. It is a broad esplanade, roadway, and seawall that stretches for 8 km along the coast. The construction of Malecón started in 1901, to protect Havana from the sea and invasion.</p>
+
+      <p>There are many faces to Malecón. Fishermen at sunset casting nets. Lovers enjoying a quiet moment, mostly impossible in the cramped home. And Elders playing the dominoes, one of the pastimes for Cubans.</p>
+
+      <figure class="article-image">
+        <Image src={maleconFishermen} alt="Fishermen at sunset on the Malecón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={maleconLovers} alt="Lovers enjoying a quiet moment on the Malecón" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={maleconElders} alt="Elders along the Malecón seawall" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>One note of caution: In Cuba, there is no pedestrian right of way for crossing the street. One of the scariest things I had to do in Cuba was to cross the street from Malecón to the other side. I still don't think I could have made it without holding on tight to Ariene Chang, a local photographer friend.</p>
+
+      <p>Photographer's tip: Malecón is worth many visits, during sunrise and sunset, or just about any time of the day. Every day is different, you'll never know what you'll encounter. For example, one day I saw a giant wave crashing over the wall onto the fishermen, but I was not quite prepared and there were too many photographers to get a clean shot. I went back three days in a row but never saw the wave I saw on the first day.</p>
+
+      <h2>Regla</h2>
+
+      <p>Santeria is an Afro American religion developed in Cuba among African descendants. While it is syncretized with Roman Catholicism, it is far more prevalent.</p>
+
+      <p>On my first day in Cuba, we went by ferry to Iglesia de Nuestra Senora de Regla, where the virgin is represented by a black Madonna.</p>
+
+      <figure class="article-image">
+        <Image src={reglaSanteria} alt="Santeria ceremony in Regla" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Often you will meet people who wear all white, such as this little boy and his family, this means they are going through a year-long Santeria initiation. During this time, no one is allowed to touch them except family members.</p>
+
+      <figure class="article-image">
+        <Image src={reglaWhite} alt="Family in white going through Santeria initiation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Photographer's tip: The ferry ride to Regla is great for photography, do not miss it. In addition, try to walk around the Regla neighborhood, it is quiet but if you take time, you will see interesting things!</p>
+
+      <figure class="article-image">
+        <Image src={reglaFerry} alt="Ferry ride to Regla" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={reglaStreet} alt="Street scene in Regla neighborhood" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={reglaNeighborhood} alt="Regla neighborhood life" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Rations and Street Marketplace</h2>
+
+      <p>Also called "Libreta", rationing is a form of food production and distribution that is widely used in Cuba. Each person gets their allowance based on age and health condition, often the price is at a fraction of its market price such (e.g. 10%). That sounds heavenly, right? It's far from the truth though. The rations provided by the Cuban government only include enough supply for half of the month to make sure you are not starving, far from being a nutritious meal. The typical ration includes rice, beans, sugar, salt, and some chicken. Elders and children under seven will get milk. You need to go to many different stores to get all of the ends met since the shortage of supply is a norm in Cuba. When you first arrive in Havana, if you see lines of people patiently waiting outside the store, it's very likely they are waiting to fill in one of the supplies on their ration book.</p>
+
+      <p>So what do you do for the other half of the month when your supplies run out? Welcome to the street marketplace, the new generation of private entrepreneurs. Those street marketplaces offer organic fruit, veggies or meat that are grown and subsequently transported from the countryside into Havana.</p>
+
+      <figure class="article-image">
+        <Image src={rationsMarketplace} alt="Street marketplace in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>For those who have relatives living in the States or those who may have a job that gives them access to international travel, you will often see big packages of milk powder and canned food that are being brought back to Cuba via the airport.</p>
+
+      <p>Shampoo? Sunscreen? Soap? Things we take for granted in our day to day life, are often an obsession for Cubans to obtain access to. When I left Havana, I left many things at the Casa where we stayed. I also sold my camera lens to a local photographer who I have grown to be friends with. There is a sense of sadness after seeing all this -- another country only 90 minutes away from us, a totally different world where people struggle to get fed, provide for the family, yet they remain in high spirits.</p>
+
+      <p>Photographer's tip: Try to spend time at the marketplace, some of the scenes are more obvious but if you wander around to the back, you often find more interesting things to shoot, such as offloading the goods, preparing the veggies to sell.</p>
+
+      <figure class="article-image">
+        <Image src={rationsStreet} alt="Street vendor scene in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Youngster and Elder</h2>
+
+      <p>Cuba has one of the best education systems in the world. The government invested substantially and education is compulsory for children from 6 -16 despite the many problems in the education system such as supplies. They have the highest rank in Latin America.</p>
+
+      <p>One day, I was in Old Havana early enough to witness how parents send children off to school. Unlike in the US, where we drop off the kids at the school and drive off to work immediately, many Cuban mothers would wait outside the school while the children go inside for the short daily ceremony, so that they could kiss their kids one more time before they head to class.</p>
+
+      <figure class="article-image">
+        <Image src={youngsterSchool} alt="Children heading to school in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Ninety percent of the elderly in Cuba live with, or close to their family. The concept of a senior home mostly means the daily gathering of seniors with meals and activities. You only need to pay a minimal fee to access such senior centers.</p>
+
+      <figure class="article-image">
+        <Image src={elderSenior} alt="Elderly gathering at a senior center in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Photographer's tip: Bring some things to donate to the school when you visit, such as medicine, pencils, pretty much anything. Children are the most authentic humans, interact with them and you will be rewarded with great pictures. Domino is often played at the senior center, catch a game if you can!</p>
+
+      <h2>Boxing and Ballet</h2>
+
+      <p>When you think about Cuban dance, you think about salsa. But little did I know that Cuba is considered as one of the main stages for ballet in the world. This is largely due to the work by the iconic ballerina Alicia Alonso who set up Ballet Nacional de Cuba in 1948. She did receive help from Fidel Castro both financially as well as on the promotion side, and this helped to establish the importance of ballet in Cuba. When Alicia passed away in 2019 at the age of 98, the entire nation mourned their loss, more than 20,000 Cubans attended her funeral.</p>
+
+      <p>I had the great pleasure to visit the ballet school, a passion project by Laura Alonso, the daughter of Alicia Alonso. It was my first time to photograph ballerinas. There are lots of challenges, such as how to anticipate the movement, or how to adapt when the lighting and movement are constantly changing. Ballerinas are some of the most beautiful and graceful people, but I have found my skills are not sufficient to capture their beauty.</p>
+
+      <figure class="article-image">
+        <Image src={balletSchool} alt="Ballet students practicing at Laura Alonso's school" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={balletDancer} alt="Ballerina at the ballet school in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Let's talk about boxing.</p>
+
+      <p>In 1961, the Revolutionary government banned professional boxing, however, Cuban people loved boxing so much that amateur gyms sprung up. Walking around Havana, you will see many boxing gyms where young adults and children are trained. Although they are considered amateurs, their levels of the skills are on par with professional levels. They have been consistently winning medals in all sorts of competitions.</p>
+
+      <p>Boxing fits Cuba's personality: energetic, determined, and fierce. Many families send their young boys to sports at an early age for Martial Arts and Boxing.</p>
+
+      <figure class="article-image">
+        <Image src={boxingGym} alt="Young boxer training at a gym in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Photographer's tip: I have found both ballet and boxing are difficult to capture. Because of the constant movement and lighting condition changes. You need time, these are wonderful places that are worth spending your time.</p>
+
+      <figure class="article-image">
+        <Image src={boxingTraining} alt="Boxing training session in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Pogolotti</h2>
+
+      <p>The Pogolotti community in Havana is famous for rumba. It was the first working-class neighborhood built in Cuba by a Dino Pogolotti in 1912, hence the name.</p>
+
+      <p>Today, it is one of the poorest barrios in Havana, an area that tourists would not set foot on.</p>
+
+      <p>But, I am so glad I went with Peter and the group. During the daytime, with some common sense and local friends to guide you, you are safe. The rawness, just the ordinary living by ordinary people, there is something very authentic to it that sparks energy in me and they speak well to my instinct as a street photographer.</p>
+
+      <figure class="article-image">
+        <Image src={pogolottiRumba} alt="Street life in the Pogolotti neighborhood" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={pogolottiStreet} alt="Pogolotti neighborhood in Havana" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Photographer's tip: This place is worth the visit if you have a local friend who can take you there, make some conversations with the locals. Go during the day time.</p>
+
+      <h2>Viñales</h2>
+
+      <p>Beautifully rural, Viñales is endowed with impressive large limestone cliffs covered with flora and plant life. It is a national park where you can still see workers who are manning horses and carts as they collect goods. Its climate and soil make it a perfect place for agriculture and this is the place where the authentic production of the world-famous Cuban cigars is taking place.</p>
+
+      <figure class="article-image">
+        <Image src={vinalesLandscape} alt="Limestone cliffs and countryside in Viñales" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={vinalesCigars} alt="Cigar rolling in Viñales countryside" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>We spent a lovely day in the countryside, eating bbq pork so tender it melts in your mouth, while the coolest cats from Viñales showed us how to roll a cigar.</p>
+
+      <p>Photographer's tip: A day in Viñales felt short, especially given the distance from Havana. Allowing an overnight stay would probably give you more time to shoot in the morning and during the sunset, perhaps more access to a local family.</p>
+
+      <p>I hope you enjoyed my first journey to Havana.</p>
+    </div>
+
+    <ArticleStats slug="the-colors-of-havana" tags={["travel"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-lg) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

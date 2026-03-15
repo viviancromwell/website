@@ -1,0 +1,174 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import mizunaraBottles from '../../../assets/writings/cognac-park-mizunara-oak-finish/01-cognac-park-mizunara-bottles.jpg';
+import bottleDetail from '../../../assets/writings/cognac-park-mizunara-oak-finish/02-cognac-park-bottle-detail.jpg';
+import labelCloseup from '../../../assets/writings/cognac-park-mizunara-oak-finish/03-cognac-park-label-closeup.jpg';
+import cognacTasting from '../../../assets/writings/cognac-park-mizunara-oak-finish/04-cognac-park-tasting.jpg';
+---
+
+<Base title="Cognac Park Mizunara Oak Finish — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Cognac Park Mizunara Oak Finish</h1>
+      <div class="article-meta">
+        <time datetime="2019-04-30">April 30, 2019</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">4 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <figure class="article-image">
+        <Image src={mizunaraBottles} alt="Cognac Park Mizunara Oak Finish bottles" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Mizunara is a rare and expensive Japanese oak that is used to age premium Japanse spirits. It was first used right after the end of World War II, because of the lack of importing from food, medicine to American and European Oak. Japanese turned to their own Mizunara. Mizunara takes about 200 years to grow before it can be cut for cask, it has a higher moisture content which can lead to leakage. However, Mizunara cask finish can bring a very complex and pleasant note to the spirits, the ones that I can often detect are coconut, subtle incense and sandalwood.</p>
+
+      <p>Several whisky brands have used Mizunara cash finish, in addition to Yamazaki and Chichibu in Japan. The most well known is probably Bowmore. However, here I want to talk about the first ever Mizunara finished brandy from Cognac Park.</p>
+
+      <p>As I have previously mentioned, Cognac Park is a medium size cognac house. One of my favorite bottles from this house is Park Borderies. Borderies is the most exclusive cru among the six, and it is associated with round, soft and floral notes such as violet. I had the pleasure to meet cellar master J&#233;r&#244;me Tessendier early this year, and it was there when I was first introduced to Cognac Park's mizunara cask finish. The first bottle (43.5% ABV) is aged for a total of 4 years in French oak including the first 10 months in the new oak, then rest in Mizunara oak for 6 months. The second bottle (45.2% ABV) is aged for a total of 10 years. Both bottles exhibit elegant sandalwood notes in addition to the classic soft tone of Borderies, but the 10-year-old has so much more in its finish – violet, coconut, and fig that are lingering on your tongue. The 4-year-old is excellent on its own, but I was so blown away by the 10-year-old.</p>
+
+      <figure class="article-image">
+        <Image src={bottleDetail} alt="Cognac Park bottle detail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={labelCloseup} alt="Cognac Park label closeup" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <figure class="article-image">
+        <Image src={cognacTasting} alt="Cognac Park Mizunara tasting" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Cognac Park Mizunara finish is one of the unique Cognac I have tried. I applaud Cognac Park's innovation and look forward to seeing this offering more available in the US market. (The four yeard old is available but not the 10-year-old). Have you tried a spirit in Mizunara finish? Did you like it?</p>
+    </div>
+
+    <ArticleStats slug="cognac-park-mizunara-oak-finish" tags={["cognac", "brandy", "spirits", "japan"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

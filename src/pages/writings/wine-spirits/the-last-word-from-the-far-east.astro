@@ -1,0 +1,172 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import lastWordCocktail from '../../../assets/writings/the-last-word-from-the-far-east/01-last-word-cocktail.jpg';
+---
+
+<Base title="The Last Word from the Far East — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">The Last Word from the Far East</h1>
+      <div class="article-meta">
+        <time datetime="2017-03-27">March 27, 2017</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Who says you can't have a cocktail in a bowl? Here is my attempt to add an asian flare to The Last Word.</p>
+
+      <figure class="article-image">
+        <Image src={lastWordCocktail} alt="The Last Word from the Far East cocktail served in a Japanese bowl" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <h2>Recipe</h2>
+
+      <ul>
+        <li>1 oz super dry sake</li>
+        <li>1 oz fresh made matcha tea, make it strong, strain twice. The rest of the ingredients will balance it out and it adds a bit of a creamy taste to the drink.</li>
+        <li>1 oz green chartreuse</li>
+        <li>1 oz yuzu liqueur</li>
+        <li>0.5 oz lime juice, adjust accordingly to your taste</li>
+        <li>1 stalk of lemongrass</li>
+      </ul>
+
+      <h2>Instructions</h2>
+
+      <p>Slice off a few pieces of lemongrass, muddle with yuzu and lime juice. Lemongrass brings the sophisticated taste of citrus and lemon mint. Pour into a small Japanese bowl, garnish with lemongrass and a green leaf from a Japanese maple tree.</p>
+
+      <p>The result is a tangy, pungent yet sweet drink with a subtle creamy finish (thanks to the Matcha). The added matcha mochi complements the drink so well.</p>
+
+      <p>This drink brings back many happy and loving memories I have had in Japan over the years.</p>
+    </div>
+
+    <ArticleStats slug="the-last-word-from-the-far-east" tags={["sake", "cocktails", "japan"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

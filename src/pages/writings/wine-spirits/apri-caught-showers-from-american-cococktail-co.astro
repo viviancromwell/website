@@ -1,0 +1,201 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import apriCaughtShowers from '../../../assets/writings/apri-caught-showers-from-american-cococktail-co/01-apri-caught-showers.jpg';
+import spicyGingerMule from '../../../assets/writings/apri-caught-showers-from-american-cococktail-co/02-spicy-ginger-mule.jpg';
+import cocktailRecipe from '../../../assets/writings/apri-caught-showers-from-american-cococktail-co/03-cocktail-recipe.jpg';
+import giveaway from '../../../assets/writings/apri-caught-showers-from-american-cococktail-co/04-giveaway.jpg';
+import finalDrink from '../../../assets/writings/apri-caught-showers-from-american-cococktail-co/05-final-drink.jpg';
+---
+
+<Base title="Apri-caught Showers from American Cococktail Co. — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Apri-caught Showers from American Cococktail Co.</h1>
+      <div class="article-meta">
+        <time datetime="2020-04-11">April 11, 2020</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">3 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Last month, I had the pleasure to work with American Cocktail Co to design the upcoming April box: The Spicy Ginger Mule. This is a bourbon-based mule with the notes of apricot, just in time for the spring weather to enjoy at home.</p>
+
+      <figure class="article-image">
+        <Image src={apriCaughtShowers} alt="Apri-caught Showers cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>A little bit about American Cocktail Co: In 2012, while working at The Jefferson Hotel in Washington DC, Christoper Wirth teamed up with his friend Massimiliano Matte, a renowned mixologist to found American Cocktail Co. Their goal is to turn the evolution into a revolution by creating incredible unique juice blends and making them widely available.</p>
+
+      <p>The particular blend I used in my drink is the Spicy Ginger Mule mix. It is firey with fresh, cold-pressed ginger, not to mention it is gluten-free, vegan and all-natural ingredients.</p>
+
+      <figure class="article-image">
+        <Image src={spicyGingerMule} alt="Spicy Ginger Mule mix from American Cocktail Co" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+        <figcaption>img source: americancocktailco.com</figcaption>
+      </figure>
+
+      <p>The specific drink I designed is called Apri-caught Showers, a play on the fruit apricot used in the drink.</p>
+
+      <figure class="article-image">
+        <Image src={cocktailRecipe} alt="Apri-caught Showers cocktail preparation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <h2>Apri-caught Showers</h2>
+
+      <ul>
+        <li>1 oz Spicy Ginger Mule</li>
+        <li>1.5 oz Bulleit Bourbon</li>
+        <li>Q club soda</li>
+        <li>Dehydrated Apricot</li>
+      </ul>
+
+      <p>Soak dried apricot in the bourbon overnight. Pour infused bourbon and Spicy Ginger Mule mix into a rocks glass and top with soda.</p>
+
+      <p>The kit has everything you need to make four drinks except mint. You can use TIPSYMUSE10 to get 10% off upon checkout.</p>
+
+      <p>I also have a GIVEAWAY at the moment. Check it out at <a href="https://www.instagram.com/p/B-2HGWxF4XD/">Instagram</a>. You and your friend will get not just one box, but two to share virtually!</p>
+
+      <figure class="article-image">
+        <Image src={giveaway} alt="American Cocktail Co giveaway" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>American Cocktail Co. also did a nice interview with me about where I get my cocktail inspiration and my background. If you are interested, give it a read.</p>
+
+      <figure class="article-image">
+        <Image src={finalDrink} alt="Apri-caught Showers final presentation" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="lazy" />
+      </figure>
+
+      <p>Stay well and healthy during this difficult time. Enjoy some nice homemade cocktails, made possible by American Cocktail Co.</p>
+
+      <p><em>This post is sponsored by American Cocktail Co.</em></p>
+    </div>
+
+    <ArticleStats slug="apri-caught-showers-from-american-cococktail-co" tags={["bourbon", "cocktails"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

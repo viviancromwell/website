@@ -1,0 +1,197 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import rumSour from '../../../assets/writings/rum-sour-with-feve/01-rum-sour-with-feve.jpg';
+---
+
+<Base title="Rum Sour with Fève — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">Rum Sour with Fève</h1>
+      <div class="article-meta">
+        <time datetime="2018-05-28">May 28, 2018</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=wine-spirits" class="article-category">Wine & Spirits</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>This post was originally posted on Shaker and Spoon.</p>
+
+      <p>This is my second experiment with the "magic bean." This time, I infused one in 4 ounces of Smith & Cross Rum for 24 hours.</p>
+
+      <figure class="article-image">
+        <Image src={rumSour} alt="Rum Sour with Fève cocktail" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>My rum is now with this exotic aroma! Somehow it doesn't overpower the S&C, but rather the rum is now coated with the extra dimension of the flavor.</p>
+
+      <p>It is one of the most unique sour drinks, I am pretty happy with the result.</p>
+
+      <h2>Recipe</h2>
+
+      <ul>
+        <li>4 oz Smith & Cross rum</li>
+        <li>1 tonka bean</li>
+        <li>24 hours infusion time</li>
+        <li>Some people reuse the bean after drying</li>
+      </ul>
+
+      <h2>Ingredients</h2>
+
+      <ul>
+        <li>1 1/2 oz infused Smith & Cross Rum</li>
+        <li>1/2 oz Foursquare Exceptional Cask 2004 Rum</li>
+        <li>3/4 oz toasted coconut syrup</li>
+        <li>3/4 oz lemon juice</li>
+        <li>1 dash Xocolatl Mole Bitters</li>
+        <li>egg white</li>
+      </ul>
+
+      <h2>Garnish</h2>
+
+      <p>Sweet and salty toasted coconut chips and grated tonka bean.</p>
+
+      <h2>Glassware</h2>
+
+      <p>Double rocks glass.</p>
+
+      <h2>Directions</h2>
+
+      <ol>
+        <li>Add all of the ingredients to a cocktail shaker.</li>
+        <li>Dry shake 10–15 seconds.</li>
+        <li>Fill with ice; wet shake 10–15 seconds.</li>
+        <li>Double strain into chilled double rocks glass.</li>
+        <li>Garnish!</li>
+      </ol>
+    </div>
+
+    <ArticleStats slug="rum-sour-with-feve" tags={["rum", "cocktails", "sour"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

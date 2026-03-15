@@ -1,0 +1,276 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import ArticleStats from '../../../components/ArticleStats.astro';
+
+import chopApp from '../../../assets/writings/how-we-built-chop/01-chop-app.jpg';
+---
+
+<Base title="How We Built Chop — Vivian Cromwell" activeNav="writings">
+  <div class="painting-back">
+    <a href="/writings" class="back-link">&larr; Back to Writings</a>
+  </div>
+
+  <article class="article" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title">How We Built Chop</h1>
+      <div class="article-meta">
+        <time datetime="2016-10-13">October 13, 2016</time>
+        <span class="article-meta-sep">&middot;</span>
+        <span class="article-reading-time">9 min read</span>
+        <span class="article-meta-sep">&middot;</span>
+        <a href="/writings?category=tech" class="article-category">Tech</a>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <h2>Background</h2>
+
+      <figure class="article-image">
+        <Image src={chopApp} alt="Chop mobile commerce app" widths={[600, 900, 1200]} sizes="(max-width: 768px) 100vw, 700px" loading="eager" />
+      </figure>
+
+      <p>Chop is a service for mobile commerce, designed with the following goals in mind:</p>
+
+      <ul>
+        <li>Beautiful and performant UI</li>
+        <li>Fast iteration</li>
+        <li>Easy to theme</li>
+        <li>Robust backend</li>
+        <li>Support many platforms</li>
+      </ul>
+
+      <h2>The Team</h2>
+
+      <p>The small team is distributed but experienced, with expert knowledge in both JavaScript and native code. A few of us worked at Google so we value good engineering practices as well as autonomy to get work done at our own pace.</p>
+
+      <h2>Where We Began</h2>
+
+      <p>We believed that native code was a requirement for achieving a smooth, fluid UI, so we began with a prototype in Objective-C on iOS. After two months of development, we had a working demo, but iterative shifts in design were not as fast as we wanted, and the UI design was changing rapidly.</p>
+
+      <p>It was also difficult to find and recruit great Objective-C developers, as I had spent the previous five to six years working with JavaScript developers at Google. Eventually, it was Jacky Nguyen, a long-time mobile web expert and friend, who suggested the switch to React Native. As someone who loves the Web, React Native was enticing, but at the time it was still very new (October 2015) and we had a built-in bias towards JavaScript as being slow and clunky.</p>
+
+      <p>However, a prototype port that Jacky built in React Native demonstrated buttery smooth 60fps scrolling and animation comparable to our Objective-C implementation. We were convinced.</p>
+
+      <p>Infinite List Built With React Native</p>
+
+      <h2>iOS: React Native</h2>
+
+      <p>We switched to React Native three months later. It was a difficult decision for the team. It meant throwing away the money and time we had already invested, and letting go of the iOS engineer.</p>
+
+      <p>I was uneasy about the transition. I had left Google just six months earlier, and was already making a litany of mistakes that I, and I alone, would have to solve. But, I'd learned to trust my instinct. If something doesn't feel right, it probably isn't. So, we made the tough decision to switch, and we haven't regretted it since.</p>
+
+      <p>Right off the bat, React Native offered great benefits:</p>
+
+      <ul>
+        <li>Everyone on the team could now edit code, even those who only knew CSS or JS could now tweak the UI</li>
+        <li>Hot-reload was an incredible productivity tool</li>
+        <li>We could use more familiar tools to debug like Chrome Dev Tools</li>
+        <li>The entire node/npm ecosystem could be leveraged</li>
+      </ul>
+
+      <p>Aside from a few custom native modules used to access iOS APIs, 90% of the code is written in Javascript, which makes code reuse on Android and the Web a much easier task. React Native is still a fairly young framework, so it does require more frequent upgrading, and right now we're a bit behind the latest version.</p>
+
+      <p>We've had a great experience using React Native as a team so far, and expect it to pay larger dividends in the future as we expand to a B2B model. React Native makes it simple to skin and customize for a brand and chain's needs, without repetively building and deploying the app — think of it as web development practice in native apps.</p>
+
+      <h2>Server</h2>
+
+      <p>Our Java8 backend is based on Dropwizard/JAX-RS. Originally, we tried to use Swagger Inflector with our Swagger REST definition specs to get a similar live reloading experience on the server, but its functionality was incomplete and buggy, and led to quite a few production issues. Switching to Dropwizard cleared up most of those issues, and also had a much cleaner, and sustainable structure with superior documentation.</p>
+
+      <p>Our server is built by using a custom Swagger generator that outputs Google AutoValue immutable object models, along with GSON based serialization and JPA based persistence helpers.</p>
+
+      <p>The server uses Guice for dependency injection, Java8 streams APIs for much of the data processing, Retrofit2/OkHttp3 for any outbound HTTP, and sits on top of Google Cloud APIs at the lowest level.</p>
+
+      <h2>REST API</h2>
+
+      <p>We specify our REST interfaces in Swagger, and test / document / share them with Postman. Once a specification is produced, it is implemented in JS for React, and implemented in Java for the backend. This worked really well for our distributed team as Ben, our iOS engineer could take a shared Postman collection that tested a REST interface, and use it as documentation and implementation guide for the JS version.</p>
+
+      <p>Swagger specifications are a readable cross-platform way to document REST interfaces and generate code, however, the Swagger spec's type system is not powerful enough to represent all of our use cases, and the Mustache-based Swagger code-generator system is difficult to extend without cut-and-paste.</p>
+
+      <h2>Database</h2>
+
+      <p>Our data storage needs break down into three categories: order transactions, accounting ledgers, and monetary information. We're paranoid about having to handle money, and so we chose to use a datastore with ACID properties like Google Cloud SQL. This is relatively painless to use, scales easily, and offers built-in backups.</p>
+
+      <p>We store mostly-static configuration and merchant data in Google Bucket Storage as JSON. This data is managed by a GitHub repository, and is pushed on commit by CircleCI to bucket storage hosting.</p>
+
+      <p>Finally, we use Google Cloud Storage for dynamic assets as well, such as logs, and user profile photo uploads.</p>
+
+      <h2>Production Environment</h2>
+
+      <p>We knew we needed to have high availability and reliability for a consumer commerce application, which meant avoiding a single point of failure and having robust health checks. We decided early on to use Kubernetes as a cluster management solution. Container Engine supports Kubernetes very well and it's cost effective, making it an easy decision to go with Google's Cloud.</p>
+
+      <h2>Configuration Management DevOps</h2>
+
+      <p>Setting up and configuring clusters, VMs, networking, and load balancing within Google Cloud's console is still a process that takes many steps, and it is easy to make mistakes. Our entire GCloud configuration is checked into a GitHub repository, ensuring that the configuration state of our Cloud setup can be completely replicated and restored without a human being using the UI to do it.</p>
+
+      <h2>Security</h2>
+
+      <p>All of our server-side REST endpoints are protected by declarative security. We use a custom HTTP Authentication scheme based on JWT (JSON Web Tokens) combined with declarative Java annotations. JAX-RS interceptors are used to enforce this restriction by inspecting and verifying incoming HTTP requests, and then injecting decoded JWT tokens as Principals into JAX-RS resource methods. Our database doesn't store any passwords, as the JWT tokens are ephemeral and based on SMS code authentication.</p>
+
+      <h2>Monitoring</h2>
+
+      <p>We use StackDriver to monitor most of the production systems, but it only tracks failures in a coarse grained way, like a service becoming unresponsive. As we have customers waiting in real time for orders, we needed to be able to track failures at both the merchant and transaction levels.</p>
+
+      <p>We run Quartz Scheduler services which continuously monitor the health of deployed merchant tablets as well as the state of orders in flight. Whenever a service is late meeting a deadline, we notify internal Slack support channels, and escalate to SMS via Twilio if need be.</p>
+
+      <h2>MOMS (Merchant Order Management Systems)</h2>
+
+      <p>Our business customers have an Android client they use to manage orders and inventory. This client is built using Java8 with Retrolambda for Android Lollipop, and utilizes ReactiveX/RxJava + Retrofit2 to communicate with the Server. RxJava Observables returned from Retrofit2 REST calls then push immutable data models into Android UI. To see how cool this is, read Reactive Forms with RxAndroid.</p>
+
+      <p>Our Android client uses Dagger and BufferKnife for dependency injection which we've found quite useful for reducing boilerplate in the UI fragments.</p>
+
+      <h2>Build, Test and Deploy</h2>
+
+      <p>We try to use a Continuous Deployment model as much as possible. Our iOS client is built with Fastlane which drives React's bundler, gulp tasks, and XCode. FastLane is an awesome toolset for iOS created by Felix Krause. We use it to not only deploy new builds to iTunesConnect from the command line, but also to sync certificates and profiles across the team.</p>
+
+      <p>Our server is built by Maven, and our Android client is built using Gradle.</p>
+
+      <p>The builds are triggered on GitHub commit and run on CircleCI. After passing the unit and integration tests, our server is built into a Docker image and pushed to Kubernetes. Our clients are additionally tested by a manual Q/A process and released via TestFlight and Google Play beta channel before being published.</p>
+
+      <h2>Design</h2>
+
+      <p>In the initial few months, we tried out various tools: Pop for paper prototype, Flinto before we had any code, Sketch for wireframe and interaction, inVision, UXPin for collaboration and feedback.</p>
+
+      <p>Nowadays, as we're more settled in a design direction, we just use Sketch. Sketch is responsive and simple to learn. While it lacks collaboration and versioning, it seems Figma helps fill in the gaps. I'm interested in testing out a small project on Figma.</p>
+
+      <h2>Analytics</h2>
+
+      <p>We have some custom built analytics for beacon heuristics, which include real-time logging of Beacon Manager event streams. We used Firebase as the storage backend.</p>
+
+      <p>We use Google Analytics for mobile for our iOS app. I actually found that setting up the right segmentations to measure the correct things was harder and more critical than using any specific analytic tool.</p>
+
+      <h2>Other Developer Products</h2>
+
+      <p>We use Stripe to process payments, though I wish the dashboard was more intuitive to use.</p>
+
+      <p>We use Twilio for telephony integration for tasks like user onboarding, order notification, and operations support.</p>
+
+      <p>We use Instabug for bug and crash reports as well as user feedback.</p>
+
+      <p>We use the Estimote beacon to offer users an opt-in contextual experience when they visit the stores they have ordered from previously. I am super impressed with the quality of the Estimote product and the spirit of a highly innovative startup.</p>
+
+      <p>We are experimenting with Api.ai for bots.</p>
+
+      <p>We are pretty excited about Firebase but it didn't have a JS API at the launch. We hope to consolidate the various tools we are using to Firebase in the near future, like analytics and bug reports, as well as use features like push message and dynamic invites.</p>
+
+      <h2>What's Next</h2>
+
+      <p>Lots! One benefit of a young startup is the luxury to experimentation and iterations. Now that we have a solid foundation and infrastructure in place, we hope to iterate based on users' need as we continue to develop the various mobile interfaces.</p>
+
+      <p>That's about all of the software and tools we used to build Chop over the past year. Building a product from scratch is hard but rewarding. As we continue this journey, we'll share more of what we've learned, so stay tuned!</p>
+
+      <p>I also want to give a very heartfelt shoutout to Ben Lisbakken, Jacky Nguyen, and Ray Cromwell who helped build Chop into what it is today.</p>
+    </div>
+
+    <ArticleStats slug="how-we-built-chop" tags={["startup", "chop"]} />
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-header {
+    text-align: center;
+    padding: var(--space-xl) 0 var(--space-lg);
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .article-meta-sep {
+    color: var(--color-text-muted);
+  }
+
+  .article-reading-time {
+    font-size: var(--text-sm);
+  }
+
+  .article-category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-category:hover {
+    color: var(--color-text);
+  }
+
+  .article-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+    color: var(--color-text-secondary);
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin: var(--space-xl) 0 var(--space-md);
+  }
+
+  .article-body p {
+    margin: 0 0 var(--space-md);
+  }
+  .article-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .article-body a:hover {
+    color: var(--color-accent-hover);
+  }
+
+
+  .article-image {
+    margin: var(--space-lg) 0;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article-image figcaption {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+    text-align: center;
+    font-style: italic;
+  }
+
+
+
+
+
+
+</style>

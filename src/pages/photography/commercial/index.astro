@@ -37,13 +37,13 @@ const allImages = [...sortedProduct, ...sortedLifestyle];
     <h2 class="section-title">Product</h2>
     <div class="gallery-grid">
       {sortedProduct.map((img, i) => (
-        <button class="gallery-lightbox-card" data-index={i} type="button" aria-label={`View product photo ${i + 1}`}>
+        <button class="gallery-lightbox-card" data-index={i} type="button" aria-label={`View product ${i + 1}`}>
           <Image
             src={img}
-            alt={`Product photography — photo ${i + 1}`}
+            alt={`Product — ${i + 1}`}
             widths={[400, 800]}
             sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw"
-            loading="lazy"
+            loading={i < 4 ? "eager" : "lazy"}
             data-full={img.src}
           />
         </button>
@@ -55,10 +55,10 @@ const allImages = [...sortedProduct, ...sortedLifestyle];
     <h2 class="section-title">Lifestyle</h2>
     <div class="gallery-grid">
       {sortedLifestyle.map((img, i) => (
-        <button class="gallery-lightbox-card" data-index={sortedProduct.length + i} type="button" aria-label={`View lifestyle photo ${i + 1}`}>
+        <button class="gallery-lightbox-card" data-index={sortedProduct.length + i} type="button" aria-label={`View lifestyle ${i + 1}`}>
           <Image
             src={img}
-            alt={`Lifestyle photography — photo ${i + 1}`}
+            alt={`Lifestyle — ${i + 1}`}
             widths={[400, 800]}
             sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw"
             loading="lazy"
@@ -260,7 +260,7 @@ const allImages = [...sortedProduct, ...sortedLifestyle];
   function show() {
     lightboxImg.classList.remove('is-loaded');
     lightboxImg.src = fullUrls[current];
-    lightboxImg.alt = `Commercial photo ${current + 1}`;
+    lightboxImg.alt = `Commercial — ${current + 1}`;
     lightboxImg.onload = () => lightboxImg.classList.add('is-loaded');
     if (lightboxImg.complete) lightboxImg.classList.add('is-loaded');
     counter.textContent = `${current + 1} / ${total}`;
